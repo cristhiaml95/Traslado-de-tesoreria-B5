@@ -1,6 +1,4 @@
-#import os
 import win32com.client
-#import sys
 import subprocess
 import time
 from openpyxl import Workbook
@@ -21,64 +19,25 @@ class sapInterfaceJob():
 
         paths = {'accountPath': ws['B1'].value,
                 'SAPPath': ws['B2'].value,
-                'migraPath': ws['B3'].value}
-        
-        # accountPath = str(paths['accountPath'])
-        # SAPPath = str(paths['SAPPath'])
-        # migraPath = str(paths['migraPath'])
-
-        
+                'migraPath': ws['B3'].value}   
 
         login = {'user': ws1['B1'].value,
                  'psw': ws1['B2'].value}
 
-        # user = str(login['user'])
-        # psw = str(login['psw'])
-        
-       
-        #command2 =r"D:\Program Files (x86)\ERPSAP\SAPgui\saplogon.exe"
         proc = subprocess.Popen([paths['SAPPath'], '-new-tab'])
         time.sleep(2)
 
         sapGuiAuto = win32com.client.GetObject('SAPGUI')
-        if not type(sapGuiAuto) == win32com.client.CDispatch:
-            pass
-
         application = sapGuiAuto.GetScriptingEngine
-        if not type(application) == win32com.client.CDispatch:
-            sapGuiAuto = None
-            pass
-
-        #connection = application.OpenConnection("SAP QAS", True)
         connection = application.OpenConnection(environment, True)
-        if not type(connection) == win32com.client.CDispatch:
-            application = None
-            sapGuiAuto = None
-            pass
-
-        session = connection.Children(0)
-        #session1 = connection.Children(1)
-       
-        if not type(session) == win32com.client.CDispatch:
-            connection = None
-            application = None
-            sapGuiAuto = None
-            pass
-
-        # if not type(session1) == win32com.client.CDispatch:
-        #     connection = None
-        #     application = None
-        #     sapGuiAuto = None
-        #     pass
-
+        session = connection.Children(0)       
+        
         session.findById("wnd[0]/usr/txtRSYST-BNAME").text = login['user']
         session.findById("wnd[0]/usr/pwdRSYST-BCODE").text = login['psw']
         session.findById("wnd[0]").sendVKey(0)
 
     def loadBankAccounts(self):
 
-        # session1.findById("wnd[0]/tbar[0]/okcd").text= "f-02"
-        # session1.findById("wnd[0]").sendVKey(0)
         z = today()
         x = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado tesorería Bot\\Cuentas recaudadoras\\{z}\\CUENTAS DE CAJA IVSA.xlsx" 
         y = xlsxFormatting(x)

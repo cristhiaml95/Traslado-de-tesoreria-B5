@@ -1,6 +1,4 @@
-#import os
 import win32com.client
-#import sys
 import subprocess
 import time
 from openpyxl import Workbook
@@ -16,7 +14,7 @@ class sapInterfaceJob():
 
     def startSAP(self, environment):
         global sapGuiAuto, application, connection, session, session1, paths, login, user, psw
-        wb = load_workbook(r'C:\Users\crist\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Venado\Cris\Traslado tesorería Bot\config.xlsx')
+        wb = load_workbook(r"C:\Users\crist\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Venado\Cris\Traslado de tesoreria B5\config.xlsx")
         ws = wb['config']
         ws1 = wb['sapLogin']
 
@@ -81,7 +79,7 @@ class sapInterfaceJob():
         # session1.findById("wnd[0]/tbar[0]/okcd").text= "f-02"
         # session1.findById("wnd[0]").sendVKey(0)
         z = today()
-        x = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado tesorería Bot\\Cuentas recaudadoras\\{z}\\CUENTAS DE CAJA IVSA.xlsx" 
+        x = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras\\{z}\\CUENTAS DE CAJA IVSA.xlsx" 
         y = xlsxFormatting(x)
         wb2 = load_workbook(y)
         ws2 = wb2['CAJAS RECAUDADORAS']
@@ -97,24 +95,26 @@ class sapInterfaceJob():
             accountNumberStr2 = str(accountNumber2).replace(' ', '')
             bank =  ws2[f'E{i}'].value
             bank = str(bank).strip()
-            k = 14
+            k = 11
             if len(accountNumberStr1)==9 and len(accountNumberStr2)==9 and type(accountNumber1)== int and type(accountNumber2)== int:
                 session.findById("wnd[0]/usr/ctxtSD_SAKNR-LOW").text = accountNumberStr1
                 session.findById("wnd[0]/usr/ctxtSD_BUKRS-LOW").text = "GV01"
                 session.findById("wnd[0]/usr/ctxtSD_BUKRS-LOW").setFocus
                 session.findById("wnd[0]/tbar[1]/btn[8]").press()
                 a = f'wnd[0]/usr/lbl[9,{k}]'
+                nd = f'wnd[0]/usr/lbl[28,{k}]'
                 f = f'wnd[0]/usr/lbl[53,{k}]'
                 c = f'wnd[0]/usr/lbl[64,{k}]'
                 im = f'wnd[0]/usr/lbl[67,{k}]'
                 asignacion = session.findById(a).text
+                ndoc = session.findById(nd).text
                 fecha = session.findById(f).text
                 ct = session.findById(c).text
                 importe = session.findById(im).text
+                per = 7         
                 rec = session.findById('wnd[0]/usr/lbl[37,1]').text
                 rec = str(rec)
                 txtCabDoc = 'TRASLADO A ' + bank
-                per = 7
                 print(txtCabDoc)
                 r2 = re.search('RECAUDADORA', rec).span()
                 r2 = r2[1]
@@ -124,12 +124,12 @@ class sapInterfaceJob():
                 rec = rec.replace(' ', '.')
             
                 asignacion = str(asignacion).replace(' ', '')
+                ndoc = str(ndoc).replace(' ', '')
                 fecha = str(fecha).replace(' ', '')
                 l = fecha.index('.')
                 fecha = fecha[:l+3]
                 ct = str(ct).replace(' ', '')
                 importe = str(importe).replace(' ', '')
-                per = str(per)
 
                 texto = 'LP.TRASPASO ' + rec + ' A ' + bank + ' ' + fecha
 # PROCESO -------------------------------------------------------------
@@ -174,8 +174,13 @@ class sapInterfaceJob():
                 
                 except Exception as e:
                     print(f'No se pudo guardar: {e}')
+                
+                doc = session.findById("wnd[0]/sbar/pane[0]").text
+                doc = doc.replace(' ', '')
+                doc = doc[4:13]
+                print(doc)
 
-                session.EndTransaction()
+                #session.EndTransaction()
 
                 break
                 

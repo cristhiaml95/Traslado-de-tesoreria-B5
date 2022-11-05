@@ -14,11 +14,11 @@ def xlsxFormatting(x):
     #x = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado tesorería Bot\\Cuentas recaudadoras\\{z}\\CUENTAS DE CAJA IVSA.xlsx"
     wb1 = load_workbook(x)
     try:
-        a = f'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado tesorería Bot\\Cuentas recaudadoras 2\\{z1}'
+        a = f'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras 2\\{z1}'
         os.mkdir(a)
     except Exception as e:
         print(e)
-    y = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado tesorería Bot\\Cuentas recaudadoras 2\\{z1}\\CUENTAS FORMATEADAS.xlsx"
+    y = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras 2\\{z1}\\CUENTAS FORMATEADAS.xlsx"
     wb1.save(y)
     wb2 = load_workbook(y)
     ws2 = wb2['CAJAS RECAUDADORAS']
@@ -56,6 +56,26 @@ def xlsxFormatting(x):
 
     wb2.save(y)
     return y
+
+def report(n, asignacion1, accountNumberStr2, accountNumberStr1):
+    global errorList
+    errorList = []
+
+    match n:
+        case 1:
+            p = asignacion1 + '-' + accountNumberStr2 + '-' + accountNumberStr1 + ' fue migrado correctamente'
+            errorList.append(p)
+            print(p)
+        case 2:
+            p = asignacion1 + '-' + accountNumberStr2 + '-' + accountNumberStr1 + ' no fue migrado correctamente, revisar manualmente'
+            errorList.append(p)
+            print(p)
+        case _:
+            p = 'Error-ingresó un número incorrecto a la función report'
+            errorList.append(p)
+            print(p)
+
+
 
 if __name__=='__main__': 
     z = today()
