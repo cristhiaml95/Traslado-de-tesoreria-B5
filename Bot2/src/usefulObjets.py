@@ -343,12 +343,3 @@ class sapInterfaceJob():
             parametersList = self.getWholeParametersList()
             self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
             
-                
-            
-
-
-
-
-if __name__=='__main__':
-    x = sapInterfaceJob()
-    x.fullProcess()
