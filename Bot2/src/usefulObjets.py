@@ -4,12 +4,16 @@ import time
 from openpyxl import Workbook
 from openpyxl import load_workbook
 import re
+import os
 from usefulFunctions import *
 
 #poo desde video 26
 
 class sapInterfaceJob():
     def __init__(self):
+        self.paths = {}
+        self.login = {}
+    
         self.sapGuiAuto = None
         self.application = None
         self.connection = None
@@ -19,7 +23,6 @@ class sapInterfaceJob():
         self.proc = None
         self.rec = None
         self.txtCabDoc = None
-        self.per = '7'
         self.importe = None
         self.asignacion = None
         self.texto = None
@@ -50,37 +53,61 @@ class sapInterfaceJob():
         self.approvedImportes = []
         self.approvedTextos = []
         self.docf = None
-        self.logPath = 'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5'
+        self.currentPathParentFolder = getCurrentPath()
+        self.currentPathGrandpaFolder = Path(self.currentPathParentFolder).parent
+        self.logPath = os.path.join(self.currentPathGrandpaFolder,"log.txt")
+        # self.currentPathGrandpaFolder = 'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5'
         
-        self.i = 14
+        self.changeThePeriod = False
+        self.i = 3
         self.j = 0
         self.jMax = 3
         self.k = 7
         
 
-    def startSAP(self, environment):
+    def startSAP(self):
         
-        wb = load_workbook(r'C:\Users\crist\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Venado\Cris\Traslado de tesoreria B5\config.xlsx')
-        ws = wb['config']
-        ws1 = wb['sapLogin']
+        configXlsx=os.path.join(self.currentPathGrandpaFolder,"config.xlsx")
+        wb = load_workbook(configXlsx)
+        ws = wb['Rutas']
+        ws1 = wb['parametrosInicio']
 
-        paths = {'accountPath': ws['B1'].value,
+        self.paths = {'accountPath': ws['B1'].value,
                 'SAPPath': ws['B2'].value,
                 'migraPath': ws['B3'].value}
                
+        
+        self.login = {'user': ws1['B1'].value,
+                 'psw': ws1['B2'].value,
+                 'environment': ws1['B3'].value,
+                 'fecha': ws1['B5'].value,
+                 'periodo': ws1['B6'].value}
 
-        login = {'user': ws1['B1'].value,
-                 'psw': ws1['B2'].value}
+        if self.login['fecha'] == None:
+            self.login['fecha'] = today()
+        else:
+            self.changeThePeriod = True
+        
+
+        
+        
+
       
-        self.proc = subprocess.Popen([paths['SAPPath'], '-new-tab'])
+        self.proc = subprocess.Popen([self.paths['SAPPath'], '-new-tab'])
         time.sleep(2)
-        self.sapGuiAuto = win32com.client.GetObject('SAPGUI')
+        try: 
+            self.sapGuiAuto = win32com.client.GetObject('SAPGUI')
+        except:
+            self.proc.kill()
+            self.proc = subprocess.Popen([self.paths['SAPPath'], '-new-tab'])
+            self.sapGuiAuto = win32com.client.GetObject('SAPGUI')
+
         self.application = self.sapGuiAuto.GetScriptingEngine
-        self.connection = self.application.OpenConnection(environment, True)
+        self.connection = self.application.OpenConnection(self.login['environment'], True)
         self.session = self.connection.Children(0)
 
-        self.session.findById("wnd[0]/usr/txtRSYST-BNAME").text = login['user']
-        self.session.findById("wnd[0]/usr/pwdRSYST-BCODE").text = login['psw']
+        self.session.findById("wnd[0]/usr/txtRSYST-BNAME").text = self.login['user']
+        self.session.findById("wnd[0]/usr/pwdRSYST-BCODE").text = self.login['psw']
         self.session.findById("wnd[0]").sendVKey(0)
 
     def getFbl3nMenu(self):
@@ -89,9 +116,12 @@ class sapInterfaceJob():
         self.session.findById("wnd[0]").sendVKey(0)
 
     def chargeXlsxSheet(self):
-        z = today()
-        x = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras\\{z}\\CUENTAS DE CAJA IVSA.xlsx" 
-        y = xlsxFormatting(x)
+        currentDay = today()
+        dailyMigrationAccountsPath=os.path.join(self.currentPathGrandpaFolder,"Cuentas Recaudadoras")
+        dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,currentDay)
+        dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,"CUENTAS DE CAJA IVSA.xlsx")
+        # x = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras\\{currentDay}\\CUENTAS DE CAJA IVSA.xlsx" 
+        y = xlsxFormatting(dailyMigrationAccountsPath)
         self.wb2 = load_workbook(y)
         self.ws2 = self.wb2['CAJAS RECAUDADORAS']
 
@@ -141,7 +171,7 @@ class sapInterfaceJob():
                     self.k = 18
                 self.k+=1
             except Exception as e:
-                print(e)
+                # print(e)
                 #print('Tabla migrada completa')
                 if self.k == 7:
                     writeLog('\n', 'No hay filas en la table', self.logPath)
@@ -160,7 +190,7 @@ class sapInterfaceJob():
         self.ndocs = []
         self.cts = []
         self.importes = []
-        #writeLog('\n', self.wholeParametersList[0], self.logPath)
+        #writeLog('\n', self.wholeParametersList[0], self.currentPathGrandpaFolder)
 
         return self.wholeParametersList
 
@@ -203,13 +233,14 @@ class sapInterfaceJob():
                 importe2 = importe2.replace(' ', '')
                 importe2 = importe2.replace('-', '')
                 if importe1 == importe2:
-                    x = 'La operación de asignación: ', approvedParametersList[0][counter], ' fue migrada correctamente'
-                    writeLog('\n',x, self.logPath)
+                    x = "%s La operación de asignación: %s fue migrada correctamente" %(today(), approvedParametersList[0][counter])
+                    writeLog('\n', x, self.logPath)
                 else:
-                    y = 'La operación de asignación: ', approvedParametersList[0][counter], ' ERROR en importe migrado, revisar manualmente'
+                    y = "%s La operación de asignación: %s ERROR en importe migrado, revisar manualmente" %(today(), approvedParametersList[0][counter])
                     writeLog('\n', y, self.logPath)
             else:
-                z = 'La operación de asignación: ', approvedParametersList[0][counter], ' ERROR en el guardado o pérdida de datos, revisar manualmente'
+                z = f'La operación de asignación: {approvedParametersList[0][counter]} FALLO en el guardado o pérdida de datos, revisar manualmente'
+                y = "%s La operación de asignación: %s FALLO en el guardado o pérdida de datos, revisar manualmente" %(today(), approvedParametersList[0][counter])
                 writeLog('\n', z, self.logPath)
             counter+=1
 
@@ -223,15 +254,27 @@ class sapInterfaceJob():
         self.session.findById("wnd[0]/tbar[0]/okcd").text = "f-02"
         self.session.findById("wnd[0]").sendVKey(0)
 
-        self.session.findById("wnd[0]/usr/ctxtBKPF-BLDAT").text = '30.10.2022'
-        self.session.findById("wnd[0]/usr/ctxtBKPF-BUDAT").text = '30.10.2022'
+        if self.changeThePeriod:
+             self.session.findById("wnd[0]/usr/ctxtBKPF-BUDAT").text = self.login['fecha']
+             self.session.findById("wnd[0]/usr/txtBKPF-MONAT").text = self.login['periodo']
+
+        self.session.findById("wnd[0]/usr/ctxtBKPF-BLDAT").text = self.login['fecha']
+       
         self.session.findById("wnd[0]/usr/txtBKPF-XBLNR").text = self.rec
         self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = self.txtCabDoc
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWKO").text = self.accountNumberStr2
-        self.session.findById("wnd[0]/usr/txtBKPF-MONAT").text = self.per
+        
         self.session.findById("wnd[0]/tbar[0]/btn[0]").press()
+        
+        try:
+            self.session.findById("wnd[0]/usr/txtBSEG-WRBTR").text = rowList[4]
+        except:
+            periodFail = self.session.findById("wnd[0]/sbar/pane[0]").text
+            self.session.endTransaction()
+            # self.session.endTransaction()
+            # self.session.findById("wnd[0]/usr/btnSTARTBUTTON").press()
 
-        self.session.findById("wnd[0]/usr/txtBSEG-WRBTR").text = rowList[4]
+            raise Exception(periodFail)
         self.session.findById("wnd[0]/usr/txtBSEG-ZUONR").text = rowList[0]
         self.session.findById("wnd[0]/usr/ctxtBSEG-SGTXT").text = rowList[5]
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWBS").text = '50'
@@ -269,7 +312,7 @@ class sapInterfaceJob():
         if len(self.docf) != 9:
             self.docf = 'No hay N° doc.'
         
-        #writeLog('\n', self.docf, self.logPath)
+        #writeLog('\n', self.docf, self.currentPathGrandpaFolder)
 
         self.session.EndTransaction()
                 
@@ -306,7 +349,6 @@ class sapInterfaceJob():
         # self.rec = self.session.findById('wnd[0]/usr/lbl[37,1]').text
         # self.rec = str(self.rec)
         # self.txtCabDoc = 'TRASLADO A ' + self.bank
-        #self.per = 7
         # print(self.txtCabDoc)
         # r2 = re.search('RECAUDADORA', self.rec).span()
         # r2 = r2[1]
@@ -331,12 +373,12 @@ class sapInterfaceJob():
         self.texto = 'LP.TRASPASO ' + self.rec + ' A ' + self.bank + ' ' + self.fecha
 
     def fullProcess(self):
-        environment = "QAS - EHP8 on HANA"
-        self.startSAP(environment)
+        # environment = "QAS - EHP8 on HANA"
+        self.startSAP()
         self.chargeXlsxSheet()
         xlsxRange = self.getExcelRange()
         print('Este es el rango del xlsx: ', xlsxRange)
-        for r in xlsxRange:
+        for r in xlsxRange:            
             self.accountNumber1 = self.ws2[f'C{r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{r}'].value
@@ -349,23 +391,24 @@ class sapInterfaceJob():
             parametersList = self.getWholeParametersList()
             approvedParametersList = self.wichMigraVerification(parametersList)
             x = 'Lista de aprobados para la migración: ' + str(approvedParametersList)
-            #writeLog('\n', x, self.logPath)
+            #writeLog('\n', x, self.currentPathGrandpaFolder)
             #print(approvedParametersList)
             nDocsMigrated = []
+            try:
+                for s in range(len(approvedParametersList[0])):
+                    rowList = []
+                    rowList.append(approvedParametersList[0][s])
+                    rowList.append(approvedParametersList[1][s])
+                    rowList.append(approvedParametersList[2][s])
+                    rowList.append(approvedParametersList[3][s])
+                    rowList.append(approvedParametersList[4][s])
+                    rowList.append(approvedParametersList[5][s])
 
-            for s in range(len(approvedParametersList[0])):
-                rowList = []
-                rowList.append(approvedParametersList[0][s])
-                rowList.append(approvedParametersList[1][s])
-                rowList.append(approvedParametersList[2][s])
-                rowList.append(approvedParametersList[3][s])
-                rowList.append(approvedParametersList[4][s])
-                rowList.append(approvedParametersList[5][s])
-
-                self.migration(rowList)                
-                nDocsMigrated.append(self.docf)
-                # self.session.EndTransaction()
-
+                    self.migration(rowList)                
+                    nDocsMigrated.append(self.docf)
+                    # self.session.EndTransaction()
+            except Exception as e:
+                writeLog('\n', e, self.logPath)
 
             self.getFbl3nMenu()
             self.getAccountTable()
@@ -373,4 +416,7 @@ class sapInterfaceJob():
             self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
             #print(nDocsMigrated)
             writeLog('\n', nDocsMigrated, self.logPath)
-            #self.proc.kill()
+            serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
+            writeLog('', serparationMessage, self.logPath)
+                           
+        self.proc.kill()
