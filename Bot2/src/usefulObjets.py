@@ -19,7 +19,7 @@ class sapInterfaceJob():
         self.proc = None
         self.rec = None
         self.txtCabDoc = None
-        self.per = None
+        self.per = '7'
         self.importe = None
         self.asignacion = None
         self.texto = None
@@ -49,11 +49,12 @@ class sapInterfaceJob():
         self.approvedCts = []
         self.approvedImportes = []
         self.approvedTextos = []
-        self.per = None
         self.docf = None
+        self.logPath = 'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5'
         
-        self.i = 4
+        self.i = 14
         self.j = 0
+        self.jMax = 3
         self.k = 7
         
 
@@ -83,6 +84,7 @@ class sapInterfaceJob():
         self.session.findById("wnd[0]").sendVKey(0)
 
     def getFbl3nMenu(self):
+        self.session.EndTransaction()
         self.session.findById("wnd[0]/tbar[0]/okcd").text = "fbl3n"
         self.session.findById("wnd[0]").sendVKey(0)
 
@@ -116,7 +118,7 @@ class sapInterfaceJob():
             else:
                 self.i+=1
                 self.j+=1
-                if self.j > 3:
+                if self.j > self.jMax:
                     break
                 else:
                     continue
@@ -124,9 +126,7 @@ class sapInterfaceJob():
             
 
     def getWholeParametersList(self):
-        # self.getFbl3nMenu()
-        # self.getAccountTable()
-        # self.k = 7
+        self.wholeParametersList = []
         while True:
             try:
                 self.getRowInformation(self.k)
@@ -136,9 +136,17 @@ class sapInterfaceJob():
                 self.cts.append(self.ct)
                 self.importes.append(self.importe)
                 self.textos.append(self.texto)
+                if self.k == 44:
+                    self.session.findById("wnd[0]/usr").verticalScrollbar.position = '26'
+                    self.k = 18
                 self.k+=1
             except Exception as e:
                 print(e)
+                #print('Tabla migrada completa')
+                if self.k == 7:
+                    writeLog('\n', 'No hay filas en la table', self.logPath)
+                else:                    
+                    writeLog('\n','Tabla leida correctamente', self.logPath)
                 break
         self.wholeParametersList.append(self.asignaciones)
         self.wholeParametersList.append(self.ndocs)
@@ -152,6 +160,7 @@ class sapInterfaceJob():
         self.ndocs = []
         self.cts = []
         self.importes = []
+        #writeLog('\n', self.wholeParametersList[0], self.logPath)
 
         return self.wholeParametersList
 
@@ -188,14 +197,20 @@ class sapInterfaceJob():
             if ndoc in wholeparametersList[1]:
                 n = wholeparametersList[1].index(ndoc)
                 importe1 = wholeparametersList[4][n]
+                importe1 = importe1.replace(' ', '')
                 importe1 = importe1.replace('-', '')
                 importe2 = approvedParametersList[4][counter]
+                importe2 = importe2.replace(' ', '')
+                importe2 = importe2.replace('-', '')
                 if importe1 == importe2:
-                    print('La operación de asignación: ', approvedParametersList[0][counter], ' fue migrada correctamente')
+                    x = 'La operación de asignación: ', approvedParametersList[0][counter], ' fue migrada correctamente'
+                    writeLog('\n',x, self.logPath)
                 else:
-                    print('La operación de asignación: ', approvedParametersList[0][counter], ' ERROR en importe migrado, revisas manualmente')
+                    y = 'La operación de asignación: ', approvedParametersList[0][counter], ' ERROR en importe migrado, revisar manualmente'
+                    writeLog('\n', y, self.logPath)
             else:
-                print('La operación de asignación: ', approvedParametersList[0][counter], ' ERROR en el guardado o pérdida de datos, revisas manualmente')
+                z = 'La operación de asignación: ', approvedParametersList[0][counter], ' ERROR en el guardado o pérdida de datos, revisar manualmente'
+                writeLog('\n', z, self.logPath)
             counter+=1
 
                 
@@ -208,12 +223,12 @@ class sapInterfaceJob():
         self.session.findById("wnd[0]/tbar[0]/okcd").text = "f-02"
         self.session.findById("wnd[0]").sendVKey(0)
 
-        self.session.findById("wnd[0]/usr/ctxtBKPF-BLDAT").text = today()
-        self.session.findById("wnd[0]/usr/ctxtBKPF-BUDAT").text = today()
+        self.session.findById("wnd[0]/usr/ctxtBKPF-BLDAT").text = '30.10.2022'
+        self.session.findById("wnd[0]/usr/ctxtBKPF-BUDAT").text = '30.10.2022'
         self.session.findById("wnd[0]/usr/txtBKPF-XBLNR").text = self.rec
         self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = self.txtCabDoc
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWKO").text = self.accountNumberStr2
-        #self.session.findById("wnd[0]/usr/txtBKPF-MONAT").text = self.per
+        self.session.findById("wnd[0]/usr/txtBKPF-MONAT").text = self.per
         self.session.findById("wnd[0]/tbar[0]/btn[0]").press()
 
         self.session.findById("wnd[0]/usr/txtBSEG-WRBTR").text = rowList[4]
@@ -235,22 +250,26 @@ class sapInterfaceJob():
         validacion = validacion.replace(',', '.')
         validacion = float(validacion)
         if validacion == 0:
-            print('Validación de saldo 0 correcto')
+            x = 'Validación de saldo 0 correcto'
+            writeLog('\n', x, self.logPath)
         else:
-            print(f'ERROR DE VALIDACIÓN DE SALDO 0 EN ASIGNACIÓN: {self.asignacion}')
+            y = f'ERROR DE VALIDACIÓN DE SALDO 0 EN ASIGNACIÓN: {self.asignacion}'
+            writeLog('\n', y, self.logPath)
         
         try:
             self.session.findById("wnd[0]/tbar[0]/btn[11]").press()
         #--------------este try está por las huevas-------------------
         except Exception as e:
-            print(f'No se pudo guardar: {e}')
+            z = f'No se pudo guardar: {e}'
+            writeLog('\n', z, self.logPath)
 
         self.docf = self.session.findById("wnd[0]/sbar/pane[0]").text
         self.docf = self.docf.replace(' ', '')
         self.docf = self.docf[4:13]
         if len(self.docf) != 9:
             self.docf = 'No hay N° doc.'
-        print(self.docf)
+        
+        #writeLog('\n', self.docf, self.logPath)
 
         self.session.EndTransaction()
                 
@@ -267,6 +286,9 @@ class sapInterfaceJob():
         self.rec = self.rec[r2:]
         self.rec = self.rec.strip()
         self.rec = self.rec.replace(' ', '.')
+        
+        self.rec = self.rec.replace('AGENCIA', 'AG')
+        self.rec = self.rec.replace('CENTRAL', 'CTL')
         self.txtCabDoc = 'TRASLADO A ' + self.bank
 
     def getRowInformation(self, k):
@@ -285,7 +307,7 @@ class sapInterfaceJob():
         # self.rec = str(self.rec)
         # self.txtCabDoc = 'TRASLADO A ' + self.bank
         #self.per = 7
-        print(self.txtCabDoc)
+        # print(self.txtCabDoc)
         # r2 = re.search('RECAUDADORA', self.rec).span()
         # r2 = r2[1]
         # r2+=1
@@ -294,6 +316,10 @@ class sapInterfaceJob():
         # self.rec = self.rec.replace(' ', '.')
     
         self.asignacion = str(self.asignacion).replace(' ', '')
+        self.asignacion = self.asignacion[::-1]
+        n = self.asignacion.index('/')
+        self.asignacion = self.asignacion[n:]
+        self.asignacion = self.asignacion[::-1]
         self.ndoc = str(self.ndoc).replace(' ', '')
         self.fecha = str(self.fecha).replace(' ', '')
         l = self.fecha.index('.')
@@ -304,14 +330,12 @@ class sapInterfaceJob():
 
         self.texto = 'LP.TRASPASO ' + self.rec + ' A ' + self.bank + ' ' + self.fecha
 
-    def getApprovedRowInformationList(self):
-        pass
-
     def fullProcess(self):
         environment = "QAS - EHP8 on HANA"
         self.startSAP(environment)
         self.chargeXlsxSheet()
         xlsxRange = self.getExcelRange()
+        print('Este es el rango del xlsx: ', xlsxRange)
         for r in xlsxRange:
             self.accountNumber1 = self.ws2[f'C{r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
@@ -324,9 +348,12 @@ class sapInterfaceJob():
             self.getAccountTable()
             parametersList = self.getWholeParametersList()
             approvedParametersList = self.wichMigraVerification(parametersList)
+            x = 'Lista de aprobados para la migración: ' + str(approvedParametersList)
+            #writeLog('\n', x, self.logPath)
+            #print(approvedParametersList)
             nDocsMigrated = []
 
-            for s in len(approvedParametersList[0]):
+            for s in range(len(approvedParametersList[0])):
                 rowList = []
                 rowList.append(approvedParametersList[0][s])
                 rowList.append(approvedParametersList[1][s])
@@ -337,9 +364,13 @@ class sapInterfaceJob():
 
                 self.migration(rowList)                
                 nDocsMigrated.append(self.docf)
+                # self.session.EndTransaction()
+
 
             self.getFbl3nMenu()
             self.getAccountTable()
             parametersList = self.getWholeParametersList()
             self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
-            
+            #print(nDocsMigrated)
+            writeLog('\n', nDocsMigrated, self.logPath)
+            #self.proc.kill()

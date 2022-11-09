@@ -17,7 +17,7 @@ def xlsxFormatting(x):
         a = f'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras 2\\{z1}'
         os.mkdir(a)
     except Exception as e:
-        print(e)
+        print('El archivo ya ha sido creado')
     y = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras 2\\{z1}\\CUENTAS FORMATEADAS.xlsx"
     wb1.save(y)
     wb2 = load_workbook(y)
@@ -75,6 +75,13 @@ def report(n, asignacion1, accountNumberStr2, accountNumberStr1):
             errorList.append(p)
             print(p)
 
+def writeLog(s,log,rut):
+    txtfolder=os.path.dirname(rut)
+    pathLog=os.path.join(txtfolder, "logs.txt")
+    line=s+str(log)
+    print(log)
+    with open(pathLog, 'a') as file:
+        file.write(line)
 
 
 if __name__=='__main__': 
