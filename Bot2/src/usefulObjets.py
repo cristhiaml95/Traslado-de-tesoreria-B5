@@ -32,6 +32,7 @@ class sapInterfaceJob():
         self.im = None
         self.fecha = None
         self.ct = None
+        self.check = None
         self.wb2 = None
         self.ws2 = None
         self.accountNumber1 = None
@@ -45,6 +46,7 @@ class sapInterfaceJob():
         self.cts = []
         self.importes = []        
         self.textos = []
+        self.checks = []
         self.wholeParametersList = []
         self.approvedAssignments = []
         self.approvedNdocs = []
@@ -52,6 +54,7 @@ class sapInterfaceJob():
         self.approvedCts = []
         self.approvedImportes = []
         self.approvedTextos = []
+        self.approvedChecks = []
         self.docf = None
         self.currentPathParentFolder = getCurrentPath()
         self.currentPathGrandpaFolder = Path(self.currentPathParentFolder).parent
@@ -63,6 +66,7 @@ class sapInterfaceJob():
         self.j = 0
         self.jMax = 3
         self.k = 7
+        self.rowCount = 0
         
 
     def startSAP(self):
@@ -120,18 +124,11 @@ class sapInterfaceJob():
         dailyMigrationAccountsPath=os.path.join(self.currentPathGrandpaFolder,"Cuentas Recaudadoras")
         dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,currentDay)
         dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,"CUENTAS DE CAJA IVSA.xlsx")
-        # x = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras\\{currentDay}\\CUENTAS DE CAJA IVSA.xlsx" 
         y = xlsxFormatting(dailyMigrationAccountsPath)
         self.wb2 = load_workbook(y)
         self.ws2 = self.wb2['CAJAS RECAUDADORAS']
 
     def getExcelRange(self):
-      
-        # z = today()
-        # x = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras\\{z}\\CUENTAS DE CAJA IVSA.xlsx" 
-        # y = xlsxFormatting(x)
-        # self.wb2 = load_workbook(y)
-        # self.ws2 = self.wb2['CAJAS RECAUDADORAS']
         xlsxCellsRange = []
 
         while True:
@@ -157,40 +154,34 @@ class sapInterfaceJob():
 
     def getWholeParametersList(self):
         self.wholeParametersList = []
-        while True:
-            try:
-                self.getRowInformation(self.k)
-                self.asignaciones.append(self.asignacion)
-                self.ndocs.append(self.ndoc)
-                self.fechas.append(self.fecha)
-                self.cts.append(self.ct)
-                self.importes.append(self.importe)
-                self.textos.append(self.texto)
-                if self.k == 44:
-                    self.session.findById("wnd[0]/usr").verticalScrollbar.position = '26'
-                    self.k = 18
-                self.k+=1
-            except Exception as e:
-                # print(e)
-                #print('Tabla migrada completa')
-                if self.k == 7:
-                    writeLog('\n', 'No hay filas en la table', self.logPath)
-                else:                    
-                    writeLog('\n','Tabla leida correctamente', self.logPath)
-                break
+        self.rowCount = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').RowCount
+        self.rowCount-=3
+
+        for k in range(self.rowCount):
+            self.k = k
+            self.getRowInformation(self.k)
+            self.asignaciones.append(self.asignacion)
+            self.ndocs.append(self.ndoc)
+            self.fechas.append(self.fecha)
+            self.cts.append(self.ct)
+            self.importes.append(self.importe)
+            self.textos.append(self.texto)
+            self.checks.append(self.check)
+           
         self.wholeParametersList.append(self.asignaciones)
         self.wholeParametersList.append(self.ndocs)
         self.wholeParametersList.append(self.fechas)
         self.wholeParametersList.append(self.cts)
         self.wholeParametersList.append(self.importes)
         self.wholeParametersList.append(self.textos)
+        self.wholeParametersList.append(self.checks)
 
-        self.k = 7
         self.asignaciones = []
         self.ndocs = []
         self.cts = []
         self.importes = []
-        #writeLog('\n', self.wholeParametersList[0], self.currentPathGrandpaFolder)
+        self.textos = []
+        self.checks = []
 
         return self.wholeParametersList
 
@@ -203,13 +194,15 @@ class sapInterfaceJob():
                 ct = wholeParametersList[3][n]
                 importe = wholeParametersList[4][n]
                 texto = wholeParametersList[5][n]
-
-                self.approvedAssignments.append(assigment)
-                self.approvedNdocs.append(ndoc)
-                self.approvedFechas.append(fecha)
-                self.approvedCts.append(ct)
-                self.approvedImportes.append(importe)
-                self.approvedTextos.append(texto)
+                check = wholeParametersList[6][n]
+                if ct == '40' and check == 0:
+                    self.approvedAssignments.append(assigment)
+                    self.approvedNdocs.append(ndoc)
+                    self.approvedFechas.append(fecha)
+                    self.approvedCts.append(ct)
+                    self.approvedImportes.append(importe)
+                    self.approvedTextos.append(texto)
+                    self.approvedChecks.append(check)
 
         approvedParametersList = []
         approvedParametersList.append(self.approvedAssignments)
@@ -218,7 +211,15 @@ class sapInterfaceJob():
         approvedParametersList.append(self.approvedCts)
         approvedParametersList.append(self.approvedImportes)
         approvedParametersList.append(self.approvedTextos)
-
+        approvedParametersList.append(self.approvedChecks)
+        self.approvedAssignments = []
+        self.approvedNdocs = []
+        self.approvedFechas = []
+        self.approvedCts = []
+        self.approvedImportes = []
+        self.approvedTextos = []
+        self.approvedChecks = []
+        
         return approvedParametersList
 
     def verificationBeforeAccountChange(self, nDocsMigrated, approvedParametersList, wholeparametersList):
@@ -271,8 +272,6 @@ class sapInterfaceJob():
         except:
             periodFail = self.session.findById("wnd[0]/sbar/pane[0]").text
             self.session.endTransaction()
-            # self.session.endTransaction()
-            # self.session.findById("wnd[0]/usr/btnSTARTBUTTON").press()
 
             raise Exception(periodFail)
         self.session.findById("wnd[0]/usr/txtBSEG-ZUONR").text = rowList[0]
@@ -293,26 +292,19 @@ class sapInterfaceJob():
         validacion = validacion.replace(',', '.')
         validacion = float(validacion)
         if validacion == 0:
-            x = 'Validación de saldo 0 correcto'
+            x = f'Validación de saldo 0 correcto en asignación: {rowList[0]}'
             writeLog('\n', x, self.logPath)
         else:
-            y = f'ERROR DE VALIDACIÓN DE SALDO 0 EN ASIGNACIÓN: {self.asignacion}'
-            writeLog('\n', y, self.logPath)
-        
-        try:
-            self.session.findById("wnd[0]/tbar[0]/btn[11]").press()
-        #--------------este try está por las huevas-------------------
-        except Exception as e:
-            z = f'No se pudo guardar: {e}'
-            writeLog('\n', z, self.logPath)
+            y = f'ERROR DE VALIDACIÓN DE SALDO 0 EN ASIGNACIÓN: {rowList[0]}'
+            writeLog('\n', y, self.logPath)       
+   
+        self.session.findById("wnd[0]/tbar[0]/btn[11]").press()
 
         self.docf = self.session.findById("wnd[0]/sbar/pane[0]").text
         self.docf = self.docf.replace(' ', '')
         self.docf = self.docf[4:13]
         if len(self.docf) != 9:
             self.docf = 'No hay N° doc.'
-        
-        #writeLog('\n', self.docf, self.currentPathGrandpaFolder)
 
         self.session.EndTransaction()
                 
@@ -321,59 +313,55 @@ class sapInterfaceJob():
         self.session.findById("wnd[0]/usr/ctxtSD_BUKRS-LOW").text = "GV01"
         self.session.findById("wnd[0]/usr/ctxtSD_BUKRS-LOW").setFocus
         self.session.findById("wnd[0]/tbar[1]/btn[8]").press()
-        self.rec = self.session.findById('wnd[0]/usr/lbl[37,1]').text
-        self.rec = str(self.rec)
-        r2 = re.search('RECAUDADORA', self.rec).span()
-        r2 = r2[1]
-        r2+=1
-        self.rec = self.rec[r2:]
-        self.rec = self.rec.strip()
-        self.rec = self.rec.replace(' ', '.')
         
-        self.rec = self.rec.replace('AGENCIA', 'AG')
-        self.rec = self.rec.replace('CENTRAL', 'CTL')
-        self.txtCabDoc = 'TRASLADO A ' + self.bank
+        
 
     def getRowInformation(self, k):
+        self.asignacion = None
+        self.ndoc = None
+        self.fecha = None
+        self.ct = None
+        self.importe = None
+        self.txt = None
+        self.check = None
         
-        self.a = f'wnd[0]/usr/lbl[9,{k}]'
-        self.nd = f'wnd[0]/usr/lbl[28,{k}]'
-        self.f = f'wnd[0]/usr/lbl[53,{k}]'
-        self.c = f'wnd[0]/usr/lbl[64,{k}]'
-        self.im = f'wnd[0]/usr/lbl[67,{k}]'
-        self.asignacion = self.session.findById(self.a).text
-        self.ndoc = self.session.findById(self.nd).text
-        self.fecha = self.session.findById(self.f).text
-        self.ct = self.session.findById(self.c).text
-        self.importe = self.session.findById(self.im).text
-        # self.rec = self.session.findById('wnd[0]/usr/lbl[37,1]').text
-        # self.rec = str(self.rec)
-        # self.txtCabDoc = 'TRASLADO A ' + self.bank
-        # print(self.txtCabDoc)
-        # r2 = re.search('RECAUDADORA', self.rec).span()
-        # r2 = r2[1]
-        # r2+=1
-        # self.rec = self.rec[r2:]
-        # self.rec = self.rec.strip()
-        # self.rec = self.rec.replace(' ', '.')
-    
+        self.asignacion = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'ZUONR')
+        self.ndoc = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'BELNR')
+        self.fecha = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'BLDAT')
+        self.ct = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'BSCHL')
+        self.importe = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'DMSHB')
+        self.check = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'ICO_AUGP')
+        if 'Pendientes' in self.check:
+            self.check = 0
+        else:
+            self.check = 1
         self.asignacion = str(self.asignacion).replace(' ', '')
         self.asignacion = self.asignacion[::-1]
-        n = self.asignacion.index('/')
-        self.asignacion = self.asignacion[n:]
+        try:
+            n = self.asignacion.index('/')
+            self.asignacion = self.asignacion[n:]
+        except:
+            report = 'La asignación no tiene /'
         self.asignacion = self.asignacion[::-1]
         self.ndoc = str(self.ndoc).replace(' ', '')
         self.fecha = str(self.fecha).replace(' ', '')
-        l = self.fecha.index('.')
-        self.fecha = self.fecha[:l+3]
+        try:
+            l = self.fecha.index('.')
+            self.fecha = self.fecha[:l+3]
+        except:
+            report = 'La fecha no tiene .'
         self.ct = str(self.ct).replace(' ', '')
         self.importe = str(self.importe).replace(' ', '')
-        #per = str(per)
 
-        self.texto = 'LP.TRASPASO ' + self.rec + ' A ' + self.bank + ' ' + self.fecha
+        self.texto = 'LP.TRASPASO ' + 'RECAUDADORA' + ' A ' + self.bank + ' ' + self.fecha
+
+    def getAccountTableChildren(self, account):
+        self.session.findById("wnd[0]/usr/ctxtSD_SAKNR-LOW").text = account
+        self.session.findById("wnd[0]/usr/ctxtSD_BUKRS-LOW").text = "GV01"
+        self.session.findById("wnd[0]/usr/ctxtSD_BUKRS-LOW").setFocus
+        self.session.findById("wnd[0]/tbar[1]/btn[8]").press()
 
     def fullProcess(self):
-        # environment = "QAS - EHP8 on HANA"
         self.startSAP()
         self.chargeXlsxSheet()
         xlsxRange = self.getExcelRange()
@@ -385,12 +373,29 @@ class sapInterfaceJob():
             self.accountNumberStr2 = str(self.accountNumber2).replace(' ', '')
             self.bank =  self.ws2[f'E{r}'].value
             self.bank = str(self.bank).strip()
+            self.rec =  self.ws2[f'B{r}'].value
+            self.rec = str(self.rec)
+            r2 = re.search('RECAUDADORA', self.rec).span()
+            r2 = r2[1]
+            r2+=1
+            self.rec = self.rec[r2:]
+            self.rec = self.rec.strip()
+            self.rec = self.rec.replace(' ', '.')
+            
+            self.rec = self.rec.replace('AGENCIA', 'AG')
+            # self.rec = self.rec.replace('CENTRAL', 'CTL')
+            self.txtCabDoc = 'TRASLADO A ' + self.bank
 
             self.getFbl3nMenu()
-            self.getAccountTable()
+            try:
+                self.getAccountTable()
+            except Exception as e:
+                print('No se pudo obtener la tabla de cuentas: ', e)
+                self.session.EndTransaction()
+                continue
             parametersList = self.getWholeParametersList()
             approvedParametersList = self.wichMigraVerification(parametersList)
-            x = 'Lista de aprobados para la migración: ' + str(approvedParametersList)
+            # x = 'Lista de aprobados para la migración: ' + str(approvedParametersList)
             #writeLog('\n', x, self.currentPathGrandpaFolder)
             #print(approvedParametersList)
             nDocsMigrated = []

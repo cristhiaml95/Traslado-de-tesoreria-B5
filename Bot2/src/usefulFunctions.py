@@ -21,12 +21,20 @@ def getCurrentPath():
 
 currentPathParentFolder = getCurrentPath()
 currentPathGrandpaFolder = Path(currentPathParentFolder).parent
+currentPathGrandpaFolderParent = Path(currentPathGrandpaFolder).parent
 logPath = os.path.join(currentPathGrandpaFolder,"log.txt")
 
 def today():
     fullTime = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=-4)
     currenteDateStr = fullTime.strftime("%d.%m.%Y")
     return currenteDateStr
+
+def today2():
+    fullTime = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=-4)
+    currenteDateStr = fullTime.strftime("%d%m%Y")
+    return currenteDateStr
+
+
 
 def xlsxFormatting(x):
     z1 = ''.join([today(), '-F'])

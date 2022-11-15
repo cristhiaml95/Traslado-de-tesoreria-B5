@@ -1,98 +1,32 @@
 
-Tabla leida correctamente
-Tabla leida correctamente
-[]
 
--------------------------------- Migracion de cuenta 101010112 a 101044022 finalizada --------------------------------
+-------------------------------- Migracion de cuenta 101010102 a 101020101 ABORTADA - ETV M.N no se encuentra en plantillasSap --------------------------------
 
 
-Tabla leida correctamente
-Property '<unknown>.text' can not be set.
-Tabla leida correctamente
-[]
 
--------------------------------- Migracion de cuenta 101010113 a 101044022 finalizada --------------------------------
+-------------------------------- Migracion de cuenta 101010103 a 101044012 ABORTADA - BISA 0022 no se encuentra en plantillasSap --------------------------------
 
 
-Tabla leida correctamente
-Property '<unknown>.text' can not be set.
-Tabla leida correctamente
-[]
 
--------------------------------- Migracion de cuenta 101010114 a 101020101 finalizada --------------------------------
+-------------------------------- Migracion de cuenta 101010104 a 101044012 ABORTADA - BISA 0022 no se encuentra en plantillasSap --------------------------------
 
 
-Tabla leida correctamente
-Tabla leida correctamente
-[]
 
--------------------------------- Migracion de cuenta 101010112 a 101044022 finalizada --------------------------------
+-------------------------------- Migracion de cuenta 101010102 a 101020101 ABORTADA - ETV M.N no se encuentra en plantillasSap --------------------------------
 
 
-Tabla leida correctamente
-Property '<unknown>.text' can not be set.
-Tabla leida correctamente
-[]
 
--------------------------------- Migracion de cuenta 101010113 a 101044022 finalizada --------------------------------
+-------------------------------- Migracion de cuenta 101010102 a 101020101 ABORTADA - ETV M.N no se encuentra en plantillasSap --------------------------------
 
 
-Tabla leida correctamente
-Property '<unknown>.text' can not be set.
-Tabla leida correctamente
-[]
 
--------------------------------- Migracion de cuenta 101010114 a 101020101 finalizada --------------------------------
+-------------------------------- Migracion de cuenta 101010102 a 101020101 ABORTADA - ETV M.N no se encuentra en plantillasSap --------------------------------
 
 
-Tabla leida correctamente
-Validación de saldo 0 correcto
-Tabla leida correctamente
-09.11.2022 La operación de asignación: CCAJ-CB12/100/ fue migrada correctamente
-['110315221']
 
--------------------------------- Migracion de cuenta 101010112 a 101044022 finalizada --------------------------------
+-------------------------------- Migracion de cuenta 101010102 a 101020101 ABORTADA - ETV M.N no se encuentra en plantillasSap --------------------------------
 
 
-Tabla leida correctamente
-Validación de saldo 0 correcto
-Property '<unknown>.text' can not be set.
-Tabla leida correctamente
-09.11.2022 La operación de asignación: CCAJ-CB12/100/ fue migrada correctamente
-['110315222']
 
--------------------------------- Migracion de cuenta 101010113 a 101044022 finalizada --------------------------------
-
-
-Tabla leida correctamente
-Validación de saldo 0 correcto
-Property '<unknown>.text' can not be set.
-Tabla leida correctamente
-09.11.2022 La operación de asignación: CCAJ-CB12/100/ fue migrada correctamente
-['110315223']
-
--------------------------------- Migracion de cuenta 101010114 a 101020101 finalizada --------------------------------
-
-
-Tabla leida correctamente
-Tabla leida correctamente
-[]
-
--------------------------------- Migracion de cuenta 101010112 a 101044022 finalizada --------------------------------
-
-
-Tabla leida correctamente
-Property '<unknown>.text' can not be set.
-Tabla leida correctamente
-[]
-
--------------------------------- Migracion de cuenta 101010113 a 101044022 finalizada --------------------------------
-
-
-Tabla leida correctamente
-Property '<unknown>.text' can not be set.
-Tabla leida correctamente
-[]
-
--------------------------------- Migracion de cuenta 101010114 a 101020101 finalizada --------------------------------
+-------------------------------- Migracion de cuenta 101010102 a 101020101 ABORTADA - ETV M.N no se encuentra en plantillasSap --------------------------------
 
