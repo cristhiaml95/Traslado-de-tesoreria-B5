@@ -100,11 +100,6 @@ class sapInterfaceJob():
         else:
             self.changeThePeriod = True
         
-
-        
-        
-
-      
         self.proc = subprocess.Popen([self.paths['SAPPath'], '-new-tab'])
         time.sleep(2)
         try: 
