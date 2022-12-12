@@ -25,6 +25,8 @@ class sapInterfaceJob():
         self.txtCabDoc = None
         self.importe = None
         self.asignacion = None
+        self.fullAsignacion = None
+        self.dist = None
         self.texto = None
         self.a = None
         self.f = None
@@ -47,6 +49,8 @@ class sapInterfaceJob():
         self.importes = []        
         self.textos = []
         self.checks = []
+        self.fullAsignaciones = []
+        self.dists = []
         self.wholeParametersList = []
         self.approvedAssignments = []
         self.approvedNdocs = []
@@ -56,8 +60,8 @@ class sapInterfaceJob():
         self.approvedTextos = []
         self.approvedChecks = []
         self.docf = None
-        self.currentPathParentFolder = getCurrentPath()
-        self.currentPathGrandpaFolder = Path(self.currentPathParentFolder).parent
+        self.currentPathParentFolder = currentPathParentFolder
+        self.currentPathGrandpaFolder = currentPathGrandpaFolder
         self.logPath = os.path.join(self.currentPathGrandpaFolder,"log.txt")
         # self.currentPathGrandpaFolder = 'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5'
         
@@ -91,11 +95,6 @@ class sapInterfaceJob():
             self.login['fecha'] = today()
         else:
             self.changeThePeriod = True
-        
-
-        
-        
-
       
         self.proc = subprocess.Popen([self.paths['SAPPath'], '-new-tab'])
         time.sleep(2)
@@ -136,8 +135,8 @@ class sapInterfaceJob():
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{self.i}'].value
             self.accountNumberStr2 = str(self.accountNumber2).replace(' ', '')
-            self.bank =  self.ws2[f'E{self.i}'].value
-            self.bank = str(self.bank).strip()
+            # self.bank =  self.ws2[f'E{self.i}'].value
+            # self.bank = str(self.bank).strip()
 
             if len(self.accountNumberStr1)==9 and len(self.accountNumberStr2)==9 and type(self.accountNumber1)== int and type(self.accountNumber2)== int:
                 xlsxCellsRange.append(self.i)
@@ -167,6 +166,8 @@ class sapInterfaceJob():
             self.importes.append(self.importe)
             self.textos.append(self.texto)
             self.checks.append(self.check)
+            self.fullAsignaciones.append(self.fullAsignacion)
+            self.dists.append(self.dist)
            
         self.wholeParametersList.append(self.asignaciones)
         self.wholeParametersList.append(self.ndocs)
@@ -175,13 +176,18 @@ class sapInterfaceJob():
         self.wholeParametersList.append(self.importes)
         self.wholeParametersList.append(self.textos)
         self.wholeParametersList.append(self.checks)
+        self.wholeParametersList.append(self.fullAsignaciones)
+        self.wholeParametersList.append(self.dists)
 
         self.asignaciones = []
         self.ndocs = []
+        self.fechas = []
         self.cts = []
         self.importes = []
         self.textos = []
         self.checks = []
+        self.fullAsignaciones = []
+        self.dists = []
 
         return self.wholeParametersList
 
@@ -336,6 +342,8 @@ class sapInterfaceJob():
         else:
             self.check = 1
         self.asignacion = str(self.asignacion).replace(' ', '')
+        self.fullAsignacion = self.asignacion
+        self.dist = self.asignacion[5:7]
         self.asignacion = self.asignacion[::-1]
         try:
             n = self.asignacion.index('/')
@@ -353,7 +361,7 @@ class sapInterfaceJob():
         self.ct = str(self.ct).replace(' ', '')
         self.importe = str(self.importe).replace(' ', '')
 
-        self.texto = 'LP.TRASPASO ' + 'RECAUDADORA' + ' A ' + self.bank + ' ' + self.fecha
+        self.texto = self.dist + '.TRASPASO ' + 'RECAUDADORA' + ' A ' + self.bank + ' ' + self.fecha
 
     def getAccountTableChildren(self, account):
         self.session.findById("wnd[0]/usr/ctxtSD_SAKNR-LOW").text = account
@@ -365,6 +373,7 @@ class sapInterfaceJob():
         self.startSAP()
         self.chargeXlsxSheet()
         xlsxRange = self.getExcelRange()
+        # xlsxRange = xlsxRange[2:]
         print('Este es el rango del xlsx: ', xlsxRange)
         for r in xlsxRange:            
             self.accountNumber1 = self.ws2[f'C{r}'].value
@@ -425,3 +434,47 @@ class sapInterfaceJob():
             writeLog('', serparationMessage, self.logPath)
                            
         self.proc.kill()
+
+    def testingAccounts(self):
+        self.startSAP()
+        self.chargeXlsxSheet()
+        xlsxRange = self.getExcelRange()
+        # xlsxRange = xlsxRange[2:]
+        print('Este es el rango del xlsx: ', xlsxRange)
+        for r in xlsxRange:            
+            self.accountNumber1 = self.ws2[f'C{r}'].value
+            self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
+            self.accountNumber2 = self.ws2[f'D{r}'].value
+            self.accountNumberStr2 = str(self.accountNumber2).replace(' ', '')
+            self.bank =  self.ws2[f'E{r}'].value
+            self.bank = str(self.bank).strip()
+            self.rec =  self.ws2[f'B{r}'].value
+            self.rec = str(self.rec)
+            r2 = re.search('RECAUDADORA', self.rec).span()
+            r2 = r2[1]
+            r2+=1
+            self.rec = self.rec[r2:]
+            self.rec = self.rec.strip()
+            self.rec = self.rec.replace(' ', '.')
+            
+            self.rec = self.rec.replace('AGENCIA', 'AG')
+            # self.rec = self.rec.replace('CENTRAL', 'CTL')
+            self.txtCabDoc = 'TRASLADO A ' + self.bank
+
+            self.getFbl3nMenu()
+            try:
+                self.getAccountTable()
+                #time.sleep(3)
+                y  = self.session.findById("wnd[0]/sbar/pane[0]").text
+                y = y + '---' + self.accountNumberStr1
+                writeLog('\n', y, self.logPath)
+            except Exception as e:
+                print('No se pudo obtener la tabla de cuentas: ', e)
+                self.session.EndTransaction()
+                continue
+            try:
+                parametersList = self.getWholeParametersList()
+            
+            except:
+                z =  'ERROR en: ' + self.accountNumberStr1 + ' ' + self.accountNumberStr2
+                writeLog('\n', z, self.logPath)

@@ -16,10 +16,10 @@ def getCurrentPath():
     elif __file__:
         application_path = os.path.dirname(__file__)
     application_path2 = Path(application_path)
-    return application_path2.parent.absolute()
+    return application_path2.absolute()
 
-
-currentPathParentFolder = getCurrentPath()
+currentPathFolder = getCurrentPath()
+currentPathParentFolder = Path(getCurrentPath()).parent
 currentPathGrandpaFolder = Path(currentPathParentFolder).parent
 currentPathGrandpaFolderParent = Path(currentPathGrandpaFolder).parent
 logPath = os.path.join(currentPathGrandpaFolder,"log.txt")
@@ -123,6 +123,4 @@ def writeLog(s,log,rut):
 
 
 if __name__=='__main__': 
-    z = today()
-    x = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado tesorería Bot\\Cuentas recaudadoras\\{z}\\CUENTAS DE CAJA IVSA.xlsx" 
-    xlsxFormatting(x)
+  pass
