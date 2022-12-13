@@ -28,6 +28,7 @@ class sapInterfaceJob():
         self.fullAsignacion = None
         self.dist = None
         self.texto = None
+        self.moneda = None
         self.a = None
         self.f = None
         self.c = None
@@ -102,7 +103,9 @@ class sapInterfaceJob():
             self.sapGuiAuto = win32com.client.GetObject('SAPGUI')
         except:
             self.proc.kill()
+            time.sleep(2)
             self.proc = subprocess.Popen([self.paths['SAPPath'], '-new-tab'])
+            time.sleep(2)
             self.sapGuiAuto = win32com.client.GetObject('SAPGUI')
 
         self.application = self.sapGuiAuto.GetScriptingEngine
@@ -361,7 +364,12 @@ class sapInterfaceJob():
         self.ct = str(self.ct).replace(' ', '')
         self.importe = str(self.importe).replace(' ', '')
 
-        self.texto = self.dist + '.TRASPASO ' + 'RECAUDADORA' + ' A ' + self.bank + ' ' + self.fecha
+        self.texto = self.dist + '.TRASP.CAJ.' + self.moneda + '.' + self.rec + ' A ' + self.bank + ' ' + self.fecha
+
+        if self.moneda == 'MN' and 'ETV' in self.bank:
+            self.texto = self.dist + '.ENTREGA A BRINKS CIERRE ' + self.fullAsignacion + ' ' + self.fecha
+
+
 
     def getAccountTableChildren(self, account):
         self.session.findById("wnd[0]/usr/ctxtSD_SAKNR-LOW").text = account
@@ -384,6 +392,8 @@ class sapInterfaceJob():
             self.bank = str(self.bank).strip()
             self.rec =  self.ws2[f'B{r}'].value
             self.rec = str(self.rec)
+            self.moneda = self.rec[12:15]
+            self.moneda = self.moneda.replace('/', '')
             r2 = re.search('RECAUDADORA', self.rec).span()
             r2 = r2[1]
             r2+=1

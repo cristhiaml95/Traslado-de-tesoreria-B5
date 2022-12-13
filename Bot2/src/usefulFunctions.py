@@ -38,19 +38,14 @@ def today2():
 
 def xlsxFormatting(x):
     z1 = ''.join([today(), '-F'])
-    #z = today()
-    #x = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado tesorería Bot\\Cuentas recaudadoras\\{z}\\CUENTAS DE CAJA IVSA.xlsx"
     wb1 = load_workbook(x)
     xlsxFormatedFolder = os.path.join(currentPathGrandpaFolder,"Cuentas recaudadoras 2")
     xlsxFormatedFolder = os.path.join(xlsxFormatedFolder,z1)
     try:        
-        # a = f'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras 2\\{z1}'
         os.mkdir(xlsxFormatedFolder)
     except Exception as e:
         print('El archivo ya ha sido creado')
-    xlsxFormatedPath = os.path.join(xlsxFormatedFolder,"CUENTAS DE CAJA IVSA.xlsx")
-    # y = f"C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5\\Cuentas recaudadoras 2\\{z1}\\CUENTAS FORMATEADAS.xlsx"
-    
+    xlsxFormatedPath = os.path.join(xlsxFormatedFolder,"CUENTAS DE CAJA IVSA.xlsx")    
 
     wb1.save(xlsxFormatedPath)
     wb2 = load_workbook(xlsxFormatedPath)
