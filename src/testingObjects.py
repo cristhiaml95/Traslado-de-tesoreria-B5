@@ -7,7 +7,7 @@ class testingObjects():
         self.currentPathParentFolder = getCurrentPath()
         self.currentPathGrandpaFolder = Path(currentPathParentFolder).parent
         self.xlsxForTest = os.path.join(currentPathGrandpaFolder,"TestTemplates")
-        self.logPath = os.path.join(self.currentPathGrandpaFolder,"log.txt")
+        self.logPath = os.path.join(self.currentPathParentFolder,"log.txt")
 
         # self.k = 7
         self.i = 3
