@@ -1,0 +1,36 @@
+
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+Se visualizan 2 partidas---101010134
+Formato de tabla correcto
+Se visualizan 2 partidas---101010134
+Formato de tabla correcto
+Se visualizan 2 partidas---101010122
+Formato de tabla correcto
+Se visualizan 2 partidas---101010134
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+Validación de saldo 0 correcto en asignación: CCAJ-SC59/289/
+23.12.2022 La operación de asignación: CCAJ-SC59/289/ fue migrada correctamente
+         Asignacion       Ndoc
+0  CCAJ-SC59/289/22  112468008
+
+-------------------------------- Migracion de cuenta 101010134 a 101041082 finalizada --------------------------------
+
+
+Formato de tabla correcto
+Se visualizan 3 partidas---101010134
+Formato de tabla correcto
+Formato de tabla correcto
+Empty DataFrame
+Columns: [Asignacion, Ndoc]
+Index: []
+
+-------------------------------- Migracion de cuenta 101010122 a 101044082 finalizada --------------------------------
+

@@ -57,6 +57,8 @@ class sapInterfaceJob():
         self.checks = []
         self.fullAsignaciones = []
         self.dists = []
+        self.finalTexts = []
+
         self.wholeParametersList = []
         self.approvedAssignments = []
         self.approvedNdocs = []
@@ -66,6 +68,8 @@ class sapInterfaceJob():
         self.approvedTextos = []
         self.approvedChecks = []
         self.approvedFullAsignaciones = []
+        self.approvedDists = []
+        self.approvedFinalTexts = []
         self.docf = None
 
         self.listOfNames = []
@@ -145,7 +149,7 @@ class sapInterfaceJob():
         currentDay = today()
         dailyMigrationAccountsPath=os.path.join(self.currentPathParentFolder,"Cuentas Recaudadoras")
         dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,currentDay)
-        match self.validacion:
+        match self.tCuenta:
             case 'CUENTA ETV':
                 dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,"CUENTA ETV.xlsx")
                 y = xlsxFormatting(dailyMigrationAccountsPath, 1)
@@ -194,7 +198,7 @@ class sapInterfaceJob():
     def getWholeParametersList(self):
         self.wholeParametersList = []
         self.rowCount = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').RowCount
-        self.rowCount-=3
+        #self.rowCount-=3
 
         for k in range(self.rowCount):
             self.k = k
@@ -205,10 +209,11 @@ class sapInterfaceJob():
                 self.fechas.append(self.fecha)
                 self.cts.append(self.ct)
                 self.importes.append(self.importe)
-                self.textos.append(self.texto)
+                self.textos.append(self.texto1)
                 self.checks.append(self.check)
                 self.fullAsignaciones.append(self.fullAsignacion)
                 self.dists.append(self.dist)
+                self.finalTexts.append(self.texto)
            
         self.wholeParametersList.append(self.asignaciones)
         self.wholeParametersList.append(self.ndocs)
@@ -219,6 +224,7 @@ class sapInterfaceJob():
         self.wholeParametersList.append(self.checks)
         self.wholeParametersList.append(self.fullAsignaciones)
         self.wholeParametersList.append(self.dists)
+        self.wholeParametersList.append(self.finalTexts)
 
         self.asignaciones = []
         self.ndocs = []
@@ -241,14 +247,14 @@ class sapInterfaceJob():
 
     def IndexOfRepitedFecha(self, fecha, list2):
 
-        if fecha_a_dia(fecha) == 'Viernes':
+        if fecha_a_dia(fecha) == 'Sabado':
             fecha = datetime.strptime(fecha, '%d.%m.%Y')
-            fecha+=timedelta(days = 3)
+            fecha+=timedelta(days = 2)
             fecha = f"{fecha.day}.{fecha.month}.{fecha.year}"
 
         else:
             fecha = datetime.strptime(fecha, '%d.%m.%Y')
-            fecha+=timedelta(days = 2)
+            fecha+=timedelta(days = 1)
             fecha = f"{fecha.day}.{fecha.month}.{fecha.year}"
 
         for i, element in enumerate(list2):
@@ -263,6 +269,8 @@ class sapInterfaceJob():
 
     def lastValidationChecker(self, preApprovedParametersList, parametersList2):
         approvedParametersList = []
+        fechaIndexs = []
+        importeIndexs = []
         asignaciones = []
         ndocs = []
         dates = []
@@ -271,6 +279,8 @@ class sapInterfaceJob():
         texts = []
         checks = []
         fullAsignaciones = []
+        dists = []
+        finalTexts = []
 
         fechas = preApprovedParametersList[2]
         importes = preApprovedParametersList[4]
@@ -296,8 +306,19 @@ class sapInterfaceJob():
                 texto = texto.replace(' ', '')
 
             else:
-                texto = textos2[j][13:]
+                texto = textos2[j]
+                x = re.findall(r'\d+-*\d+\w*\s', texto)
+
+                for i1 in x:
+                    texto = texto.replace(i1, '')
                 texto = texto.replace(' ', '')
+
+                x2 = re.findall(r'[\W]', texto)
+
+                for i2 in x2:
+                    texto = texto.replace(i2, '')
+                
+                
 
             if '(' in texto:
                 m = texto.index('(')
@@ -319,6 +340,8 @@ class sapInterfaceJob():
             texts.append(preApprovedParametersList[5][k])
             checks.append(preApprovedParametersList[6][k])
             fullAsignaciones.append(preApprovedParametersList[7][k])
+            dists.append(preApprovedParametersList[8][k])
+            finalTexts.append(preApprovedParametersList[9][k])
 
         approvedParametersList.append(asignaciones)
         approvedParametersList.append(ndocs)
@@ -328,6 +351,8 @@ class sapInterfaceJob():
         approvedParametersList.append(texts)
         approvedParametersList.append(checks)
         approvedParametersList.append(fullAsignaciones)
+        approvedParametersList.append(dists)
+        approvedParametersList.append(finalTexts)
 
         return approvedParametersList   
 
@@ -342,6 +367,8 @@ class sapInterfaceJob():
         texts = []
         checks = []
         fullAsignaciones = []
+        dists = []
+        finalTexts = []
         approvedIndexs = []
         for i, element in enumerate(preApprovedParametersList[0]):
             for j, element2 in enumerate(parametersList2[0]):
@@ -385,6 +412,8 @@ class sapInterfaceJob():
             texts.append(preApprovedParametersList[5][k])
             checks.append(preApprovedParametersList[6][k])
             fullAsignaciones.append(preApprovedParametersList[7][k])
+            dists.append(preApprovedParametersList[8][k])
+            finalTexts.append(preApprovedParametersList[9][k])
 
         approvedParametersList.append(asignaciones)
         approvedParametersList.append(ndocs)
@@ -394,6 +423,8 @@ class sapInterfaceJob():
         approvedParametersList.append(texts)
         approvedParametersList.append(checks)
         approvedParametersList.append(fullAsignaciones)
+        approvedParametersList.append(dists)
+        approvedParametersList.append(finalTexts)
 
         return approvedParametersList
                     
@@ -428,6 +459,8 @@ class sapInterfaceJob():
                 texto = wholeParametersList[5][n]
                 check = wholeParametersList[6][n]
                 fullAsignacion = wholeParametersList[7][n]
+                dist = wholeParametersList[8][n]
+                finalText = wholeParametersList[9][n]
                 if ct == '40' and check == 0:
                     self.approvedAssignments.append(assigment)
                     self.approvedNdocs.append(ndoc)
@@ -437,6 +470,8 @@ class sapInterfaceJob():
                     self.approvedTextos.append(texto)
                     self.approvedChecks.append(check)
                     self.approvedFullAsignaciones.append(fullAsignacion)
+                    self.approvedDists.append(dist)
+                    self.approvedFinalTexts.append(finalText)
 
         approvedParametersList = []
         approvedParametersList.append(self.approvedAssignments)
@@ -447,6 +482,8 @@ class sapInterfaceJob():
         approvedParametersList.append(self.approvedTextos)
         approvedParametersList.append(self.approvedChecks)
         approvedParametersList.append(self.approvedFullAsignaciones)
+        approvedParametersList.append(self.approvedDists)
+        approvedParametersList.append(self.approvedFinalTexts)
         self.approvedAssignments = []
         self.approvedNdocs = []
         self.approvedFechas = []
@@ -455,6 +492,8 @@ class sapInterfaceJob():
         self.approvedTextos = []
         self.approvedChecks = []
         self.approvedFullAsignaciones = []
+        self.approvedDists = []
+        self.approvedFinalTexts = []
         
         return approvedParametersList
 
@@ -511,14 +550,14 @@ class sapInterfaceJob():
 
             raise Exception(periodFail)
         self.session.findById("wnd[0]/usr/txtBSEG-ZUONR").text = rowList[7]
-        self.session.findById("wnd[0]/usr/ctxtBSEG-SGTXT").text = rowList[5]
+        self.session.findById("wnd[0]/usr/ctxtBSEG-SGTXT").text = rowList[9]
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWBS").text = '50'
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWKO").text = self.accountNumberStr1
         self.session.findById("wnd[0]/tbar[0]/btn[0]").press()
 
         self.session.findById("wnd[0]/usr/txtBSEG-WRBTR").text = rowList[4]
         self.session.findById("wnd[0]/usr/txtBSEG-ZUONR").text = rowList[7]
-        self.session.findById("wnd[0]/usr/ctxtBSEG-SGTXT").text = rowList[5]
+        self.session.findById("wnd[0]/usr/ctxtBSEG-SGTXT").text = rowList[9]
         self.session.findById("wnd[0]/mbar/menu[0]/menu[3]").select()
 
         validacion = self.session.findById("wnd[0]/usr/txtRF05A-AZSAL").text
@@ -576,6 +615,7 @@ class sapInterfaceJob():
         self.fecha = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'BLDAT')
         self.ct = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'BSCHL')
         self.importe = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'DMSHB')
+        self.texto1 = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'SGTXT')
         self.check = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'ICO_AUGP')
         if 'Pendientes' in self.check:
             self.check = 0
@@ -658,6 +698,24 @@ class sapInterfaceJob():
             self.rec = self.rec.replace('AGENCIA', 'AG')
             self.txtCabDoc = 'TRASLADO A ' + self.bank
 
+            match self.tCuenta:
+                case 'CUENTA ETV':
+                    question = f'Ya realizo la validacion manual para el traslado de la cuenta {self.accountNumber1} a {self.accountNumber2}? si(1)/no(0): '
+                    ip = input(question)
+                    while ip != '1' and ip != '0':
+                        print('\nOpcion no valida.\n')
+                        ip = input(question)
+                    
+                    if ip == '0':
+                        self.proc.kill()
+                        exit()
+                    
+                    else:
+                        pass
+
+                case 'CUENTA BANCO':
+                    pass
+
             self.getFbl3nMenu()
             try:
                 self.getAccountTable()
@@ -690,6 +748,8 @@ class sapInterfaceJob():
                     rowList.append(approvedParametersList[5][s])
                     rowList.append(approvedParametersList[6][s])
                     rowList.append(approvedParametersList[7][s])
+                    rowList.append(approvedParametersList[8][s])
+                    rowList.append(approvedParametersList[9][s])
 
                     self.migration(rowList)
                     asignacionNdocfMigratedbyOne = []
@@ -722,7 +782,6 @@ class sapInterfaceJob():
         self.startSAP()
         self.chargeXlsxSheet()
         xlsxRange = self.getExcelRange()
-        # xlsxRange = xlsxRange[2:]
         print('Este es el rango del xlsx: ', xlsxRange)
         for r in xlsxRange:
             self.accountNumber1 = self.ws2[f'C{r}'].value
@@ -743,18 +802,18 @@ class sapInterfaceJob():
             self.rec = self.rec.replace(' ', '.')
             
             self.rec = self.rec.replace('AGENCIA', 'AG')
-            # self.rec = self.rec.replace('CENTRAL', 'CTL')
             self.txtCabDoc = 'TRASLADO A ' + self.bank
 
             match self.tCuenta:
                 case 'CUENTA ETV':
-                    question = f'Ya realizo la validacion manual para el traslado de la cuenta {self.accountNumber1} a {self.accountNumber2}? si(1)/no(0):'
+                    question = f'Ya realizo la validacion manual para el traslado de la cuenta {self.accountNumber1} a {self.accountNumber2}? si(1)/no(0): '
                     ip = input(question)
                     while ip != '1' and ip != '0':
                         print('\nOpcion no valida.\n')
                         ip = input(question)
                     
                     if ip == '0':
+                        self.proc.kill()
                         exit()
                     
                     else:
