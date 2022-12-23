@@ -145,8 +145,14 @@ class sapInterfaceJob():
         currentDay = today()
         dailyMigrationAccountsPath=os.path.join(self.currentPathParentFolder,"Cuentas Recaudadoras")
         dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,currentDay)
-        dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,"CUENTAS DE CAJA IVSA.xlsx")
-        y = xlsxFormatting(dailyMigrationAccountsPath)
+        match self.validacion:
+            case 'CUENTA ETV':
+                dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,"CUENTA ETV.xlsx")
+                y = xlsxFormatting(dailyMigrationAccountsPath, 1)
+
+            case 'CUENTA BANCO':
+                dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,"CUENTA BANCO.xlsx")
+                y = xlsxFormatting(dailyMigrationAccountsPath, 2)
         self.wb2 = load_workbook(y)
         self.ws2 = self.wb2['CAJAS RECAUDADORAS']
 
@@ -171,8 +177,6 @@ class sapInterfaceJob():
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{self.i}'].value
             self.accountNumberStr2 = str(self.accountNumber2).replace(' ', '')
-            # self.bank =  self.ws2[f'E{self.i}'].value
-            # self.bank = str(self.bank).strip()
 
             if len(self.accountNumberStr1)==9 and len(self.accountNumberStr2)==9 and type(self.accountNumber1)== int and type(self.accountNumber2)== int:
                 xlsxCellsRange.append(self.i)
@@ -720,7 +724,7 @@ class sapInterfaceJob():
         xlsxRange = self.getExcelRange()
         # xlsxRange = xlsxRange[2:]
         print('Este es el rango del xlsx: ', xlsxRange)
-        for r in xlsxRange:            
+        for r in xlsxRange:
             self.accountNumber1 = self.ws2[f'C{r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{r}'].value
@@ -742,6 +746,23 @@ class sapInterfaceJob():
             # self.rec = self.rec.replace('CENTRAL', 'CTL')
             self.txtCabDoc = 'TRASLADO A ' + self.bank
 
+            match self.tCuenta:
+                case 'CUENTA ETV':
+                    question = f'Ya realizo la validacion manual para el traslado de la cuenta {self.accountNumber1} a {self.accountNumber2}? si(1)/no(0):'
+                    ip = input(question)
+                    while ip != '1' and ip != '0':
+                        print('\nOpcion no valida.\n')
+                        ip = input(question)
+                    
+                    if ip == '0':
+                        exit()
+                    
+                    else:
+                        pass
+
+                case 'CUENTA BANCO':
+                    pass
+
             self.getFbl3nMenu()
             try:
                 self.getAccountTable()
@@ -757,10 +778,13 @@ class sapInterfaceJob():
             self.getRightTable()
             
             parametersList = self.getWholeParametersList()
-            preApprovedParametersList = self.wichMigraVerification(parametersList)
-            approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
+
+            match self.tCuenta:
+                case 'CUENTA ETV':
+                    approvedParametersList = self.wichMigraVerification(parametersList)
+                
+                case 'CUENTA BANCO':
+                    preApprovedParametersList = self.wichMigraVerification(parametersList)
+                    approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
+
             print('hola')
-            
-            
-            # z =  'ERROR en: ' + self.accountNumberStr1 + ' ' + self.accountNumberStr2
-            # writeLog('\n', z, self.logPath)

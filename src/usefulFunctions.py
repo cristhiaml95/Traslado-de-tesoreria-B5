@@ -36,7 +36,7 @@ def today2():
 
 
 
-def xlsxFormatting(x):
+def xlsxFormatting(x, n):
     z1 = ''.join([today(), '-F'])
     wb1 = load_workbook(x)
     xlsxFormatedFolder = os.path.join(currentPathParentFolder,"Cuentas recaudadoras 2")
@@ -45,7 +45,13 @@ def xlsxFormatting(x):
         os.mkdir(xlsxFormatedFolder)
     except Exception as e:
         print('El archivo ya ha sido creado')
-    xlsxFormatedPath = os.path.join(xlsxFormatedFolder,"CUENTAS DE CAJA IVSA.xlsx")    
+    
+    match n:
+        case 1:
+            xlsxFormatedPath = os.path.join(xlsxFormatedFolder,"CUENTA ETV-F.xlsx")   
+
+        case 2:
+             xlsxFormatedPath = os.path.join(xlsxFormatedFolder,"CUENTA BANCO-F.xlsx")
 
     wb1.save(xlsxFormatedPath)
     wb2 = load_workbook(xlsxFormatedPath)
