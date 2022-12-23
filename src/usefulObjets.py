@@ -46,6 +46,8 @@ class sapInterfaceJob():
         self.accountNumberStr2 = None
         self.bank = None
         self.layout = None
+        self.tCuenta = None
+        self.validacion = None
         self.asignaciones = []
         self.ndocs = []
         self.fechas = []
@@ -65,10 +67,15 @@ class sapInterfaceJob():
         self.approvedChecks = []
         self.approvedFullAsignaciones = []
         self.docf = None
+
         self.listOfNames = []
+        self.listOfImporteIndex = []
+        self.listOfFechaIndex = []
+
+
         self.currentPathParentFolder = currentPathParentFolder
         self.currentPathGrandpaFolder = currentPathGrandpaFolder
-        self.logPath = os.path.join(self.currentPathGrandpaFolder,"log.txt")
+        self.logPath = os.path.join(self.currentPathParentFolder,"log.txt")
         # self.currentPathGrandpaFolder = 'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5'
         
         self.changeThePeriod = False
@@ -96,10 +103,14 @@ class sapInterfaceJob():
                  'environment': ws1['B3'].value,
                  'fecha': ws1['B5'].value,
                  'periodo': ws1['B6'].value,
-                 'layout': ws1['B8'].value}
+                 'layout': ws1['B8'].value,
+                 'tipo de cuenta': ws1['B9'].value,
+                 'validacion': ws1['B10'].value,}
                 
         self.layout = self.login['layout']
         self.layout = self.layout.replace(" ","")
+        self.tCuenta = self.login['tipo de cuenta']
+        self.validacion = self.login['validacion']
 
         if self.login['fecha'] == None:
             self.login['fecha'] = today()
@@ -218,14 +229,13 @@ class sapInterfaceJob():
         return self.wholeParametersList
 
     def IndexOfRepitedImport(self, importe, list2):
-        listOfIndex = []
+        
         for i, element in enumerate(list2):
-            if importe == element:
-                listOfIndex.append(i)
-        return listOfIndex
+            if importe == element.replace('-',''):
+                self.listOfImporteIndex.append(i)
+        return self.listOfImporteIndex
 
     def IndexOfRepitedFecha(self, fecha, list2):
-        listOfIndex = []
 
         if fecha_a_dia(fecha) == 'Viernes':
             fecha = datetime.strptime(fecha, '%d.%m.%Y')
@@ -239,9 +249,9 @@ class sapInterfaceJob():
 
         for i, element in enumerate(list2):
             if fecha == element:
-                listOfIndex.append(i)
+                self.listOfFechaIndex.append(i)
 
-        return listOfIndex
+        return self.listOfFechaIndex
 
     def commons(self, list1, list2):
         return list(set(list1).intersection(list2))
@@ -258,8 +268,6 @@ class sapInterfaceJob():
         checks = []
         fullAsignaciones = []
 
-
-        counter = 0
         fechas = preApprovedParametersList[2]
         importes = preApprovedParametersList[4]
         fechas2 = parametersList2[2]
@@ -273,35 +281,30 @@ class sapInterfaceJob():
             fechaIndexs = self.IndexOfRepitedFecha(fecha, fechas2)
             importeIndexs = self.IndexOfRepitedImport(importe, importes2)
 
-            commonIndexs = self.commons(fechaIndexs, importeIndexs)
+        commonIndexs = self.commons(fechaIndexs, importeIndexs)
+        
+
+        for j in commonIndexs:
+
+            if ':' in textos2[j]:
+                n = textos2[j].index(':')
+                texto = textos2[j][n+1:]
+                texto = texto.replace(' ', '')
+
+            else:
+                texto = textos2[j][13:]
+                texto = texto.replace(' ', '')
+
+            if '(' in texto:
+                m = texto.index('(')
+                texto = texto[:m]
+                texto = texto.replace(' ', '')
             
-
-            for j in commonIndexs:
-                if ':' in textos2[j]:
-                    n = textos2[j].index(':')
-                    texto = textos2[j][n+1:]
-                    texto = texto.replace(' ', '')
-
-                else:
-                    texto = textos2[j][13:]
-                    texto = texto.replace(' ', '')
-
-                if '(' in texto:
-                    m = texto.index('(')
-                    texto = texto[:m]
-                    texto = texto.replace(' ', '')
-                
-                for name in self.listOfNames:
-                    if texto in name:
-                        counter+=1
-                    
-                if counter > 1:
-                    asignacion = preApprovedParametersList[0][i]
-                    revisar = 'revisar ' + asignacion + 'en la migracion de: ' + self.accountNumber1 + ' a ' + self.accountNumber2 + ', ya que hay más de una coincidencia en la validacion final'
-                    writeLog('\n', 'Revisar ')
-                
-                elif counter == 1:
+            for name in self.listOfNames:
+                if texto in name:
+                    i = importes.index(importes2[j].replace('-',''))
                     approvedIndexs.append(i)
+                    break                
 
         for k in approvedIndexs:
             asignaciones.append(preApprovedParametersList[0][k])
@@ -322,14 +325,89 @@ class sapInterfaceJob():
         approvedParametersList.append(checks)
         approvedParametersList.append(fullAsignaciones)
 
-        return approvedParametersList                    
+        return approvedParametersList   
+
+
+    def lastValidationChecker2(self, preApprovedParametersList, parametersList2):
+        approvedParametersList = []
+        asignaciones = []
+        ndocs = []
+        dates = []
+        cts = []
+        imports = []
+        texts = []
+        checks = []
+        fullAsignaciones = []
+        approvedIndexs = []
+        for i, element in enumerate(preApprovedParametersList[0]):
+            for j, element2 in enumerate(parametersList2[0]):
+                fecha = preApprovedParametersList[2][i]
+                if fecha_a_dia(fecha) == 'Viernes':
+                    fecha = datetime.strptime(fecha, '%d.%m.%Y')
+                    fecha+=timedelta(days = 3)
+                    fecha = f"{fecha.day}.{fecha.month}.{fecha.year}"
+
+                else:
+                    fecha = datetime.strptime(fecha, '%d.%m.%Y')
+                    fecha+=timedelta(days = 2)
+                    fecha = f"{fecha.day}.{fecha.month}.{fecha.year}"
+
+                if element == element2 and fecha == parametersList2[2][j] and preApprovedParametersList[4][i] == parametersList2[4][j].replace('-',''):
+                    texto = parametersList2[5][j]
+                    if ':' in texto:
+                        n = texto.index(':')
+                        texto = texto[n+1:]
+                        texto = texto.replace(' ', '')
+                    
+                    else:
+                        texto = texto[13:]
+                        texto = texto.replace(' ', '')
+                    
+                    if '(' in texto:
+                        m = texto.index('(')
+                        texto = texto[:m]
+                        texto = texto.replace(' ', '')
+
+                    for name in self.listOfNames:
+                        if texto in name:
+                            approvedIndexs.append(i)
+
+        for k in approvedIndexs:
+            asignaciones.append(preApprovedParametersList[0][k])
+            ndocs.append(preApprovedParametersList[1][k])
+            dates.append(preApprovedParametersList[2][k])
+            cts.append(preApprovedParametersList[3][k])
+            imports.append(preApprovedParametersList[4][k])
+            texts.append(preApprovedParametersList[5][k])
+            checks.append(preApprovedParametersList[6][k])
+            fullAsignaciones.append(preApprovedParametersList[7][k])
+
+        approvedParametersList.append(asignaciones)
+        approvedParametersList.append(ndocs)
+        approvedParametersList.append(dates)
+        approvedParametersList.append(cts)
+        approvedParametersList.append(imports)
+        approvedParametersList.append(texts)
+        approvedParametersList.append(checks)
+        approvedParametersList.append(fullAsignaciones)
+
+        return approvedParametersList
+                    
+
 
 
     def wichMigraVerification2(self, preApprovedParametersList):
         self.getFbl3nMenu()
         self.getAccountTable2()
         parametersList2 = self.getWholeParametersList()
-        approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        self.listOfFechaIndex = []
+        self.listOfImporteIndex = []
+        match self.validacion:
+            case 'FECHA, IMP, NOMBRE':
+                approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+
+            case 'ASIG, FECHA, IMP, NOMBRE':
+                approvedParametersList = self.lastValidationChecker2(preApprovedParametersList, parametersList2)
         return approvedParametersList
 
 
@@ -554,7 +632,6 @@ class sapInterfaceJob():
         self.startSAP()
         self.chargeXlsxSheet()
         xlsxRange = self.getExcelRange()
-        # xlsxRange = xlsxRange[2:]
         print('Este es el rango del xlsx: ', xlsxRange)
         for r in xlsxRange:            
             self.accountNumber1 = self.ws2[f'C{r}'].value
@@ -575,7 +652,6 @@ class sapInterfaceJob():
             self.rec = self.rec.replace(' ', '.')
             
             self.rec = self.rec.replace('AGENCIA', 'AG')
-            # self.rec = self.rec.replace('CENTRAL', 'CTL')
             self.txtCabDoc = 'TRASLADO A ' + self.bank
 
             self.getFbl3nMenu()
@@ -588,11 +664,15 @@ class sapInterfaceJob():
                 
             self.getRightTable()
             parametersList = self.getWholeParametersList()
-            preApprovedParametersList = self.wichMigraVerification(parametersList)
-            approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
-            # x = 'Lista de aprobados para la migración: ' + str(approvedParametersList)
-            #writeLog('\n', x, self.currentPathGrandpaFolder)
-            #print(approvedParametersList)
+
+            match self.tCuenta:
+                case 'CUENTA ETV':
+                    approvedParametersList = self.wichMigraVerification(parametersList)
+                
+                case 'CUENTA BANCO':
+                    preApprovedParametersList = self.wichMigraVerification(parametersList)
+                    approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
+
             asignacionNdocMigrated = []
             nDocsMigrated = []
             try:
