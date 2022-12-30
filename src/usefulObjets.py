@@ -746,7 +746,7 @@ class sapInterfaceJob():
                     self.moneda = 'MN'
                     question1 = 'El traslado es de banco a ETV(0) o de ETV a banco(1) ? : '
                     self.ip1 = input(question1)
-                    while self.ip1 != '1' and ip != '0':
+                    while self.ip1 != '1' and self.ip1 != '0':
                         print('\nOpcion no valida.\n')
                         self.ip1 = input(question2)
 
@@ -847,7 +847,7 @@ class sapInterfaceJob():
         self.chargeXlsxSheet()
         xlsxRange = self.getExcelRange()
         print('Este es el rango del xlsx: ', xlsxRange)
-        for r in xlsxRange:
+        for r in xlsxRange:            
             self.accountNumber1 = self.ws2[f'C{r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{r}'].value
@@ -856,25 +856,31 @@ class sapInterfaceJob():
             self.bank = str(self.bank).strip()
             self.rec =  self.ws2[f'B{r}'].value
             self.rec = str(self.rec)
-            self.moneda = self.rec[13:16]
-            self.moneda = self.moneda.replace('/', '')
-            r2 = re.search('RECAUDADORA', self.rec).span()
-            r2 = r2[1]
-            r2+=1
-            self.rec = self.rec[r2:]
-            self.rec = self.rec.strip()
-            self.rec = self.rec.replace(' ', '.')
             
-            self.rec = self.rec.replace('AGENCIA', 'AG')
+            
             self.txtCabDoc = 'TRASLADO A ' + self.bank
+
+            serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
+            writeLog('', serparationMessage, self.logPath)
 
             match self.tCuenta:
                 case 'CUENTA ETV':
-                    question = f'Ya realizo la validacion manual para el traslado de la cuenta {self.accountNumber1} a {self.accountNumber2}? si(1)/no(0): '
-                    ip = input(question)
+                    self.moneda = 'MN'
+                    question1 = 'El traslado es de banco a ETV(0) o de ETV a banco(1) ? : '
+                    self.ip1 = input(question1)
+                    while self.ip1 != '1' and self.ip1 != '0':
+                        print('\nOpcion no valida.\n')
+                        self.ip1 = input(question2)
+
+                    question3 = 'Ingrese el nombre de la distribuidora: '
+                    ip2 = input(question3)
+                    self.rec = ip2
+
+                    question2 = f'Ya realizo la validacion manual para el traslado de ETV entre {self.accountNumber1} y {self.accountNumber2}? si(1)/no(0): '
+                    ip = input(question2)
                     while ip != '1' and ip != '0':
                         print('\nOpcion no valida.\n')
-                        ip = input(question)
+                        ip = input(question2)
                     
                     if ip == '0':
                         self.proc.kill()
@@ -884,22 +890,26 @@ class sapInterfaceJob():
                         pass
 
                 case 'CUENTA BANCO':
-                    pass
+                    r2 = re.search('RECAUDADORA', self.rec).span()
+                    r2 = r2[1]
+                    r2+=1
+                    self.rec = self.rec[r2:]
+                    self.rec = self.rec.strip()
+                    self.rec = self.rec.replace(' ', '.')
+                    
+                    self.rec = self.rec.replace('AGENCIA', 'AG')
+                    self.moneda = self.rec[12:15]
+                    self.moneda = self.moneda.replace('/', '')
 
             self.getFbl3nMenu()
             try:
                 self.getAccountTable()
-                #time.sleep(3)
-                y  = self.session.findById("wnd[0]/sbar/pane[0]").text
-                y = y + '---' + self.accountNumberStr1
-                writeLog('\n', y, self.logPath)
             except Exception as e:
                 print('No se pudo obtener la tabla de cuentas: ', e)
                 self.session.EndTransaction()
                 continue
-
+                
             self.getRightTable()
-            
             parametersList = self.getWholeParametersList()
 
             match self.tCuenta:
