@@ -81,6 +81,8 @@ class sapInterfaceJob():
         self.currentPathGrandpaFolder = currentPathGrandpaFolder
         self.logPath = os.path.join(self.currentPathParentFolder,"log.txt")
         # self.currentPathGrandpaFolder = 'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5'
+        self.ip1 = None
+        self.xlsxMigracion = None
         
         self.changeThePeriod = False
         self.i = 3
@@ -109,12 +111,16 @@ class sapInterfaceJob():
                  'periodo': ws1['B6'].value,
                  'layout': ws1['B8'].value,
                  'tipo de cuenta': ws1['B9'].value,
-                 'validacion': ws1['B10'].value,}
+                 'validacion': ws1['B10'].value,
+                 'xlsx migracion': ws1['B12'].value}
+        
+        wb.close()
                 
         self.layout = self.login['layout']
         self.layout = self.layout.replace(" ","")
         self.tCuenta = self.login['tipo de cuenta']
         self.validacion = self.login['validacion']
+        self.xlsxMigracion = self.login['xlsx migracion']
 
         if self.login['fecha'] == None:
             self.login['fecha'] = today()
@@ -303,7 +309,6 @@ class sapInterfaceJob():
             if ':' in textos2[j]:
                 n = textos2[j].index(':')
                 texto = textos2[j][n+1:]
-                texto = texto.replace(' ', '')
 
             else:
                 texto = textos2[j]
@@ -311,7 +316,6 @@ class sapInterfaceJob():
 
                 for i1 in x:
                     texto = texto.replace(i1, '')
-                texto = texto.replace(' ', '')
 
                 x2 = re.findall(r'[\W]', texto)
 
@@ -323,10 +327,13 @@ class sapInterfaceJob():
             if '(' in texto:
                 m = texto.index('(')
                 texto = texto[:m]
-                texto = texto.replace(' ', '')
+            texto = texto.strip()
+
+            splitList = re.split(r'\s', texto)
+            splitList = splitList[:3]
             
             for name in self.listOfNames:
-                if texto in name:
+                if splitList[0] and splitList[1] and splitList[2] in name:
                     i = importes.index(importes2[j].replace('-',''))
                     approvedIndexs.append(i)
                     break                
@@ -535,8 +542,10 @@ class sapInterfaceJob():
              self.session.findById("wnd[0]/usr/txtBKPF-MONAT").text = self.login['periodo']
 
         self.session.findById("wnd[0]/usr/ctxtBKPF-BLDAT").text = self.login['fecha']
-       
-        self.session.findById("wnd[0]/usr/txtBKPF-XBLNR").text = self.rec
+
+        recaudadora = self.rec
+        recaudadora = recaudadora.replace('CENTRAL', '')
+        self.session.findById("wnd[0]/usr/txtBKPF-XBLNR").text = recaudadora
         self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = self.txtCabDoc
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWKO").text = self.accountNumberStr2
         
@@ -644,8 +653,13 @@ class sapInterfaceJob():
 
         self.texto = self.dist + '.TRASP.CAJ.' + self.moneda + '.' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
 
-        if self.moneda == 'MN' and 'ETV' in self.bank:
-            self.texto = self.dist + '.ENTREGA A BRINKS CIERRE ' + self.fullAsignacion + ' ' + self.fecha2
+        match self.ip1:
+            case '0':
+                self.texto = self.dist + '.ENTREGA A BRINKS CIERRE ' + self.fullAsignacion + ' ' + self.fecha2
+
+            case '1':
+                self.texto = self.dist + '.TRASPASO ' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
+            
 
         if 'CENTRAL' in self.rec:
             self.texto = self.dist + '.DEP. DIRECTO A BANCO ' + self.fullAsignacion + ' ' + self.fecha2
@@ -670,6 +684,40 @@ class sapInterfaceJob():
             except:
                 writeLog('\n', 'Formato de tabla incorrecto, no se puede cambiar.', self.logPath)
 
+    def migrationXlsxPaste(self, asignacion, ndoc):
+        rec = ''
+        rec = self.rec
+        rec = rec.strip()
+        if 'AG.' in self.rec:
+            i = rec.index('.')
+            rec.insert(i, ' ')
+
+        wbPath = currentPathParentFolder
+        wbPath = os.path.join(wbPath, 'Migraciones')
+        self.xlsxMigracion = self.xlsxMigracion + '.xlsx'
+        wbPath = os.path.join(wbPath, self.xlsxMigracion)
+        wb = load_workbook(wbPath)
+
+        try:
+            sheet = wb[self.rec]
+    
+            sheetList = []
+
+            for cell in sheet['A']:
+                sheetList.append(cell.value)
+
+            for i, asig in enumerate(sheetList):
+                if asig == asignacion:
+                    sheet[f'K{i+1}'] = ndoc
+                    wb.save(wbPath)
+                    break
+            
+        except:
+            writeLog('\n', 'No se encontró la hoja ' + self.rec + ' en el archivo de migraciones', self.logPath)
+
+        
+            
+
 
     def fullProcess(self):
         self.chargeListOfNames()
@@ -686,25 +734,31 @@ class sapInterfaceJob():
             self.bank = str(self.bank).strip()
             self.rec =  self.ws2[f'B{r}'].value
             self.rec = str(self.rec)
-            self.moneda = self.rec[12:15]
-            self.moneda = self.moneda.replace('/', '')
-            r2 = re.search('RECAUDADORA', self.rec).span()
-            r2 = r2[1]
-            r2+=1
-            self.rec = self.rec[r2:]
-            self.rec = self.rec.strip()
-            self.rec = self.rec.replace(' ', '.')
             
-            self.rec = self.rec.replace('AGENCIA', 'AG')
+            
             self.txtCabDoc = 'TRASLADO A ' + self.bank
+
+            serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
+            writeLog('', serparationMessage, self.logPath)
 
             match self.tCuenta:
                 case 'CUENTA ETV':
-                    question = f'Ya realizo la validacion manual para el traslado de la cuenta {self.accountNumber1} a {self.accountNumber2}? si(1)/no(0): '
-                    ip = input(question)
+                    self.moneda = 'MN'
+                    question1 = 'El traslado es de banco a ETV(0) o de ETV a banco(1) ? : '
+                    self.ip1 = input(question1)
+                    while self.ip1 != '1' and ip != '0':
+                        print('\nOpcion no valida.\n')
+                        self.ip1 = input(question2)
+
+                    question3 = 'Ingrese el nombre de la distribuidora: '
+                    ip2 = input(question3)
+                    self.rec = ip2
+
+                    question2 = f'Ya realizo la validacion manual para el traslado de ETV entre {self.accountNumber1} y {self.accountNumber2}? si(1)/no(0): '
+                    ip = input(question2)
                     while ip != '1' and ip != '0':
                         print('\nOpcion no valida.\n')
-                        ip = input(question)
+                        ip = input(question2)
                     
                     if ip == '0':
                         self.proc.kill()
@@ -714,7 +768,16 @@ class sapInterfaceJob():
                         pass
 
                 case 'CUENTA BANCO':
-                    pass
+                    r2 = re.search('RECAUDADORA', self.rec).span()
+                    r2 = r2[1]
+                    r2+=1
+                    self.rec = self.rec[r2:]
+                    self.rec = self.rec.strip()
+                    self.rec = self.rec.replace(' ', '.')
+                    
+                    self.rec = self.rec.replace('AGENCIA', 'AG')
+                    self.moneda = self.rec[12:15]
+                    self.moneda = self.moneda.replace('/', '')
 
             self.getFbl3nMenu()
             try:
@@ -757,6 +820,7 @@ class sapInterfaceJob():
                     asignacionNdocfMigratedbyOne.append(self.docf)
                     asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
                     nDocsMigrated.append(self.docf)
+                    self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
                 
                     # self.session.EndTransaction()
             except Exception as e:
