@@ -39,15 +39,19 @@ class sapInterfaceJob():
         self.ct = None
         self.check = None
         self.wb2 = None
+        self.wsDist = None
+        self.wsAg = None
+        self.wb3 = None
+        self.wsNames = None
+
         self.ws2 = None
+
         self.accountNumber1 = None
         self.accountNumberStr1 = None
         self.accountNumber2 = None
         self.accountNumberStr2 = None
         self.bank = None
         self.layout = None
-        self.tCuenta = None
-        self.validacion = None
         self.asignaciones = []
         self.ndocs = []
         self.fechas = []
@@ -97,29 +101,25 @@ class sapInterfaceJob():
         configXlsx=os.path.join(self.currentPathParentFolder,"config.xlsx")
         wb = load_workbook(configXlsx)
         ws = wb['Rutas']
-        ws1 = wb['parametrosInicio']
+        wsConfig = wb['parametrosInicio']
 
         self.paths = {'accountPath': ws['B1'].value,
                 'SAPPath': ws['B2'].value,
                 'migraPath': ws['B3'].value}
                
         
-        self.login = {'user': ws1['B1'].value,
-                 'psw': ws1['B2'].value,
-                 'environment': ws1['B3'].value,
-                 'fecha': ws1['B5'].value,
-                 'periodo': ws1['B6'].value,
-                 'layout': ws1['B8'].value,
-                 'tipo de cuenta': ws1['B9'].value,
-                 'validacion': ws1['B10'].value,
-                 'xlsx migracion': ws1['B12'].value}
+        self.login = {'user': wsConfig['B1'].value,
+                 'psw': wsConfig['B2'].value,
+                 'environment': wsConfig['B3'].value,
+                 'fecha': wsConfig['B5'].value,
+                 'periodo': wsConfig['B6'].value,
+                 'layout': wsConfig['B8'].value,
+                 'xlsx migracion': wsConfig['B11'].value}
         
         wb.close()
                 
         self.layout = self.login['layout']
         self.layout = self.layout.replace(" ","")
-        self.tCuenta = self.login['tipo de cuenta']
-        self.validacion = self.login['validacion']
         self.xlsxMigracion = self.login['xlsx migracion']
 
         if self.login['fecha'] == None:
@@ -152,26 +152,22 @@ class sapInterfaceJob():
         self.session.findById("wnd[0]").sendVKey(0)
 
     def chargeXlsxSheet(self):
-        currentDay = today()
+        # currentDay = today()
         dailyMigrationAccountsPath=os.path.join(self.currentPathParentFolder,"Cuentas Recaudadoras")
-        dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,currentDay)
-        match self.tCuenta:
-            case 'CUENTA ETV':
-                dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,"CUENTA ETV.xlsx")
-                y = xlsxFormatting(dailyMigrationAccountsPath, 1)
-
-            case 'CUENTA BANCO':
-                dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,"CUENTA BANCO.xlsx")
-                y = xlsxFormatting(dailyMigrationAccountsPath, 2)
-        self.wb2 = load_workbook(y)
-        self.ws2 = self.wb2['CAJAS RECAUDADORAS']
+        # dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,currentDay)
+        dailyMigrationAccountsPath=os.path.join(dailyMigrationAccountsPath,"CUENTAS DE CAJA IVSA.xlsx") 
+        #EL self.wb ES USADO PARA LEER EL CONFIG.
+        self.wb2 = load_workbook(dailyMigrationAccountsPath)
+        self.wsDist = self.wb2['DISTRIBUIDORAS']
+        self.wsAg = self.wb2['AGENCIAS']
+        
 
     def chargeListOfNames(self):
         y = os.path.join(self.currentPathParentFolder,"BASE DE DATOS DIST.xlsx")
         self.wb3 = load_workbook(y)
-        self.ws3 = self.wb3['Hoja1']
+        self.wsNames = self.wb3['Hoja1']
         for i in range(2, 68):
-            cellName = self.ws3[f'D{i}'].value
+            cellName = self.wsNames[f'D{i}'].value
             cellName = cellName.replace(" ", "")
             if cellName != None and cellName != "":
                 self.listOfNames.append(cellName)
@@ -317,7 +313,7 @@ class sapInterfaceJob():
                 for i1 in x:
                     texto = texto.replace(i1, '')
 
-                x2 = re.findall(r'[\W]', texto)
+                x2 = re.findall(r'[^a-zA-Z0-9\s]', texto)
 
                 for i2 in x2:
                     texto = texto.replace(i2, '')
@@ -444,16 +440,10 @@ class sapInterfaceJob():
         parametersList2 = self.getWholeParametersList()
         self.listOfFechaIndex = []
         self.listOfImporteIndex = []
-        match self.validacion:
-            case 'FECHA, IMP, NOMBRE':
-                approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
 
-            case 'ASIG, FECHA, IMP, NOMBRE':
-                approvedParametersList = self.lastValidationChecker2(preApprovedParametersList, parametersList2)
         return approvedParametersList
 
-
-        
 
     def wichMigraVerification(self, wholeParametersList):
         for assigment in wholeParametersList[0]:
@@ -715,14 +705,17 @@ class sapInterfaceJob():
         except:
             writeLog('\n', 'No se encontró la hoja ' + self.rec + ' en el archivo de migraciones', self.logPath)
 
-        
-            
 
-
-    def fullProcess(self):
+    def fullProcess(self, n):
         self.chargeListOfNames()
         self.startSAP()
         self.chargeXlsxSheet()
+        match n:
+            case 1:
+                self.ws2 = self.wsAg
+            case 2:
+                self.ws2 = self.wsDist
+                
         xlsxRange = self.getExcelRange()
         print('Este es el rango del xlsx: ', xlsxRange)
         for r in xlsxRange:            
@@ -734,50 +727,22 @@ class sapInterfaceJob():
             self.bank = str(self.bank).strip()
             self.rec =  self.ws2[f'B{r}'].value
             self.rec = str(self.rec)
+            r2 = re.search('RECAUDADORA', self.rec).span()
+            r2 = r2[1]
+            r2+=1
+            self.rec = self.rec[r2:]
+            self.rec = self.rec.strip()
+            self.rec = self.rec.replace(' ', '.')
             
+            self.rec = self.rec.replace('AGENCIA', 'AG')
+            self.moneda = self.rec[13:16]
+            self.moneda = self.moneda.replace('/', '')
+    
             
             self.txtCabDoc = 'TRASLADO A ' + self.bank
 
             serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
             writeLog('', serparationMessage, self.logPath)
-
-            match self.tCuenta:
-                case 'CUENTA ETV':
-                    self.moneda = 'MN'
-                    question1 = 'El traslado es de banco a ETV(0) o de ETV a banco(1) ? : '
-                    self.ip1 = input(question1)
-                    while self.ip1 != '1' and self.ip1 != '0':
-                        print('\nOpcion no valida.\n')
-                        self.ip1 = input(question2)
-
-                    question3 = 'Ingrese el nombre de la distribuidora: '
-                    ip2 = input(question3)
-                    self.rec = ip2
-
-                    question2 = f'Ya realizo la validacion manual para el traslado de ETV entre {self.accountNumber1} y {self.accountNumber2}? si(1)/no(0): '
-                    ip = input(question2)
-                    while ip != '1' and ip != '0':
-                        print('\nOpcion no valida.\n')
-                        ip = input(question2)
-                    
-                    if ip == '0':
-                        self.proc.kill()
-                        exit()
-                    
-                    else:
-                        pass
-
-                case 'CUENTA BANCO':
-                    r2 = re.search('RECAUDADORA', self.rec).span()
-                    r2 = r2[1]
-                    r2+=1
-                    self.rec = self.rec[r2:]
-                    self.rec = self.rec.strip()
-                    self.rec = self.rec.replace(' ', '.')
-                    
-                    self.rec = self.rec.replace('AGENCIA', 'AG')
-                    self.moneda = self.rec[12:15]
-                    self.moneda = self.moneda.replace('/', '')
 
             self.getFbl3nMenu()
             try:

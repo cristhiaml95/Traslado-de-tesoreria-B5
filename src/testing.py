@@ -1,45 +1,213 @@
-from usefulObjets import sapInterfaceJob
+import tkinter as tk
+import pyautogui as pg
 
-preApprovedParametersList = []
-parametersList2 = []
+class bot5GUI:
+    def __init__(self):
+        self.w, self.h = pg.size()
 
-l = ['z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z']
-l0 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'b', 'j', 'k', 'l', 'm', 'c', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w']
-l1 = ['23.12.2022', '22.12.2022', '21.12.2022', '20.12.2022', '19.12.2022', '18.12.2022', '17.12.2022', '16.12.2022', '15.12.2022', '14.12.2022', '13.12.2022', '12.12.2022', '11.12.2022', '10.12.2022', '09.12.2022', '08.12.2022', '07.12.2022', '06.12.2022', '05.12.2022', '04.12.2022', '03.12.2022', '02.12.2022', '01.12.2022']
-l2 = ['1', '2', '3', '4-', '5', '6-', '7', '8', '9-', '10', '11', '12', '13', '14-', '15', '16', '17', '18', '19', '20', '21-', '22', '23']
-l5 = ['11111111111 BELZA GUTIERREZ CONDORI', '11111111111 JOSE LUIS ALEJANDRO RODRIGUEZ', '11111111111 NELVI JUANITA ROMERO', '11111111111 holis', '11111111111 holis', '11111111111 holis', '11111111111 holis', '11111111111 BELZA GUTIERREZ CONDORI', '11111111111 BELZA GUTIERREZ CONDORI', '11111111111 holis', '11111111111 holis', '11111111111 holis', '11111111111 holis', '11111111111 JOSE LUIS ALEJANDRO RODRIGUEZ', '11111111111 holis', '11111111111 holis', '11111111111 holis', '11111111111 holis', '11111111111 holis', '11111111111 holis', '11111111111 holis', '11111111111 holis', '11111111111 holis']
-print(len(l1))
-print(l5[8])
-print(len(l2))
-print(len(l5))
+        self.wd = tk.Tk()
+        self.header = None
+        self.options1Square = None
+        self.options2Square = None
+        self.options3Square = None
+        self.selOp1 = None
+        self.selOp2 = None
+        self.selOp3 = None
+        self.op1_1 = None
+        self.op1_2 = None
+        self.op1_3 = None
+        self.op2_1 = None
+        self.op2_2 = None
 
-parametersList2.append(l0)
-parametersList2.append(l)
-parametersList2.append(l1)
-parametersList2.append(l)
-parametersList2.append(l2)
-parametersList2.append(l5)
-parametersList2.append(l)
-parametersList2.append(l)
+        self.nextButton = None
+        self.selMigraChoise = None
 
-l0_2 = ['a', 'b', 'c', 'd']
-l_2 = ['z', 'z', 'z', 'z']
-l3 = ['23.12.2022', '13.12.2022', '08.12.2022', '01.12.2022']
-l4 = ['1-', '9', '14', '23-']
+        self.PUNoChoise = None
 
-preApprovedParametersList.append(l0_2)
-preApprovedParametersList.append(l_2)
-preApprovedParametersList.append(l3)
-preApprovedParametersList.append(l_2)
-preApprovedParametersList.append(l4)
-preApprovedParametersList.append(l_2)
-preApprovedParametersList.append(l_2)
-preApprovedParametersList.append(l_2)
+    def windowDesign(self):
+        self.wd.title("BOT 5 - MENU")
+        size = f'{int(self.w/5)}x{int(self.h/2.5)}+{int(self.w*2/5)}+{int(self.h*3/10)}'
+        self.wd.geometry(size)
+        #self.wd.resizable(0,0)
+        self.wd.configure(background='light sky blue')
 
-# print(parametersList2)
-# print(preApprovedParametersList)
+    def window1content(self):
 
-x = sapInterfaceJob()
-x.chargeListOfNames()
-y = x.lastValidationChecker2(preApprovedParametersList, parametersList2)
-print(y)
+        self.header = tk.Label(self.wd, text='BIENVENIDO AL BOT 5 \nMIGRACIONES', bg='light sky blue', font=('consolas 24 bold', 15))
+        self.header.pack()
+
+        self.options1Square = tk.LabelFrame(self.wd, bg='light sky blue', text='Elija correctamente lo desea migrar: ')
+        self.options1Square.pack()
+
+        self.selOp1 = tk.IntVar()
+        #selOp1.set(0)
+
+        self.op1_1 = tk.Radiobutton(self.options1Square, text = 'Solo agencias', bg = 'light sky blue', variable = self.selOp1, value = 1, width=20, anchor='w', command= self.op1_1Command)
+        self.op1_1.pack()
+
+        self.op1_2 = tk.Radiobutton(self.options1Square, text = 'Solo distribuidoras', bg = 'light sky blue', variable = self.selOp1, value = 2, width=20, anchor='w', command= self.op1_2Command)
+        self.op1_2.pack()
+
+        self.op1_3 = tk.Radiobutton(self.options1Square, text = 'Ambas', bg = 'light sky blue', variable = self.selOp1, value = 3, width=20, anchor='w', command= self.op1_3Command)
+        self.op1_3.pack()
+
+        self.options2Square = tk.LabelFrame(self.wd, bg='light sky blue', text='Flujo de migracion: ')
+        self.options2Square.pack()
+
+        self.selOp2 = tk.IntVar()
+
+        self.op2_1 = tk.Radiobutton(self.options2Square, text = 'Caja - ETV', bg = 'light sky blue', variable = self.selOp2, value = 1, width=20, anchor='w', command= self.op2_1Command)
+        self.op2_1['state'] = 'disabled'
+        self.op2_1.pack()
+
+        self.op2_2 = tk.Radiobutton(self.options2Square, text = 'ETV - banco', bg = 'light sky blue', variable = self.selOp2, value = 2, width=20, anchor='w', command= self.op2_2Command)
+        self.op2_2['state'] = 'disabled'
+        self.op2_2.pack()
+
+        self.options3Square = tk.LabelFrame(self.wd, bg='light sky blue', text='¿Realizó la validación manual?')
+        self.options3Square.pack()
+
+        self.selOp3 = tk.IntVar()
+
+        self.op3_1 = tk.Radiobutton(self.options3Square, text = 'Sí', bg = 'light sky blue', variable = self.selOp3, value = 1, width=20, anchor='w', command= self.op3_1Command)
+        self.op3_1['state'] = 'disabled'
+        self.op3_1.pack()
+
+        self.op3_2 = tk.Radiobutton(self.options3Square, text = 'No', bg = 'light sky blue', variable = self.selOp3, value = 2, width=20, anchor='w', command= self.op3_2Command)
+        self.op3_2['state'] = 'disabled'
+        self.op3_2.pack()
+
+        # self.nextButton = tk.Button(self.wd, text = 'SIEUIENTE', command = self.nextButtonCommand)
+        # self.nextButton.pack()
+
+        self.goButton = tk.Button(self.wd, text = 'MIGRAR', command = self.goButtonCommand)
+        #self.goButton['state'] = 'disabled'
+        self.goButton.pack()
+
+        self.wd.mainloop()
+
+
+    def noChoise1PU(self):
+        self.PUNoChoise = tk.Toplevel(self.wd)
+        self.PUNoChoise.title('INFO')
+        size = f'{int(self.w/10)}x{int(self.h/10)}+{int(self.w*9/20)}+{int(self.h*9/20)}'
+        self.PUNoChoise.geometry(size)
+        alert = tk.Label(self.PUNoChoise, text='Debe elegir una opcion.', font=('consolas 24 bold', 12))
+        okButton = tk.Button(self.PUNoChoise, text='Ok', command=self.PUNoChoise.destroy)
+        alert.pack()
+        okButton.pack()
+        self.PUNoChoise.mainloop()
+
+    
+    def agConfirmation(self):
+        self.PUAgConfirmation = tk.Toplevel(self.wd)
+        self.PUAgConfirmation.title('ALERTA')
+        size = f'{int(self.w/10)}x{int(self.h/10)}+{int(self.w*9/20)}+{int(self.h*9/20)}'
+        self.PUAgConfirmation.geometry(size)
+        alert = tk.Label(self.PUAgConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
+        okButton = tk.Button(self.PUAgConfirmation, text='Ok', command= self.agMigrationProcess)
+        cancelButton = tk.Button(self.PUAgConfirmation, text='Cancelar', command=self.PUAgConfirmation.destroy)
+        alert.pack()
+        okButton.pack()
+        cancelButton.pack()
+        self.PUAgConfirmation.mainloop()
+
+    def valConfirmation(self):
+        self.PUValConfirmation = tk.Toplevel(self.wd)
+        self.PUValConfirmation.title('ALERTA')
+        size = f'{int(self.w/10)}x{int(self.h/10)}+{int(self.w*9/20)}+{int(self.h*9/20)}'
+        self.PUValConfirmation.geometry(size)
+        alert = tk.Label(self.PUValConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
+        okButton = tk.Button(self.PUValConfirmation, text='Ok', command= self.distMigrationProcess)
+        cancelButton = tk.Button(self.PUValConfirmation, text='Cancelar', command=self.PUValConfirmation.destroy)
+        alert.pack()
+        okButton.pack()
+        cancelButton.pack()
+        self.PUValConfirmation.mainloop()
+
+    def bothConfirmation(self):
+        self.PUValConfirmation = tk.Toplevel(self.wd)
+        self.PUValConfirmation.title('ALERTA')
+        size = f'{int(self.w/10)}x{int(self.h/10)}+{int(self.w*9/20)}+{int(self.h*9/20)}'
+        self.PUValConfirmation.geometry(size)
+        alert = tk.Label(self.PUValConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
+        okButton = tk.Button(self.PUValConfirmation, text='Ok', command= self.bothMigrationProcess)
+        cancelButton = tk.Button(self.PUValConfirmation, text='Cancelar', command=self.PUValConfirmation.destroy)
+        alert.pack()
+        okButton.pack()
+        cancelButton.pack()
+        self.PUValConfirmation.mainloop()
+
+   
+
+    def goButtonCommand(self):
+        self.selMigraChoise = self.selOp1.get()
+        match self.selMigraChoise:
+            case 0:
+                self.noChoise1PU()                
+            case 1:
+                self.agConfirmation()
+            case 2:     
+                self.valConfirmation()
+            case 3:
+                self.bothConfirmation()            
+
+    def op1_1Command(self):
+        self.selOp2.set(0)
+        self.op2_1['state'] = 'disabled'
+        self.op2_2['state'] = 'disabled'
+        self.selOp3.set(0)
+        self.op3_1['state'] = 'disabled'
+        self.op3_2['state'] = 'disabled'
+
+    def op1_2Command(self):
+        self.op2_1['state'] = 'normal'
+        self.op2_2['state'] = 'normal'
+        self.selOp2.set(0)
+        self.op3_1['state'] = 'disabled'
+        self.op3_2['state'] = 'disabled'
+
+    def op1_3Command(self):
+        self.op2_1['state'] = 'normal'
+        self.op2_2['state'] = 'normal'
+        self.selOp2.set(0)
+        self.op3_1['state'] = 'disabled'
+        self.op3_2['state'] = 'disabled'
+
+    def op2_1Command(self):
+        self.op3_1['state'] = 'normal'
+        self.op3_2['state'] = 'normal'
+        self.selOp3.set(0)
+
+    def op2_2Command(self):
+        self.op3_1['state'] = 'normal'
+        self.op3_2['state'] = 'normal'
+        self.selOp3.set(0)
+
+    def op3_1Command(self):
+        pass
+
+    def op3_2Command(self):
+        pass
+
+    def agMigrationProcess(self):
+        self.PUAgConfirmation.destroy()
+        pass
+
+    def distMigrationProcess(self):
+        self.PUValConfirmation.destroy()
+        pass
+
+    def bothMigrationProcess(self):
+        pass
+
+    
+
+
+    def fullGUI(self):
+        self.windowDesign()
+        self.window1content()
+
+if __name__ == '__main__':
+    bot5 = bot5GUI()
+    bot5.fullGUI()
