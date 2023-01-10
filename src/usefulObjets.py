@@ -62,6 +62,8 @@ class sapInterfaceJob():
         self.fullAsignaciones = []
         self.dists = []
         self.finalTexts = []
+        self.tMigracion = None
+        self.xlsxRange = None
 
         self.wholeParametersList = []
         self.approvedAssignments = []
@@ -704,21 +706,10 @@ class sapInterfaceJob():
             
         except:
             writeLog('\n', 'No se encontró la hoja ' + self.rec + ' en el archivo de migraciones', self.logPath)
-
-
-    def fullProcess(self, n):
-        self.chargeListOfNames()
-        self.startSAP()
-        self.chargeXlsxSheet()
-        match n:
-            case 1:
-                self.ws2 = self.wsAg
-            case 2:
-                self.ws2 = self.wsDist
-                
-        xlsxRange = self.getExcelRange()
-        print('Este es el rango del xlsx: ', xlsxRange)
-        for r in xlsxRange:            
+        
+    def agORdis_ProcessDevelovment(self):
+        print('Este es el rango del xlsx: ', self.xlsxRange)
+        for r in self.xlsxRange:            
             self.accountNumber1 = self.ws2[f'C{r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{r}'].value
@@ -755,13 +746,13 @@ class sapInterfaceJob():
             self.getRightTable()
             parametersList = self.getWholeParametersList()
 
-            match self.tCuenta:
-                case 'CUENTA ETV':
-                    approvedParametersList = self.wichMigraVerification(parametersList)
-                
-                case 'CUENTA BANCO':
+            match self.tMigracion:
+                case 1:
                     preApprovedParametersList = self.wichMigraVerification(parametersList)
-                    approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
+                    approvedParametersList = self.wichMigraVerification2(parametersList)
+                
+                case 2:
+                    approvedParametersList = self.wichMigraVerification(preApprovedParametersList)
 
             asignacionNdocMigrated = []
             nDocsMigrated = []
@@ -805,6 +796,115 @@ class sapInterfaceJob():
             writeLog('', serparationMessage, self.logPath)
                            
         self.proc.kill()
+
+
+
+    def agORdis_Process(self):
+        self.chargeListOfNames()
+        self.startSAP()
+        self.chargeXlsxSheet()
+        match self.tMigracion:
+            case 1:
+                self.ws2 = self.wsAg
+            case 2:
+                self.ws2 = self.wsDist
+                
+        self.xlsxRange = self.getExcelRange()
+        self.agORdis_ProcessDevelovment()   
+
+    def agANDdis_process(self):
+        self.chargeListOfNames()
+        self.startSAP()
+        self.chargeXlsxSheet()
+        self.ws2 = self.wsAg
+        print('Este es el rango del xlsx: ', self.xlsxRange)
+        for r in self.xlsxRange:            
+            self.accountNumber1 = self.ws2[f'C{r}'].value
+            self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
+            self.accountNumber2 = self.ws2[f'D{r}'].value
+            self.accountNumberStr2 = str(self.accountNumber2).replace(' ', '')
+            self.bank =  self.ws2[f'E{r}'].value
+            self.bank = str(self.bank).strip()
+            self.rec =  self.ws2[f'B{r}'].value
+            self.rec = str(self.rec)
+            r2 = re.search('RECAUDADORA', self.rec).span()
+            r2 = r2[1]
+            r2+=1
+            self.rec = self.rec[r2:]
+            self.rec = self.rec.strip()
+            self.rec = self.rec.replace(' ', '.')
+            
+            self.rec = self.rec.replace('AGENCIA', 'AG')
+            self.moneda = self.rec[13:16]
+            self.moneda = self.moneda.replace('/', '')
+    
+            
+            self.txtCabDoc = 'TRASLADO A ' + self.bank
+
+            serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
+            writeLog('', serparationMessage, self.logPath)
+
+            self.getFbl3nMenu()
+            try:
+                self.getAccountTable()
+            except Exception as e:
+                print('No se pudo obtener la tabla de cuentas: ', e)
+                self.session.EndTransaction()
+                continue
+                
+            self.getRightTable()
+            parametersList = self.getWholeParametersList()
+             
+            preApprovedParametersList = self.wichMigraVerification(parametersList)
+            approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
+
+            asignacionNdocMigrated = []
+            nDocsMigrated = []
+            try:
+                for s in range(len(approvedParametersList[0])):
+                    rowList = []
+                    rowList.append(approvedParametersList[0][s])
+                    rowList.append(approvedParametersList[1][s])
+                    rowList.append(approvedParametersList[2][s])
+                    rowList.append(approvedParametersList[3][s])
+                    rowList.append(approvedParametersList[4][s])
+                    rowList.append(approvedParametersList[5][s])
+                    rowList.append(approvedParametersList[6][s])
+                    rowList.append(approvedParametersList[7][s])
+                    rowList.append(approvedParametersList[8][s])
+                    rowList.append(approvedParametersList[9][s])
+
+                    self.migration(rowList)
+                    asignacionNdocfMigratedbyOne = []
+                    asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
+                    asignacionNdocfMigratedbyOne.append(self.docf)
+                    asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
+                    nDocsMigrated.append(self.docf)
+                    self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
+                
+                    # self.session.EndTransaction()
+            except Exception as e:
+                writeLog('\n', e, self.logPath)
+            
+            
+
+            self.getFbl3nMenu()
+            self.getAccountTable()
+            parametersList = self.getWholeParametersList()
+            self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
+            df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
+            writeLog('\n', df, self.logPath)
+            #print(nDocsMigrated)
+            # writeLog('\n', nDocsMigrated, self.logPath)
+            serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
+            writeLog('', serparationMessage, self.logPath)
+
+
+            self.ws2 = self.wsDist
+                           
+        self.proc.kill()
+
+       
 
     def testingAccounts(self):
         self.chargeListOfNames()

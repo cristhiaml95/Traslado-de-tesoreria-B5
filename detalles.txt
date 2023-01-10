@@ -2,8 +2,9 @@
 
 *Cambié ws1 x wsConfig
 
+*También debe preguntar si se desea hacer de agencias, distribuidoras o ambas
 *En la interfaz gráfica se debe elegir si es de caja a ETV o de ETV a banco.
 *También debe preguntar si ya hizo la validación
-*También debe preguntar si se desea hacer de agencias, distribuidoras o ambas
+
 
 
