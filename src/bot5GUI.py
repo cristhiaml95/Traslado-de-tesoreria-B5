@@ -1,11 +1,15 @@
 import tkinter as tk
 import pyautogui as pg
+from usefulObjets import sapInterfaceJob
+import os
+from usefulFunctions import currentPathFolder
 
 class bot5GUI:
     def __init__(self):
         self.w, self.h = pg.size()
 
         self.wd = tk.Tk()
+        self.logoPath = None
         self.header = None
         self.options1Square = None
         self.options2Square = None
@@ -28,6 +32,9 @@ class bot5GUI:
         self.wd.title("BOT 5 - MENU")
         size = f'{int(self.w/5)}x{int(self.h/2.5)}+{int(self.w*2/5)}+{int(self.h*3/10)}'
         self.wd.geometry(size)
+        self.logoPath = currentPathFolder
+        self.logoPath = os.path.join(self.logoPath, 'jucu.ico')
+        self.wd.iconbitmap(self.logoPath)
         #self.wd.resizable(0,0)
         self.wd.configure(background='light sky blue')
 
@@ -105,7 +112,7 @@ class bot5GUI:
         size = f'{int(self.w/10)}x{int(self.h/10)}+{int(self.w*9/20)}+{int(self.h*9/20)}'
         self.PUAgConfirmation.geometry(size)
         alert = tk.Label(self.PUAgConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
-        okButton = tk.Button(self.PUAgConfirmation, text='Ok', command= self.agMigrationProcess)
+        okButton = tk.Button(self.PUAgConfirmation, text='Ok', command= self.agORdistMigrationProcess)
         cancelButton = tk.Button(self.PUAgConfirmation, text='Cancelar', command=self.PUAgConfirmation.destroy)
         alert.pack()
         okButton.pack()
@@ -118,7 +125,7 @@ class bot5GUI:
         size = f'{int(self.w/10)}x{int(self.h/10)}+{int(self.w*9/20)}+{int(self.h*9/20)}'
         self.PUValConfirmation.geometry(size)
         alert = tk.Label(self.PUValConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
-        okButton = tk.Button(self.PUValConfirmation, text='Ok', command= self.distMigrationProcess)
+        okButton = tk.Button(self.PUValConfirmation, text='Ok', command= self.agORdistMigrationProcess)
         cancelButton = tk.Button(self.PUValConfirmation, text='Cancelar', command=self.PUValConfirmation.destroy)
         alert.pack()
         okButton.pack()
@@ -147,10 +154,22 @@ class bot5GUI:
                 self.noChoise1PU()                
             case 1:
                 self.agConfirmation()
-            case 2:     
-                self.valConfirmation()
+            case 2:
+                if self.selOp2.get() == 0 or self.selOp3.get() == 0:
+                    self.noChoise1PU()
+                else:
+                    if self.selOp3.get() == 2:
+                        self.wd.destroy()
+                    else:     
+                        self.valConfirmation()
             case 3:
-                self.bothConfirmation()            
+                if self.selOp2.get() == 0 or self.selOp3.get() == 0:
+                    self.noChoise1PU()
+                else:
+                    if self.selOp3.get() == 2:
+                        self.wd.destroy()
+                    else:
+                        self.bothConfirmation()            
 
     def op1_1Command(self):
         self.selOp2.set(0)
@@ -190,16 +209,23 @@ class bot5GUI:
     def op3_2Command(self):
         pass
 
-    def agMigrationProcess(self):
+    def agORdistMigrationProcess(self):
         self.PUAgConfirmation.destroy()
-        pass
+        migra = sapInterfaceJob()
+        migra.tMigracion = self.selOp1.get()
+        migra.ETVflow = self.selOp2.get()
+        migra.agORdis_Process()
 
-    def distMigrationProcess(self):
-        self.PUValConfirmation.destroy()
-        pass
+    # def distMigrationProcess(self):
+    #     self.PUValConfirmation.destroy()
+    #     igra = sapInterfaceJob()
+    #     migra.tMigracion = self.selOp1.get()
+    #     migra.agORdis_Process()
 
     def bothMigrationProcess(self):
-        pass
+        self.PUValConfirmation.destroy()
+        migra = sapInterfaceJob()
+        migra.agANDdis_process()
 
     
 

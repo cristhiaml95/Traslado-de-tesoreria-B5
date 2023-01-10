@@ -5,8 +5,7 @@ from datetime import datetime, timedelta
 from openpyxl import load_workbook
 import re
 import os
-import pandas as pd
-from usefulFunctions import currentPathParentFolder, currentPathGrandpaFolder ,xlsxFormatting, today, writeLog, fecha_a_dia
+from usefulFunctions import currentPathParentFolder, currentPathGrandpaFolder, today, writeLog, fecha_a_dia, copyANDeraseFile, copyFile
 
 #poo desde video 26
 
@@ -85,12 +84,15 @@ class sapInterfaceJob():
 
         self.currentPathParentFolder = currentPathParentFolder
         self.currentPathGrandpaFolder = currentPathGrandpaFolder
-        self.logPath = os.path.join(self.currentPathParentFolder,"log.txt")
+        self.logPath = os.path.join(self.currentPathParentFolder,"Cuentas recaudadoras", "log.txt")
         # self.currentPathGrandpaFolder = 'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5'
-        self.ip1 = None
+        self.directo = None
+        self.ETVflow = None
         self.xlsxMigracion = None
         
         self.changeThePeriod = False
+        self.i_0 = 3
+        self.j_0 = 0
         self.i = 3
         self.j = 0
         self.jMax = 3
@@ -643,19 +645,21 @@ class sapInterfaceJob():
         self.ct = str(self.ct).replace(' ', '')
         self.importe = str(self.importe).replace(' ', '')
 
-        self.texto = self.dist + '.TRASP.CAJ.' + self.moneda + '.' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
+        match self.tMigracion:
+            case 1:
+                self.texto = self.dist + '.TRASP.CAJ.' + self.moneda + '.' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
+            case 2:
+                match self.directo:
+                    case 'SI':
+                        self.texto = self.dist + '.DEP. DIRECTO A BANCO ' + self.fullAsignacion + ' ' + self.fecha2
 
-        match self.ip1:
-            case '0':
-                self.texto = self.dist + '.ENTREGA A BRINKS CIERRE ' + self.fullAsignacion + ' ' + self.fecha2
-
-            case '1':
-                self.texto = self.dist + '.TRASPASO ' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
-            
-
-        if 'CENTRAL' in self.rec:
-            self.texto = self.dist + '.DEP. DIRECTO A BANCO ' + self.fullAsignacion + ' ' + self.fecha2
-
+                    case 'NO':
+                        match self.ETVflow:
+                            case 1:
+                                self.texto = self.dist + '.ENTREGA A BRINKS CIERRE ' + self.fullAsignacion + ' ' + self.fecha2
+                            case 2:
+                                self.texto = self.dist + '.TRASPASO ' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
+                    
 
     def getAccountTableChildren(self, account):
         self.session.findById("wnd[0]/usr/ctxtSD_SAKNR-LOW").text = account
@@ -726,6 +730,7 @@ class sapInterfaceJob():
             self.rec = self.rec.replace(' ', '.')
             
             self.rec = self.rec.replace('AGENCIA', 'AG')
+            self.rec = self.rec.replace('CENTRAL', '')
             self.moneda = self.rec[13:16]
             self.moneda = self.moneda.replace('/', '')
     
@@ -753,49 +758,51 @@ class sapInterfaceJob():
                 
                 case 2:
                     approvedParametersList = self.wichMigraVerification(preApprovedParametersList)
+        
+        print('CORRIDO CORRECTAMENTE.')
 
-            asignacionNdocMigrated = []
-            nDocsMigrated = []
-            try:
-                for s in range(len(approvedParametersList[0])):
-                    rowList = []
-                    rowList.append(approvedParametersList[0][s])
-                    rowList.append(approvedParametersList[1][s])
-                    rowList.append(approvedParametersList[2][s])
-                    rowList.append(approvedParametersList[3][s])
-                    rowList.append(approvedParametersList[4][s])
-                    rowList.append(approvedParametersList[5][s])
-                    rowList.append(approvedParametersList[6][s])
-                    rowList.append(approvedParametersList[7][s])
-                    rowList.append(approvedParametersList[8][s])
-                    rowList.append(approvedParametersList[9][s])
+            # asignacionNdocMigrated = []
+            # nDocsMigrated = []
+            # try:
+            #     for s in range(len(approvedParametersList[0])):
+            #         rowList = []
+            #         rowList.append(approvedParametersList[0][s])
+            #         rowList.append(approvedParametersList[1][s])
+            #         rowList.append(approvedParametersList[2][s])
+            #         rowList.append(approvedParametersList[3][s])
+            #         rowList.append(approvedParametersList[4][s])
+            #         rowList.append(approvedParametersList[5][s])
+            #         rowList.append(approvedParametersList[6][s])
+            #         rowList.append(approvedParametersList[7][s])
+            #         rowList.append(approvedParametersList[8][s])
+            #         rowList.append(approvedParametersList[9][s])
 
-                    self.migration(rowList)
-                    asignacionNdocfMigratedbyOne = []
-                    asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
-                    asignacionNdocfMigratedbyOne.append(self.docf)
-                    asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
-                    nDocsMigrated.append(self.docf)
-                    self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
+            #         self.migration(rowList)
+            #         asignacionNdocfMigratedbyOne = []
+            #         asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
+            #         asignacionNdocfMigratedbyOne.append(self.docf)
+            #         asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
+            #         nDocsMigrated.append(self.docf)
+            #         self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
                 
-                    # self.session.EndTransaction()
-            except Exception as e:
-                writeLog('\n', e, self.logPath)
+            #         # self.session.EndTransaction()
+            # except Exception as e:
+            #     writeLog('\n', e, self.logPath)
             
             
 
-            self.getFbl3nMenu()
-            self.getAccountTable()
-            parametersList = self.getWholeParametersList()
-            self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
-            df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
-            writeLog('\n', df, self.logPath)
-            #print(nDocsMigrated)
-            # writeLog('\n', nDocsMigrated, self.logPath)
-            serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
-            writeLog('', serparationMessage, self.logPath)
+            # self.getFbl3nMenu()
+            # self.getAccountTable()
+            # parametersList = self.getWholeParametersList()
+            # self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
+            # df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
+            # writeLog('\n', df, self.logPath)
+            # #print(nDocsMigrated)
+            # # writeLog('\n', nDocsMigrated, self.logPath)
+            # serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
+            # writeLog('', serparationMessage, self.logPath)
                            
-        self.proc.kill()
+        #self.proc.kill()
 
 
 
@@ -810,13 +817,18 @@ class sapInterfaceJob():
                 self.ws2 = self.wsDist
                 
         self.xlsxRange = self.getExcelRange()
-        self.agORdis_ProcessDevelovment()   
+        self.agORdis_ProcessDevelovment()
+        copyANDeraseFile('logs.txt')
+        copyANDeraseFile('CUENTAS DE CAJA IVSA.xlsx')
+        copyFile('CUENTAS DE CAJA IVSA.xlsx')
+
 
     def agANDdis_process(self):
         self.chargeListOfNames()
         self.startSAP()
         self.chargeXlsxSheet()
         self.ws2 = self.wsAg
+        self.xlsxRange = self.getExcelRange()
         print('Este es el rango del xlsx: ', self.xlsxRange)
         for r in self.xlsxRange:            
             self.accountNumber1 = self.ws2[f'C{r}'].value
@@ -853,66 +865,72 @@ class sapInterfaceJob():
                 continue
                 
             self.getRightTable()
+            alert = self.session.findById('wnd[0]/sbar/pane[0]').text
+            alert2 = 'No se ha seleccionado ninguna partida'
+            if alert2 in alert:
+                inAlert = f'No se encontró tabla de datos, revisar manualmente. CUENTA: {self.accountNumberStr1} a {self.accountNumberStr2}'
+                writeLog('\n', inAlert, self.logPath)
+                self.session.endTransaction()
+                continue
             parametersList = self.getWholeParametersList()
              
             preApprovedParametersList = self.wichMigraVerification(parametersList)
             approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
 
-            asignacionNdocMigrated = []
-            nDocsMigrated = []
-            try:
-                for s in range(len(approvedParametersList[0])):
-                    rowList = []
-                    rowList.append(approvedParametersList[0][s])
-                    rowList.append(approvedParametersList[1][s])
-                    rowList.append(approvedParametersList[2][s])
-                    rowList.append(approvedParametersList[3][s])
-                    rowList.append(approvedParametersList[4][s])
-                    rowList.append(approvedParametersList[5][s])
-                    rowList.append(approvedParametersList[6][s])
-                    rowList.append(approvedParametersList[7][s])
-                    rowList.append(approvedParametersList[8][s])
-                    rowList.append(approvedParametersList[9][s])
+        print('CORRIDO CORRECTAMENTE.')
 
-                    self.migration(rowList)
-                    asignacionNdocfMigratedbyOne = []
-                    asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
-                    asignacionNdocfMigratedbyOne.append(self.docf)
-                    asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
-                    nDocsMigrated.append(self.docf)
-                    self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
+            # asignacionNdocMigrated = []
+            # nDocsMigrated = []
+            # try:
+            #     for s in range(len(approvedParametersList[0])):
+            #         rowList = []
+            #         rowList.append(approvedParametersList[0][s])
+            #         rowList.append(approvedParametersList[1][s])
+            #         rowList.append(approvedParametersList[2][s])
+            #         rowList.append(approvedParametersList[3][s])
+            #         rowList.append(approvedParametersList[4][s])
+            #         rowList.append(approvedParametersList[5][s])
+            #         rowList.append(approvedParametersList[6][s])
+            #         rowList.append(approvedParametersList[7][s])
+            #         rowList.append(approvedParametersList[8][s])
+            #         rowList.append(approvedParametersList[9][s])
+
+            #         self.migration(rowList)
+            #         asignacionNdocfMigratedbyOne = []
+            #         asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
+            #         asignacionNdocfMigratedbyOne.append(self.docf)
+            #         asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
+            #         nDocsMigrated.append(self.docf)
+            #         self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
                 
-                    # self.session.EndTransaction()
-            except Exception as e:
-                writeLog('\n', e, self.logPath)
+            #         # self.session.EndTransaction()
+            # except Exception as e:
+            #     writeLog('\n', e, self.logPath)
             
             
 
-            self.getFbl3nMenu()
-            self.getAccountTable()
-            parametersList = self.getWholeParametersList()
-            self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
-            df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
-            writeLog('\n', df, self.logPath)
-            #print(nDocsMigrated)
-            # writeLog('\n', nDocsMigrated, self.logPath)
-            serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
-            writeLog('', serparationMessage, self.logPath)
+            # self.getFbl3nMenu()
+            # self.getAccountTable()
+            # parametersList = self.getWholeParametersList()
+            # self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
+            # df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
+            # writeLog('\n', df, self.logPath)
+            # #print(nDocsMigrated)
+            # # writeLog('\n', nDocsMigrated, self.logPath)
+            # serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
+            # writeLog('', serparationMessage, self.logPath)
 
 
-            self.ws2 = self.wsDist
-                           
-        self.proc.kill()
 
-       
 
-    def testingAccounts(self):
-        self.chargeListOfNames()
-        self.startSAP()
-        self.chargeXlsxSheet()
-        xlsxRange = self.getExcelRange()
-        print('Este es el rango del xlsx: ', xlsxRange)
-        for r in xlsxRange:            
+############################################################################################################################################################################
+################ dist process #######################################################################################################################################################
+        self.i = self.i_0
+        self.j = self.j_0
+        self.ws2 = self.wsDist
+        self.xlsxRange = self.getExcelRange()
+        print('Este es el rango del xlsx: ', self.xlsxRange)
+        for r in self.xlsxRange:            
             self.accountNumber1 = self.ws2[f'C{r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{r}'].value
@@ -921,50 +939,22 @@ class sapInterfaceJob():
             self.bank = str(self.bank).strip()
             self.rec =  self.ws2[f'B{r}'].value
             self.rec = str(self.rec)
+            r2 = re.search('RECAUDADORA', self.rec).span()
+            r2 = r2[1]
+            r2+=1
+            self.rec = self.rec[r2:]
+            self.rec = self.rec.strip()
+            self.rec = self.rec.replace(' ', '.')
             
+            self.rec = self.rec.replace('AGENCIA', 'AG')
+            self.moneda = self.rec[13:16]
+            self.moneda = self.moneda.replace('/', '')
+    
             
             self.txtCabDoc = 'TRASLADO A ' + self.bank
 
             serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
             writeLog('', serparationMessage, self.logPath)
-
-            match self.tCuenta:
-                case 'CUENTA ETV':
-                    self.moneda = 'MN'
-                    question1 = 'El traslado es de banco a ETV(0) o de ETV a banco(1) ? : '
-                    self.ip1 = input(question1)
-                    while self.ip1 != '1' and self.ip1 != '0':
-                        print('\nOpcion no valida.\n')
-                        self.ip1 = input(question2)
-
-                    question3 = 'Ingrese el nombre de la distribuidora: '
-                    ip2 = input(question3)
-                    self.rec = ip2
-
-                    question2 = f'Ya realizo la validacion manual para el traslado de ETV entre {self.accountNumber1} y {self.accountNumber2}? si(1)/no(0): '
-                    ip = input(question2)
-                    while ip != '1' and ip != '0':
-                        print('\nOpcion no valida.\n')
-                        ip = input(question2)
-                    
-                    if ip == '0':
-                        self.proc.kill()
-                        exit()
-                    
-                    else:
-                        pass
-
-                case 'CUENTA BANCO':
-                    r2 = re.search('RECAUDADORA', self.rec).span()
-                    r2 = r2[1]
-                    r2+=1
-                    self.rec = self.rec[r2:]
-                    self.rec = self.rec.strip()
-                    self.rec = self.rec.replace(' ', '.')
-                    
-                    self.rec = self.rec.replace('AGENCIA', 'AG')
-                    self.moneda = self.rec[12:15]
-                    self.moneda = self.moneda.replace('/', '')
 
             self.getFbl3nMenu()
             try:
@@ -975,14 +965,64 @@ class sapInterfaceJob():
                 continue
                 
             self.getRightTable()
+            alert = self.session.findById('wnd[0]/sbar/pane[0]').text
+            alert2 = 'No se ha seleccionado ninguna partida'
+            if alert2 in alert:
+                inAlert = f'No se encontró tabla de datos, revisar manualmente. CUENTA: {self.accountNumberStr1} a {self.accountNumberStr2}'
+                writeLog('\n', inAlert, self.logPath)
+                self.session.endTransaction()
+                continue
             parametersList = self.getWholeParametersList()
+             
+            ApprovedParametersList = self.wichMigraVerification(parametersList)
 
-            match self.tCuenta:
-                case 'CUENTA ETV':
-                    approvedParametersList = self.wichMigraVerification(parametersList)
+            print('CORRIDO CORRECTAMENTE POR SEGUNDA VEZ.')
+
+        #     asignacionNdocMigrated = []
+        #     nDocsMigrated = []
+        #     try:
+        #         for s in range(len(approvedParametersList[0])):
+        #             rowList = []
+        #             rowList.append(approvedParametersList[0][s])
+        #             rowList.append(approvedParametersList[1][s])
+        #             rowList.append(approvedParametersList[2][s])
+        #             rowList.append(approvedParametersList[3][s])
+        #             rowList.append(approvedParametersList[4][s])
+        #             rowList.append(approvedParametersList[5][s])
+        #             rowList.append(approvedParametersList[6][s])
+        #             rowList.append(approvedParametersList[7][s])
+        #             rowList.append(approvedParametersList[8][s])
+        #             rowList.append(approvedParametersList[9][s])
+
+        #             self.migration(rowList)
+        #             asignacionNdocfMigratedbyOne = []
+        #             asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
+        #             asignacionNdocfMigratedbyOne.append(self.docf)
+        #             asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
+        #             nDocsMigrated.append(self.docf)
+        #             self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
                 
-                case 'CUENTA BANCO':
-                    preApprovedParametersList = self.wichMigraVerification(parametersList)
-                    approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
+        #             # self.session.EndTransaction()
+        #     except Exception as e:
+        #         writeLog('\n', e, self.logPath)
+            
+            
 
-            print('hola')
+        #     self.getFbl3nMenu()
+        #     self.getAccountTable()
+        #     parametersList = self.getWholeParametersList()
+        #     self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
+        #     df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
+        #     writeLog('\n', df, self.logPath)
+        #     #print(nDocsMigrated)
+        #     # writeLog('\n', nDocsMigrated, self.logPath)
+        #     serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
+        #     writeLog('', serparationMessage, self.logPath)
+                           
+        # self.proc.kill()
+    copyANDeraseFile('logs.txt')
+    copyANDeraseFile('CUENTAS DE CAJA IVSA.xlsx')
+    copyFile('CUENTAS DE CAJA IVSA.xlsx')
+
+
+       

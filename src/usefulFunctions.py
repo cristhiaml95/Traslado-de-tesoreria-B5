@@ -4,6 +4,7 @@ from pathlib import Path
 import sys
 import datetime
 import os
+import shutil
 
 def isNaN(num):
     return num!= num
@@ -33,6 +34,12 @@ def today2():
     fullTime = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=-4)
     currenteDateStr = fullTime.strftime("%d%m%Y")
     return currenteDateStr
+
+def today3():
+    fullTime = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=-4)
+    currenteDateStr = fullTime.strftime("%d.%m.%Y-%H.%M.%S")
+    return currenteDateStr
+
 
 
 
@@ -126,6 +133,26 @@ def fecha_a_dia(fecha):
     fecha_formateada = datetime.date(int(fecha_split[2]), int(fecha_split[1]), int(fecha_split[0]))
     dia = dias_de_la_semana[fecha_formateada.weekday()]
     return dia
+
+def copyANDeraseFile(fileName):
+    todayPath = os.path.join(currentPathParentFolder,"Cuentas recaudadoras")
+    fileFromTodayPathFrom = os.path.join(todayPath,fileName)
+    todayPath = os.path.join(todayPath,today())
+    if not os.path.exists(todayPath):
+        os.mkdir(todayPath)
+    fileName = today3() + ' ' + fileName
+    fileFromTodayPathTo = os.path.join(todayPath,fileName)
+    shutil.copyfile(fileFromTodayPathFrom, fileFromTodayPathTo)
+    os.remove(fileFromTodayPathFrom)
+
+def copyFile(fileName):
+    fileNamePathFrom = os.path.join(currentPathParentFolder, fileName)
+    fileNamePathTo = os.path.join(currentPathParentFolder, "Cuentas recaudadoras")
+    fileNamePathTo = os.path.join(fileNamePathTo, fileName)
+    shutil.copyfile(fileNamePathFrom, fileNamePathTo)
+
+
+
 
 
 

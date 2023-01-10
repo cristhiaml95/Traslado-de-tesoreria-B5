@@ -1,19 +1,98 @@
 
 
--------------------------------- 30.12.2022 Iniciando Migracion de cuenta 101020101 a 101044052 --------------------------------
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010102 a 101020101 --------------------------------
 
 
 Formato de tabla correcto
 
--------------------------------- 30.12.2022 Iniciando Migracion de cuenta 101020101 a 101044052 --------------------------------
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010106 a 101020101 --------------------------------
 
 
+Formato de tabla correcto
 
--------------------------------- 31.12.2022 Iniciando Migracion de cuenta 101020101 a 101044052 --------------------------------
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010107 a 101020101 --------------------------------
 
 
+Formato de tabla correcto
 
--------------------------------- 31.12.2022 Iniciando Migracion de cuenta 101010134 a 101041082 --------------------------------
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010109 a 101020101 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010111 a 101020101 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010114 a 101020101 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010117 a 101020101 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010119 a 101020101 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010121 a 101020101 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010202 a 101020201 --------------------------------
+
+
+Formato de tabla incorrecto, no se puede cambiar.
+No se encontró tabla de datos, revisar manualmente. CUENTA: 101010202 a 101020201
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010206 a 101020201 --------------------------------
+
+
+Formato de tabla incorrecto, no se puede cambiar.
+No se encontró tabla de datos, revisar manualmente. CUENTA: 101010206 a 101020201
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010207 a 101020201 --------------------------------
+
+
+Formato de tabla incorrecto, no se puede cambiar.
+No se encontró tabla de datos, revisar manualmente. CUENTA: 101010207 a 101020201
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010209 a 101020201 --------------------------------
+
+
+Formato de tabla incorrecto, no se puede cambiar.
+No se encontró tabla de datos, revisar manualmente. CUENTA: 101010209 a 101020201
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010211 a 101020201 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010214 a 101020201 --------------------------------
+
+
+Formato de tabla incorrecto, no se puede cambiar.
+No se encontró tabla de datos, revisar manualmente. CUENTA: 101010214 a 101020201
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010217 a 101020201 --------------------------------
+
+
+Formato de tabla incorrecto, no se puede cambiar.
+No se encontró tabla de datos, revisar manualmente. CUENTA: 101010217 a 101020201
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010219 a 101020201 --------------------------------
+
+
+Formato de tabla incorrecto, no se puede cambiar.
+No se encontró tabla de datos, revisar manualmente. CUENTA: 101010219 a 101020201
+
+-------------------------------- 10.01.2023 Iniciando Migracion de cuenta 101010221 a 101020201 --------------------------------
 
 
 Formato de tabla correcto

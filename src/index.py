@@ -1,7 +1,9 @@
-from usefulFunctions import *
-from usefulObjets import *
+from bot5GUI import bot5GUI
 
 if __name__=='__main__':
-    x = sapInterfaceJob()
+    #x = sapInterfaceJob()
     #x.fullProcess()
-    x.testingAccounts()
+    #x.testingAccounts()
+    bot5 = bot5GUI()
+    bot5.fullGUI()
+
