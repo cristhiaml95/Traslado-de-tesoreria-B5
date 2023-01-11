@@ -1,4 +1,3 @@
-from openpyxl import Workbook
 from openpyxl import load_workbook
 from pathlib import Path
 import sys
@@ -151,6 +150,35 @@ def copyFile(fileName):
     fileNamePathTo = os.path.join(fileNamePathTo, fileName)
     shutil.copyfile(fileNamePathFrom, fileNamePathTo)
 
+def ndocTOxlsx(asignacionNdocMigrated, rec, xlsx, logPath):
+    xlsx = xlsx + '.xlsx'
+    xlsxPath = os.path.join(currentPathParentFolder, 'Migraciones', xlsx)
+    try:
+        wb = load_workbook(xlsxPath)
+    except:
+        writeLog('\n', f'El archivo {xlsx} no existe en el directorio o está abierto.', logPath)
+    try:
+        ws = wb[rec]
+        for l in asignacionNdocMigrated:
+            counter = 0
+            for i in range(1, ws.max_row+1):
+                asignacion = l[0]
+                ndoc = l[1]
+                if asignacion == ws.cell(row=i, column=1).value:
+                    ws[f'K{i}'] = ndoc
+                    counter = 1
+                    break      
+            if counter == 0:
+                writeLog('\n', f'La asignación {asignacion} no existe en la hoja {rec} del archivo {xlsx}.', logPath)   
+        wb.save(xlsxPath)
+        wb.close()
+    except:
+        writeLog('\n', f'La hoja {rec} no existe en el archivo {xlsx}.', logPath)
+
+
+
+
+
 
 
 
@@ -158,4 +186,4 @@ def copyFile(fileName):
 
 
 if __name__=='__main__': 
-  pass
+  ndocTOxlsx('CCAJ-LP08/298/22', '13161561565', 'AG. ACHUMANI', 'MIGRACIONES SGV DICIEMBRE 2022 28.12.2022', r'C:\Users\crist\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\Venado\Cris\Bot5\Cuentas recaudadoras\logs.txt')

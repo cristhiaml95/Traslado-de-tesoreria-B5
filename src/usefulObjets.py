@@ -5,7 +5,8 @@ from datetime import datetime, timedelta
 from openpyxl import load_workbook
 import re
 import os
-from usefulFunctions import currentPathParentFolder, currentPathGrandpaFolder, today, writeLog, fecha_a_dia, copyANDeraseFile, copyFile
+from usefulFunctions import currentPathParentFolder, currentPathGrandpaFolder, today, writeLog, fecha_a_dia, copyANDeraseFile, copyFile, ndocTOxlsx
+import pandas as pd
 
 #poo desde video 26
 
@@ -647,6 +648,7 @@ class sapInterfaceJob():
 
         match self.tMigracion:
             case 1:
+                self.rec = 'AG. ' + self.rec
                 self.texto = self.dist + '.TRASP.CAJ.' + self.moneda + '.' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
             case 2:
                 match self.directo:
@@ -722,18 +724,19 @@ class sapInterfaceJob():
             self.bank = str(self.bank).strip()
             self.rec =  self.ws2[f'B{r}'].value
             self.rec = str(self.rec)
+            self.moneda = self.rec[13:16]
+            self.moneda = self.moneda.replace('/', '')
             r2 = re.search('RECAUDADORA', self.rec).span()
             r2 = r2[1]
             r2+=1
             self.rec = self.rec[r2:]
-            self.rec = self.rec.strip()
-            self.rec = self.rec.replace(' ', '.')
-            
-            self.rec = self.rec.replace('AGENCIA', 'AG')
+            self.rec = self.rec.replace('.', '')
+            self.rec = self.rec.replace('AGENCIA', '')
+            self.rec = self.rec.replace('AG.', '')
             self.rec = self.rec.replace('CENTRAL', '')
-            self.moneda = self.rec[13:16]
-            self.moneda = self.moneda.replace('/', '')
-    
+            self.rec = self.rec.strip()
+            
+            
             
             self.txtCabDoc = 'TRASLADO A ' + self.bank
 
@@ -759,50 +762,49 @@ class sapInterfaceJob():
                 case 2:
                     approvedParametersList = self.wichMigraVerification(preApprovedParametersList)
         
-        print('CORRIDO CORRECTAMENTE.')
+            print('CORRIDO CORRECTAMENTE.')
 
-            # asignacionNdocMigrated = []
-            # nDocsMigrated = []
-            # try:
-            #     for s in range(len(approvedParametersList[0])):
-            #         rowList = []
-            #         rowList.append(approvedParametersList[0][s])
-            #         rowList.append(approvedParametersList[1][s])
-            #         rowList.append(approvedParametersList[2][s])
-            #         rowList.append(approvedParametersList[3][s])
-            #         rowList.append(approvedParametersList[4][s])
-            #         rowList.append(approvedParametersList[5][s])
-            #         rowList.append(approvedParametersList[6][s])
-            #         rowList.append(approvedParametersList[7][s])
-            #         rowList.append(approvedParametersList[8][s])
-            #         rowList.append(approvedParametersList[9][s])
+            asignacionNdocMigrated = []
+            nDocsMigrated = []
+            try:
+                for s in range(len(approvedParametersList[0])):
+                    rowList = []
+                    rowList.append(approvedParametersList[0][s])
+                    rowList.append(approvedParametersList[1][s])
+                    rowList.append(approvedParametersList[2][s])
+                    rowList.append(approvedParametersList[3][s])
+                    rowList.append(approvedParametersList[4][s])
+                    rowList.append(approvedParametersList[5][s])
+                    rowList.append(approvedParametersList[6][s])
+                    rowList.append(approvedParametersList[7][s])
+                    rowList.append(approvedParametersList[8][s])
+                    rowList.append(approvedParametersList[9][s])
 
-            #         self.migration(rowList)
-            #         asignacionNdocfMigratedbyOne = []
-            #         asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
-            #         asignacionNdocfMigratedbyOne.append(self.docf)
-            #         asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
-            #         nDocsMigrated.append(self.docf)
-            #         self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
+                    self.migration(rowList)
+                    asignacionNdocfMigratedbyOne = []
+                    asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
+                    asignacionNdocfMigratedbyOne.append(self.docf)
+                    asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
+                    nDocsMigrated.append(self.docf)
+                    self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
                 
-            #         # self.session.EndTransaction()
-            # except Exception as e:
-            #     writeLog('\n', e, self.logPath)
-            
-            
+                    # self.session.EndTransaction()
+            except Exception as e:
+                writeLog('\n', e, self.logPath)
 
-            # self.getFbl3nMenu()
-            # self.getAccountTable()
-            # parametersList = self.getWholeParametersList()
-            # self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
-            # df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
-            # writeLog('\n', df, self.logPath)
-            # #print(nDocsMigrated)
-            # # writeLog('\n', nDocsMigrated, self.logPath)
-            # serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
-            # writeLog('', serparationMessage, self.logPath)
+            self.getFbl3nMenu()
+            self.getAccountTable()
+            parametersList = self.getWholeParametersList()
+            self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
+            df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
+            ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
+            writeLog('\n', df, self.logPath)
+            #print(nDocsMigrated)
+            # writeLog('\n', nDocsMigrated, self.logPath)
+            serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
+            writeLog('', serparationMessage, self.logPath)
                            
-        #self.proc.kill()
+        self.proc.kill()
 
 
 
@@ -839,17 +841,17 @@ class sapInterfaceJob():
             self.bank = str(self.bank).strip()
             self.rec =  self.ws2[f'B{r}'].value
             self.rec = str(self.rec)
+            self.moneda = self.rec[13:16]
+            self.moneda = self.moneda.replace('/', '')
             r2 = re.search('RECAUDADORA', self.rec).span()
             r2 = r2[1]
             r2+=1
             self.rec = self.rec[r2:]
-            self.rec = self.rec.strip()
-            self.rec = self.rec.replace(' ', '.')
-            
-            self.rec = self.rec.replace('AGENCIA', 'AG')
-            self.moneda = self.rec[13:16]
-            self.moneda = self.moneda.replace('/', '')
-    
+            self.rec = self.rec.replace('.', '')
+            self.rec = self.rec.replace('AGENCIA', '')
+            self.rec = self.rec.replace('AG', '')
+            self.rec = self.rec.replace('CENTRAL', '')
+            self.rec = self.rec.strip()              
             
             self.txtCabDoc = 'TRASLADO A ' + self.bank
 
@@ -877,54 +879,53 @@ class sapInterfaceJob():
             preApprovedParametersList = self.wichMigraVerification(parametersList)
             approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
 
-        print('CORRIDO CORRECTAMENTE.')
+            print('CORRIDO CORRECTAMENTE.')
 
-            # asignacionNdocMigrated = []
-            # nDocsMigrated = []
-            # try:
-            #     for s in range(len(approvedParametersList[0])):
-            #         rowList = []
-            #         rowList.append(approvedParametersList[0][s])
-            #         rowList.append(approvedParametersList[1][s])
-            #         rowList.append(approvedParametersList[2][s])
-            #         rowList.append(approvedParametersList[3][s])
-            #         rowList.append(approvedParametersList[4][s])
-            #         rowList.append(approvedParametersList[5][s])
-            #         rowList.append(approvedParametersList[6][s])
-            #         rowList.append(approvedParametersList[7][s])
-            #         rowList.append(approvedParametersList[8][s])
-            #         rowList.append(approvedParametersList[9][s])
+            asignacionNdocMigrated = []
+            nDocsMigrated = []
+            try:
+                for s in range(len(approvedParametersList[0])):
+                    rowList = []
+                    rowList.append(approvedParametersList[0][s])
+                    rowList.append(approvedParametersList[1][s])
+                    rowList.append(approvedParametersList[2][s])
+                    rowList.append(approvedParametersList[3][s])
+                    rowList.append(approvedParametersList[4][s])
+                    rowList.append(approvedParametersList[5][s])
+                    rowList.append(approvedParametersList[6][s])
+                    rowList.append(approvedParametersList[7][s])
+                    rowList.append(approvedParametersList[8][s])
+                    rowList.append(approvedParametersList[9][s])
 
-            #         self.migration(rowList)
-            #         asignacionNdocfMigratedbyOne = []
-            #         asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
-            #         asignacionNdocfMigratedbyOne.append(self.docf)
-            #         asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
-            #         nDocsMigrated.append(self.docf)
-            #         self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
+                    self.migration(rowList)
+                    asignacionNdocfMigratedbyOne = []
+                    asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
+                    asignacionNdocfMigratedbyOne.append(self.docf)
+                    asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
+                    nDocsMigrated.append(self.docf)
+                    self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
                 
-            #         # self.session.EndTransaction()
-            # except Exception as e:
-            #     writeLog('\n', e, self.logPath)
+                    # self.session.EndTransaction()
+            except Exception as e:
+                writeLog('\n', e, self.logPath)
             
             
 
-            # self.getFbl3nMenu()
-            # self.getAccountTable()
-            # parametersList = self.getWholeParametersList()
-            # self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
-            # df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
-            # writeLog('\n', df, self.logPath)
-            # #print(nDocsMigrated)
-            # # writeLog('\n', nDocsMigrated, self.logPath)
-            # serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
-            # writeLog('', serparationMessage, self.logPath)
+            self.getFbl3nMenu()
+            self.getAccountTable()
+            parametersList = self.getWholeParametersList()
+            self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
+            df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
+            ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
+            writeLog('\n', df, self.logPath)
+            #print(nDocsMigrated)
+            # writeLog('\n', nDocsMigrated, self.logPath)
+            serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
+            writeLog('', serparationMessage, self.logPath)
 
 
-
-
-############################################################################################################################################################################
-################ dist process #######################################################################################################################################################
+        ############################################################################################################################################################################
+        ################ dist process #######################################################################################################################################################
         self.i = self.i_0
         self.j = self.j_0
         self.ws2 = self.wsDist
@@ -939,18 +940,18 @@ class sapInterfaceJob():
             self.bank = str(self.bank).strip()
             self.rec =  self.ws2[f'B{r}'].value
             self.rec = str(self.rec)
+            self.moneda = self.rec[13:16]
+            self.moneda = self.moneda.replace('/', '')
             r2 = re.search('RECAUDADORA', self.rec).span()
             r2 = r2[1]
             r2+=1
             self.rec = self.rec[r2:]
+            self.rec = self.rec.replace('.', '')
+            self.rec = self.rec.replace('AGENCIA', '')
+            self.rec = self.rec.replace('AG.', '')
+            self.rec = self.rec.replace('CENTRAL', '')
             self.rec = self.rec.strip()
-            self.rec = self.rec.replace(' ', '.')
-            
-            self.rec = self.rec.replace('AGENCIA', 'AG')
-            self.moneda = self.rec[13:16]
-            self.moneda = self.moneda.replace('/', '')
-    
-            
+                        
             self.txtCabDoc = 'TRASLADO A ' + self.bank
 
             serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
@@ -978,48 +979,49 @@ class sapInterfaceJob():
 
             print('CORRIDO CORRECTAMENTE POR SEGUNDA VEZ.')
 
-        #     asignacionNdocMigrated = []
-        #     nDocsMigrated = []
-        #     try:
-        #         for s in range(len(approvedParametersList[0])):
-        #             rowList = []
-        #             rowList.append(approvedParametersList[0][s])
-        #             rowList.append(approvedParametersList[1][s])
-        #             rowList.append(approvedParametersList[2][s])
-        #             rowList.append(approvedParametersList[3][s])
-        #             rowList.append(approvedParametersList[4][s])
-        #             rowList.append(approvedParametersList[5][s])
-        #             rowList.append(approvedParametersList[6][s])
-        #             rowList.append(approvedParametersList[7][s])
-        #             rowList.append(approvedParametersList[8][s])
-        #             rowList.append(approvedParametersList[9][s])
+            asignacionNdocMigrated = []
+            nDocsMigrated = []
+            try:
+                for s in range(len(approvedParametersList[0])):
+                    rowList = []
+                    rowList.append(approvedParametersList[0][s])
+                    rowList.append(approvedParametersList[1][s])
+                    rowList.append(approvedParametersList[2][s])
+                    rowList.append(approvedParametersList[3][s])
+                    rowList.append(approvedParametersList[4][s])
+                    rowList.append(approvedParametersList[5][s])
+                    rowList.append(approvedParametersList[6][s])
+                    rowList.append(approvedParametersList[7][s])
+                    rowList.append(approvedParametersList[8][s])
+                    rowList.append(approvedParametersList[9][s])
 
-        #             self.migration(rowList)
-        #             asignacionNdocfMigratedbyOne = []
-        #             asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
-        #             asignacionNdocfMigratedbyOne.append(self.docf)
-        #             asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
-        #             nDocsMigrated.append(self.docf)
-        #             self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
+                    self.migration(rowList)
+                    asignacionNdocfMigratedbyOne = []
+                    asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
+                    asignacionNdocfMigratedbyOne.append(self.docf)
+                    asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
+                    nDocsMigrated.append(self.docf)
+                    self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
                 
-        #             # self.session.EndTransaction()
-        #     except Exception as e:
-        #         writeLog('\n', e, self.logPath)
+                    # self.session.EndTransaction()
+            except Exception as e:
+                writeLog('\n', e, self.logPath)
             
             
 
-        #     self.getFbl3nMenu()
-        #     self.getAccountTable()
-        #     parametersList = self.getWholeParametersList()
-        #     self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
-        #     df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
-        #     writeLog('\n', df, self.logPath)
-        #     #print(nDocsMigrated)
-        #     # writeLog('\n', nDocsMigrated, self.logPath)
-        #     serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
-        #     writeLog('', serparationMessage, self.logPath)
+            self.getFbl3nMenu()
+            self.getAccountTable()
+            parametersList = self.getWholeParametersList()
+            self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
+            df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
+            ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
+            writeLog('\n', df, self.logPath)
+            #print(nDocsMigrated)
+            # writeLog('\n', nDocsMigrated, self.logPath)
+            serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
+            writeLog('', serparationMessage, self.logPath)
                            
-        # self.proc.kill()
+        self.proc.kill()
         copyANDeraseFile('logs.txt')
         copyANDeraseFile('CUENTAS DE CAJA IVSA.xlsx')
         copyFile('CUENTAS DE CAJA IVSA.xlsx')
