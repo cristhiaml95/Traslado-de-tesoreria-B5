@@ -1020,9 +1020,9 @@ class sapInterfaceJob():
         #     writeLog('', serparationMessage, self.logPath)
                            
         # self.proc.kill()
-    copyANDeraseFile('logs.txt')
-    copyANDeraseFile('CUENTAS DE CAJA IVSA.xlsx')
-    copyFile('CUENTAS DE CAJA IVSA.xlsx')
+        copyANDeraseFile('logs.txt')
+        copyANDeraseFile('CUENTAS DE CAJA IVSA.xlsx')
+        copyFile('CUENTAS DE CAJA IVSA.xlsx')
 
 
        

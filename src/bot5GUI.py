@@ -2,14 +2,14 @@ import tkinter as tk
 import pyautogui as pg
 from usefulObjets import sapInterfaceJob
 import os
-from usefulFunctions import currentPathFolder
+from usefulFunctions import currentPathFolder, currentPathParentFolder
+from PIL import ImageTk, Image
 
 class bot5GUI:
     def __init__(self):
         self.w, self.h = pg.size()
 
         self.wd = tk.Tk()
-        self.logoPath = None
         self.header = None
         self.options1Square = None
         self.options2Square = None
@@ -25,6 +25,7 @@ class bot5GUI:
 
         self.nextButton = None
         self.selMigraChoise = None
+        self.photoPath = None
 
         self.PUNoChoise = None
 
@@ -32,9 +33,10 @@ class bot5GUI:
         self.wd.title("BOT 5 - MENU")
         size = f'{int(self.w/5)}x{int(self.h/2.5)}+{int(self.w*2/5)}+{int(self.h*3/10)}'
         self.wd.geometry(size)
-        self.logoPath = currentPathFolder
-        self.logoPath = os.path.join(self.logoPath, 'jucu.ico')
-        self.wd.iconbitmap(self.logoPath)
+        self.photoPath = os.path.join(currentPathParentFolder, 'Acceso', 'Bot5.ico')
+        photo = ImageTk.PhotoImage(Image.open(self.photoPath))
+        self.wd.iconbitmap(self.photoPath)
+        self.wd.wm_iconphoto(True, photo)
         #self.wd.resizable(0,0)
         self.wd.configure(background='light sky blue')
 

@@ -37,7 +37,7 @@ def today2():
 
 def today3():
     fullTime = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=-4)
-    currenteDateStr = fullTime.strftime("%d.%m.%Y-%H.%M.%S")
+    currenteDateStr = fullTime.strftime("%d.%m.%Y-%H:%M:%S")
     return currenteDateStr
 
 
@@ -137,7 +137,7 @@ def fecha_a_dia(fecha):
 def copyANDeraseFile(fileName):
     todayPath = os.path.join(currentPathParentFolder,"Cuentas recaudadoras")
     fileFromTodayPathFrom = os.path.join(todayPath,fileName)
-    todayPath = os.path.join(todayPath,today())
+    todayPath = os.path.join(todayPath,today3())
     if not os.path.exists(todayPath):
         os.mkdir(todayPath)
     fileName = today3() + ' ' + fileName
