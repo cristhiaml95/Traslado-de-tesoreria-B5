@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from openpyxl import load_workbook
 import re
 import os
-from usefulFunctions import currentPathParentFolder, currentPathGrandpaFolder, today, writeLog, fecha_a_dia, copyANDeraseFile, copyFile, ndocTOxlsx
+from usefulFunctions import currentPathParentFolder, currentPathGrandpaFolder, today, writeLog, fecha_a_dia, copyANDeraseFile, copyFile, ndocTOxlsx, add0
 import pandas as pd
 
 #poo desde video 26
@@ -99,6 +99,8 @@ class sapInterfaceJob():
         self.jMax = 3
         self.k = 7
         self.rowCount = 0
+
+        self.exec = None
         
 
     def startSAP(self):
@@ -119,7 +121,7 @@ class sapInterfaceJob():
                  'fecha': wsConfig['B5'].value,
                  'periodo': wsConfig['B6'].value,
                  'layout': wsConfig['B8'].value,
-                 'xlsx migracion': wsConfig['B11'].value}
+                 'xlsx migracion': wsConfig['B10'].value}
         
         wb.close()
                 
@@ -242,6 +244,7 @@ class sapInterfaceJob():
         self.checks = []
         self.fullAsignaciones = []
         self.dists = []
+        self.finalTexts = []
 
         return self.wholeParametersList
 
@@ -257,12 +260,12 @@ class sapInterfaceJob():
         if fecha_a_dia(fecha) == 'Sabado':
             fecha = datetime.strptime(fecha, '%d.%m.%Y')
             fecha+=timedelta(days = 2)
-            fecha = f"{fecha.day}.{fecha.month}.{fecha.year}"
+            fecha = f"{add0(fecha.day)}.{add0(fecha.month)}.{add0(fecha.year)}"
 
         else:
             fecha = datetime.strptime(fecha, '%d.%m.%Y')
             fecha+=timedelta(days = 1)
-            fecha = f"{fecha.day}.{fecha.month}.{fecha.year}"
+            fecha = f"{add0(fecha.day)}.{add0(fecha.month)}.{add0(fecha.year)}"
 
         for i, element in enumerate(list2):
             if fecha == element:
@@ -334,7 +337,7 @@ class sapInterfaceJob():
             splitList = splitList[:3]
             
             for name in self.listOfNames:
-                if splitList[0] and splitList[1] and splitList[2] in name:
+                if splitList[0] in name and splitList[1] in name and splitList[2] in name:
                     i = importes.index(importes2[j].replace('-',''))
                     approvedIndexs.append(i)
                     break                
@@ -613,6 +616,9 @@ class sapInterfaceJob():
         self.importe = None
         self.txt = None
         self.check = None
+
+        self.fullAsignacion = None
+        self.dist = None
         
         self.asignacion = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'ZUONR')
         self.ndoc = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'BELNR')
@@ -648,7 +654,6 @@ class sapInterfaceJob():
 
         match self.tMigracion:
             case 1:
-                self.rec = 'AG. ' + self.rec
                 self.texto = self.dist + '.TRASP.CAJ.' + self.moneda + '.' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
             case 2:
                 match self.directo:
@@ -715,11 +720,29 @@ class sapInterfaceJob():
         
     def agORdis_ProcessDevelovment(self):
         print('Este es el rango del xlsx: ', self.xlsxRange)
-        for r in self.xlsxRange:            
+        for r in self.xlsxRange:
+            
+            match self.tMigracion:
+                case 1:
+                    self.exec = self.ws2[f'F{r}'].value
+                    if self.exec == 'SI':
+                        pass
+                    else:
+                        continue 
+
+                case 2:
+                    self.exec = self.ws2[f'G{r}'].value
+                    self.directo = self.ws2[f'H{r}'].value
+                    if self.exec == 'SI':
+                        pass
+                    else:
+                        continue
+
             self.accountNumber1 = self.ws2[f'C{r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{r}'].value
             self.accountNumberStr2 = str(self.accountNumber2).replace(' ', '')
+            
             self.bank =  self.ws2[f'E{r}'].value
             self.bank = str(self.bank).strip()
             self.rec =  self.ws2[f'B{r}'].value
@@ -752,17 +775,33 @@ class sapInterfaceJob():
                 continue
                 
             self.getRightTable()
-            parametersList = self.getWholeParametersList()
+            alert = self.session.findById('wnd[0]/sbar/pane[0]').text
+            alert2 = 'No se ha seleccionado ninguna partida'
+            if alert2 in alert:
+                inAlert = f'No se encontró tabla de datos, revisar manualmente. CUENTA: {self.accountNumberStr1} a {self.accountNumberStr2}'
+                writeLog('\n', inAlert, self.logPath)
+                self.session.endTransaction()
+                continue
 
             match self.tMigracion:
                 case 1:
+                    self.rec = 'AG. ' + self.rec
+                    parametersList = self.getWholeParametersList()
                     preApprovedParametersList = self.wichMigraVerification(parametersList)
-                    approvedParametersList = self.wichMigraVerification2(parametersList)
+                    approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
                 
                 case 2:
-                    approvedParametersList = self.wichMigraVerification(preApprovedParametersList)
-        
-            print('CORRIDO CORRECTAMENTE.')
+                    parametersList = self.getWholeParametersList()
+                    approvedParametersList = self.wichMigraVerification(parametersList)
+            
+            if self.tMigracion == 2:
+                self.getFbl3nMenu()
+                try:
+                    self.getAccountTable2()
+                except Exception as e:
+                    print('No se pudo obtener la tabla de cuentas: ', e)
+                    self.session.EndTransaction()
+                    continue
 
             asignacionNdocMigrated = []
             nDocsMigrated = []
@@ -786,7 +825,7 @@ class sapInterfaceJob():
                     asignacionNdocfMigratedbyOne.append(self.docf)
                     asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
                     nDocsMigrated.append(self.docf)
-                    self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
+                    # self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
                 
                     # self.session.EndTransaction()
             except Exception as e:
@@ -799,8 +838,6 @@ class sapInterfaceJob():
             df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
             ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
             writeLog('\n', df, self.logPath)
-            #print(nDocsMigrated)
-            # writeLog('\n', nDocsMigrated, self.logPath)
             serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
             writeLog('', serparationMessage, self.logPath)
                            
@@ -832,7 +869,12 @@ class sapInterfaceJob():
         self.ws2 = self.wsAg
         self.xlsxRange = self.getExcelRange()
         print('Este es el rango del xlsx: ', self.xlsxRange)
-        for r in self.xlsxRange:            
+        for r in self.xlsxRange: 
+            self.exec = self.ws2[f'F{r}'].value
+            if self.exec == 'SI':
+                pass
+            else:
+                continue           
             self.accountNumber1 = self.ws2[f'C{r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{r}'].value
@@ -853,6 +895,8 @@ class sapInterfaceJob():
             self.rec = self.rec.replace('CENTRAL', '')
             self.rec = self.rec.strip()              
             
+            self.rec = 'AG. ' + self.rec
+
             self.txtCabDoc = 'TRASLADO A ' + self.bank
 
             serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
@@ -903,9 +947,7 @@ class sapInterfaceJob():
                     asignacionNdocfMigratedbyOne.append(self.docf)
                     asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
                     nDocsMigrated.append(self.docf)
-                    self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
-                
-                    # self.session.EndTransaction()
+                    # self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
             except Exception as e:
                 writeLog('\n', e, self.logPath)
             
@@ -918,8 +960,6 @@ class sapInterfaceJob():
             df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
             ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
             writeLog('\n', df, self.logPath)
-            #print(nDocsMigrated)
-            # writeLog('\n', nDocsMigrated, self.logPath)
             serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
             writeLog('', serparationMessage, self.logPath)
 
@@ -931,7 +971,13 @@ class sapInterfaceJob():
         self.ws2 = self.wsDist
         self.xlsxRange = self.getExcelRange()
         print('Este es el rango del xlsx: ', self.xlsxRange)
-        for r in self.xlsxRange:            
+        for r in self.xlsxRange:
+            self.exec = self.ws2[f'G{r}'].value
+            self.directo = self.ws2[f'H{r}'].value
+            if self.exec == 'SI':
+                pass
+            else:
+                continue            
             self.accountNumber1 = self.ws2[f'C{r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{r}'].value
@@ -975,7 +1021,7 @@ class sapInterfaceJob():
                 continue
             parametersList = self.getWholeParametersList()
              
-            ApprovedParametersList = self.wichMigraVerification(parametersList)
+            approvedParametersList = self.wichMigraVerification(parametersList)
 
             print('CORRIDO CORRECTAMENTE POR SEGUNDA VEZ.')
 
@@ -1001,9 +1047,7 @@ class sapInterfaceJob():
                     asignacionNdocfMigratedbyOne.append(self.docf)
                     asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
                     nDocsMigrated.append(self.docf)
-                    self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
-                
-                    # self.session.EndTransaction()
+                    # self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
             except Exception as e:
                 writeLog('\n', e, self.logPath)
             
@@ -1016,8 +1060,6 @@ class sapInterfaceJob():
             df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
             ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
             writeLog('\n', df, self.logPath)
-            #print(nDocsMigrated)
-            # writeLog('\n', nDocsMigrated, self.logPath)
             serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
             writeLog('', serparationMessage, self.logPath)
                            

@@ -2,8 +2,9 @@ import tkinter as tk
 import pyautogui as pg
 from usefulObjets import sapInterfaceJob
 import os
-from usefulFunctions import currentPathFolder, currentPathParentFolder
+from usefulFunctions import currentPathParentFolder
 from PIL import ImageTk, Image
+import time
 
 class bot5GUI:
     def __init__(self):
@@ -65,7 +66,7 @@ class bot5GUI:
 
         self.selOp2 = tk.IntVar()
 
-        self.op2_1 = tk.Radiobutton(self.options2Square, text = 'Caja - ETV', bg = 'light sky blue', variable = self.selOp2, value = 1, width=20, anchor='w', command= self.op2_1Command)
+        self.op2_1 = tk.Radiobutton(self.options2Square, text = 'Distribuidora - ETV', bg = 'light sky blue', variable = self.selOp2, value = 1, width=20, anchor='w', command= self.op2_1Command)
         self.op2_1['state'] = 'disabled'
         self.op2_1.pack()
 
@@ -99,7 +100,7 @@ class bot5GUI:
     def noChoise1PU(self):
         self.PUNoChoise = tk.Toplevel(self.wd)
         self.PUNoChoise.title('INFO')
-        size = f'{int(self.w/10)}x{int(self.h/10)}+{int(self.w*9/20)}+{int(self.h*9/20)}'
+        size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
         self.PUNoChoise.geometry(size)
         alert = tk.Label(self.PUNoChoise, text='Debe elegir una opcion.', font=('consolas 24 bold', 12))
         okButton = tk.Button(self.PUNoChoise, text='Ok', command=self.PUNoChoise.destroy)
@@ -108,10 +109,10 @@ class bot5GUI:
         self.PUNoChoise.mainloop()
 
     
-    def agConfirmation(self):
+    def ag_valConfirmation(self):
         self.PUAgConfirmation = tk.Toplevel(self.wd)
         self.PUAgConfirmation.title('ALERTA')
-        size = f'{int(self.w/10)}x{int(self.h/10)}+{int(self.w*9/20)}+{int(self.h*9/20)}'
+        size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
         self.PUAgConfirmation.geometry(size)
         alert = tk.Label(self.PUAgConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
         okButton = tk.Button(self.PUAgConfirmation, text='Ok', command= self.agORdistMigrationProcess)
@@ -121,23 +122,23 @@ class bot5GUI:
         cancelButton.pack()
         self.PUAgConfirmation.mainloop()
 
-    def valConfirmation(self):
-        self.PUValConfirmation = tk.Toplevel(self.wd)
-        self.PUValConfirmation.title('ALERTA')
-        size = f'{int(self.w/10)}x{int(self.h/10)}+{int(self.w*9/20)}+{int(self.h*9/20)}'
-        self.PUValConfirmation.geometry(size)
-        alert = tk.Label(self.PUValConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
-        okButton = tk.Button(self.PUValConfirmation, text='Ok', command= self.agORdistMigrationProcess)
-        cancelButton = tk.Button(self.PUValConfirmation, text='Cancelar', command=self.PUValConfirmation.destroy)
-        alert.pack()
-        okButton.pack()
-        cancelButton.pack()
-        self.PUValConfirmation.mainloop()
+    # def valConfirmation(self):
+    #     self.PUValConfirmation = tk.Toplevel(self.wd)
+    #     self.PUValConfirmation.title('ALERTA')
+    #     size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
+    #     self.PUValConfirmation.geometry(size)
+    #     alert = tk.Label(self.PUValConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
+    #     okButton = tk.Button(self.PUValConfirmation, text='Ok', command= self.agORdistMigrationProcess)
+    #     cancelButton = tk.Button(self.PUValConfirmation, text='Cancelar', command=self.PUValConfirmation.destroy)
+    #     alert.pack()
+    #     okButton.pack()
+    #     cancelButton.pack()
+    #     self.PUValConfirmation.mainloop()
 
     def bothConfirmation(self):
         self.PUValConfirmation = tk.Toplevel(self.wd)
         self.PUValConfirmation.title('ALERTA')
-        size = f'{int(self.w/10)}x{int(self.h/10)}+{int(self.w*9/20)}+{int(self.h*9/20)}'
+        size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
         self.PUValConfirmation.geometry(size)
         alert = tk.Label(self.PUValConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
         okButton = tk.Button(self.PUValConfirmation, text='Ok', command= self.bothMigrationProcess)
@@ -155,7 +156,7 @@ class bot5GUI:
             case 0:
                 self.noChoise1PU()                
             case 1:
-                self.agConfirmation()
+                self.ag_valConfirmation()
             case 2:
                 if self.selOp2.get() == 0 or self.selOp3.get() == 0:
                     self.noChoise1PU()
@@ -163,7 +164,7 @@ class bot5GUI:
                     if self.selOp3.get() == 2:
                         self.wd.destroy()
                     else:     
-                        self.valConfirmation()
+                        self.ag_valConfirmation()
             case 3:
                 if self.selOp2.get() == 0 or self.selOp3.get() == 0:
                     self.noChoise1PU()
@@ -213,6 +214,8 @@ class bot5GUI:
 
     def agORdistMigrationProcess(self):
         self.PUAgConfirmation.destroy()
+        time.sleep(5)
+        self.wd.destroy()
         migra = sapInterfaceJob()
         migra.tMigracion = self.selOp1.get()
         migra.ETVflow = self.selOp2.get()
@@ -226,6 +229,8 @@ class bot5GUI:
 
     def bothMigrationProcess(self):
         self.PUValConfirmation.destroy()
+        time.sleep(5)
+        self.wd.destroy()
         migra = sapInterfaceJob()
         migra.agANDdis_process()
 

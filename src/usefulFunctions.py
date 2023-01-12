@@ -36,7 +36,7 @@ def today2():
 
 def today3():
     fullTime = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=-4)
-    currenteDateStr = fullTime.strftime("%d.%m.%Y-%H:%M:%S")
+    currenteDateStr = fullTime.strftime("%d.%m.%Y-%H %M %S")
     return currenteDateStr
 
 
@@ -136,7 +136,7 @@ def fecha_a_dia(fecha):
 def copyANDeraseFile(fileName):
     todayPath = os.path.join(currentPathParentFolder,"Cuentas recaudadoras")
     fileFromTodayPathFrom = os.path.join(todayPath,fileName)
-    todayPath = os.path.join(todayPath,today3())
+    todayPath = os.path.join(todayPath,today())
     if not os.path.exists(todayPath):
         os.mkdir(todayPath)
     fileName = today3() + ' ' + fileName
@@ -175,6 +175,11 @@ def ndocTOxlsx(asignacionNdocMigrated, rec, xlsx, logPath):
     except:
         writeLog('\n', f'La hoja {rec} no existe en el archivo {xlsx}.', logPath)
 
+def add0(num):
+  num_str = str(num)
+  if len(num_str) == 1:
+    return '0' + num_str
+  return num_str
 
 
 
