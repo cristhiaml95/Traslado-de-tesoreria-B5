@@ -1,10 +1,37 @@
-*Usar la variable ya creada self.tMigracion #se planea que esta variable se coja de la interfaz gráfica con cuadro interactivo.
-
-*Cambié ws1 x wsConfig
-
-*También debe preguntar si se desea hacer de agencias, distribuidoras o ambas
-*En la interfaz gráfica se debe elegir si es de caja a ETV o de ETV a banco.
-*También debe preguntar si ya hizo la validación
+* falta implementar el 'directo' para las ETV
 
 
+cómo abrir excel en pantalla con python?
+
+Para abrir Excel en pantalla con Python se puede usar el módulo de Pywin32. El siguiente ejemplo abre una instancia de Excel en pantalla:
+
+```
+import win32com.client
+
+# inicializar la aplicación
+xlApp = win32com.client.Dispatch("Excel.Application")
+
+# mostrar la ventana en pantalla
+xlApp.Visible = True
+```
+
+y si quiero abrir cierta hoja de excel?
+
+Para abrir una hoja de Excel específica se puede usar el método open de la aplicación. Por ejemplo, para abrir la hoja de Excel "myfile.xlsx", se puede usar el siguiente código:
+
+```
+# abrir un archivo
+xlApp.Workbooks.Open("myfile.xlsx")
+```
+pero que se muestre en pantalla?
+
+Para mostrar la hoja de Excel en pantalla se puede usar el método Activate de la aplicación. Por ejemplo, para mostrar la hoja de Excel "myfile.xlsx" en pantalla, se puede usar el siguiente código:
+
+```
+# activar la ventana
+xlApp.Workbooks("myfile.xlsx").Activate()
+```
+
+
+RECORDAR QUE SE ESTA ACONDICIONANDO AL BOT PARA TENER 3 OPCIONES EN ETVflow: DIST - ETV, ETV - BANCO Y DIRECTO.
 

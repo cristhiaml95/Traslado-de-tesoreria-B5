@@ -5,6 +5,7 @@ import os
 from usefulFunctions import currentPathParentFolder
 from PIL import ImageTk, Image
 import time
+from botAssignment import assignmentPaste as ap
 
 class bot5GUI:
     def __init__(self):
@@ -24,7 +25,6 @@ class bot5GUI:
         self.op2_1 = None
         self.op2_2 = None
 
-        self.nextButton = None
         self.selMigraChoise = None
         self.photoPath = None
 
@@ -55,10 +55,10 @@ class bot5GUI:
         self.op1_1 = tk.Radiobutton(self.options1Square, text = 'Solo agencias', bg = 'light sky blue', variable = self.selOp1, value = 1, width=20, anchor='w', command= self.op1_1Command)
         self.op1_1.pack()
 
-        self.op1_2 = tk.Radiobutton(self.options1Square, text = 'Solo distribuidoras', bg = 'light sky blue', variable = self.selOp1, value = 2, width=20, anchor='w', command= self.op1_2Command)
+        self.op1_2 = tk.Radiobutton(self.options1Square, text = 'Solo distribuidoras', bg = 'light sky blue', variable = self.selOp1, value = 2, width=20, anchor='w', command= self.op1_23Command)
         self.op1_2.pack()
 
-        self.op1_3 = tk.Radiobutton(self.options1Square, text = 'Ambas', bg = 'light sky blue', variable = self.selOp1, value = 3, width=20, anchor='w', command= self.op1_3Command)
+        self.op1_3 = tk.Radiobutton(self.options1Square, text = 'Ambas', bg = 'light sky blue', variable = self.selOp1, value = 3, width=20, anchor='w', command= self.op1_23Command)
         self.op1_3.pack()
 
         self.options2Square = tk.LabelFrame(self.wd, bg='light sky blue', text='Flujo de migracion: ')
@@ -66,24 +66,32 @@ class bot5GUI:
 
         self.selOp2 = tk.IntVar()
 
-        self.op2_1 = tk.Radiobutton(self.options2Square, text = 'Distribuidora - ETV', bg = 'light sky blue', variable = self.selOp2, value = 1, width=20, anchor='w', command= self.op2_1Command)
+        self.op2_1 = tk.Radiobutton(self.options2Square, text = 'Distribuidora - ETV', bg = 'light sky blue', variable = self.selOp2, value = 1, width=20, anchor='w', command= self.op2_123Command)
         self.op2_1['state'] = 'disabled'
         self.op2_1.pack()
 
-        self.op2_2 = tk.Radiobutton(self.options2Square, text = 'ETV - banco', bg = 'light sky blue', variable = self.selOp2, value = 2, width=20, anchor='w', command= self.op2_2Command)
+        self.op2_2 = tk.Radiobutton(self.options2Square, text = 'ETV - banco', bg = 'light sky blue', variable = self.selOp2, value = 2, width=20, anchor='w', command= self.op2_123Command)
         self.op2_2['state'] = 'disabled'
         self.op2_2.pack()
+
+        self.op2_3 = tk.Radiobutton(self.options2Square, text = 'DIRECTO', bg = 'light sky blue', variable = self.selOp2, value = 3, width=20, anchor='w', command= self.op2_123Command)
+        self.op2_3['state'] = 'disabled'
+        self.op2_3.pack()
+
+        self.getAssignmentsButton = tk.Button(self.wd, text = 'EXTRAER ASIGNACIONES', command = self.goButtonCommand)
+        self.getAssignmentsButton['state'] = 'disabled'
+        self.getAssignmentsButton.pack()
 
         self.options3Square = tk.LabelFrame(self.wd, bg='light sky blue', text='¿Realizó la validación manual?')
         self.options3Square.pack()
 
         self.selOp3 = tk.IntVar()
 
-        self.op3_1 = tk.Radiobutton(self.options3Square, text = 'Sí', bg = 'light sky blue', variable = self.selOp3, value = 1, width=20, anchor='w', command= self.op3_1Command)
+        self.op3_1 = tk.Radiobutton(self.options3Square, text = 'Sí', bg = 'light sky blue', variable = self.selOp3, value = 1, width=20, anchor='w', command= self.op3_12Command)
         self.op3_1['state'] = 'disabled'
         self.op3_1.pack()
 
-        self.op3_2 = tk.Radiobutton(self.options3Square, text = 'No', bg = 'light sky blue', variable = self.selOp3, value = 2, width=20, anchor='w', command= self.op3_2Command)
+        self.op3_2 = tk.Radiobutton(self.options3Square, text = 'No', bg = 'light sky blue', variable = self.selOp3, value = 2, width=20, anchor='w', command= self.op3_12Command)
         self.op3_2['state'] = 'disabled'
         self.op3_2.pack()
 
@@ -91,7 +99,7 @@ class bot5GUI:
         # self.nextButton.pack()
 
         self.goButton = tk.Button(self.wd, text = 'MIGRAR', command = self.goButtonCommand)
-        #self.goButton['state'] = 'disabled'
+        self.goButton['state'] = 'disabled'
         self.goButton.pack()
 
         self.wd.mainloop()
@@ -103,19 +111,19 @@ class bot5GUI:
         size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
         self.PUNoChoise.geometry(size)
         alert = tk.Label(self.PUNoChoise, text='Debe elegir una opcion.', font=('consolas 24 bold', 12))
-        okButton = tk.Button(self.PUNoChoise, text='Ok', command=self.PUNoChoise.destroy)
+        okButton = tk.Button(self.PUNoChoise, text='   Ok   ', command=self.PUNoChoise.destroy)
         alert.pack()
         okButton.pack()
         self.PUNoChoise.mainloop()
 
     
-    def ag_valConfirmation(self):
+    def valConfirmation(self):
         self.PUAgConfirmation = tk.Toplevel(self.wd)
         self.PUAgConfirmation.title('ALERTA')
         size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
         self.PUAgConfirmation.geometry(size)
         alert = tk.Label(self.PUAgConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
-        okButton = tk.Button(self.PUAgConfirmation, text='Ok', command= self.agORdistMigrationProcess)
+        okButton = tk.Button(self.PUAgConfirmation, text='   Ok   ', command= self.agORdistMigrationProcess)
         cancelButton = tk.Button(self.PUAgConfirmation, text='Cancelar', command=self.PUAgConfirmation.destroy)
         alert.pack()
         okButton.pack()
@@ -141,7 +149,7 @@ class bot5GUI:
         size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
         self.PUValConfirmation.geometry(size)
         alert = tk.Label(self.PUValConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
-        okButton = tk.Button(self.PUValConfirmation, text='Ok', command= self.bothMigrationProcess)
+        okButton = tk.Button(self.PUValConfirmation, text='   Ok   ', command= self.bothMigrationProcess)
         cancelButton = tk.Button(self.PUValConfirmation, text='Cancelar', command=self.PUValConfirmation.destroy)
         alert.pack()
         okButton.pack()
@@ -156,7 +164,7 @@ class bot5GUI:
             case 0:
                 self.noChoise1PU()                
             case 1:
-                self.ag_valConfirmation()
+                self.valConfirmation()
             case 2:
                 if self.selOp2.get() == 0 or self.selOp3.get() == 0:
                     self.noChoise1PU()
@@ -164,7 +172,7 @@ class bot5GUI:
                     if self.selOp3.get() == 2:
                         self.wd.destroy()
                     else:     
-                        self.ag_valConfirmation()
+                        self.valConfirmation()
             case 3:
                 if self.selOp2.get() == 0 or self.selOp3.get() == 0:
                     self.noChoise1PU()
@@ -178,64 +186,57 @@ class bot5GUI:
         self.selOp2.set(0)
         self.op2_1['state'] = 'disabled'
         self.op2_2['state'] = 'disabled'
+        self.op2_3['state'] = 'disabled'
+        self.getAssignmentsButton['state'] = 'disabled'
         self.selOp3.set(0)
         self.op3_1['state'] = 'disabled'
         self.op3_2['state'] = 'disabled'
+        self.goButton['state'] = 'normal'
 
-    def op1_2Command(self):
+    def op1_23Command(self):
+        self.selOp2.set(0)
         self.op2_1['state'] = 'normal'
         self.op2_2['state'] = 'normal'
-        self.selOp2.set(0)
+        self.op2_3['state'] = 'normal'
+        self.getAssignmentsButton['state'] = 'disabled'
+        self.selOp3.set(0)
         self.op3_1['state'] = 'disabled'
         self.op3_2['state'] = 'disabled'
+        self.goButton['state'] = 'disabled'
 
-    def op1_3Command(self):
-        self.op2_1['state'] = 'normal'
-        self.op2_2['state'] = 'normal'
-        self.selOp2.set(0)
-        self.op3_1['state'] = 'disabled'
-        self.op3_2['state'] = 'disabled'
-
-    def op2_1Command(self):
+    def op2_123Command(self):
+        self.selOp3.set(0)
         self.op3_1['state'] = 'normal'
         self.op3_2['state'] = 'normal'
-        self.selOp3.set(0)
+        self.goButton['state'] = 'disabled'
+        self.getAssignmentsButton['state'] = 'normal'
 
-    def op2_2Command(self):
-        self.op3_1['state'] = 'normal'
-        self.op3_2['state'] = 'normal'
-        self.selOp3.set(0)
-
-    def op3_1Command(self):
+    def op3_12Command(self):
+        # self.goButton['state'] = 'normal'
         pass
 
-    def op3_2Command(self):
-        pass
+    def getAssignmentsCommand(self):
+        self.goButton['state'] = 'disabled'
+        assignments = ap()
+        assignments.assignmentPaste(self.selOp2.get())
+        self.goButton['state'] = 'normal'
+
 
     def agORdistMigrationProcess(self):
         self.PUAgConfirmation.destroy()
-        time.sleep(5)
+        time.sleep(1)
         self.wd.destroy()
         migra = sapInterfaceJob()
-        migra.tMigracion = self.selOp1.get()
-        migra.ETVflow = self.selOp2.get()
-        migra.agORdis_Process()
-
-    # def distMigrationProcess(self):
-    #     self.PUValConfirmation.destroy()
-    #     igra = sapInterfaceJob()
-    #     migra.tMigracion = self.selOp1.get()
-    #     migra.agORdis_Process()
+        migra.process(self.selOp1.get(), self.selOp2.get())
 
     def bothMigrationProcess(self):
         self.PUValConfirmation.destroy()
-        time.sleep(5)
+        time.sleep(1)
         self.wd.destroy()
-        migra = sapInterfaceJob()
-        migra.agANDdis_process()
-
-    
-
+        migraAG = sapInterfaceJob()
+        migraAG.process(1, 0)
+        migraDIS = sapInterfaceJob()
+        migraDIS.process(2, self.selOp2.get())
 
     def fullGUI(self):
         self.windowDesign()
