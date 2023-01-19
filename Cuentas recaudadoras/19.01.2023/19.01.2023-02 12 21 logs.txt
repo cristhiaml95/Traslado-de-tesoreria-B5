@@ -1,0 +1,56 @@
+
+
+-------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101010107 a 101020101 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101010107 a 101020101 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101010107 a 101020101 --------------------------------
+
+
+
+-------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101010107 a 101020101 --------------------------------
+
+
+
+-------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101010107 a 101020101 --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101010107 a 101020101 --------------------------------
+
+
+Formato de tabla correcto
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/27/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/26/
+19.01.2023 La operación de asignación: CCAJ-SC39/27/ fue migrada correctamente
+19.01.2023 La operación de asignación: CCAJ-SC39/26/ fue migrada correctamente
+La asignación CCAJ-SC39/27/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-SC39/26/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-SC39/27/202  112611124
+1  CCAJ-SC39/26/202  112611125
+
+-------------------------------- Migracion de cuenta 101010107 a 101020101 finalizada --------------------------------
+

@@ -2,7 +2,7 @@ import tkinter as tk
 import pyautogui as pg
 from usefulObjets import sapInterfaceJob
 import os
-from usefulFunctions import currentPathParentFolder
+from usefulFunctions import currentPathParentFolder, copyANDeraseFile, copyFile
 from PIL import ImageTk, Image
 import time
 from botAssignment import assignmentPaste as ap
@@ -78,7 +78,7 @@ class bot5GUI:
         self.op2_3['state'] = 'disabled'
         self.op2_3.pack()
 
-        self.getAssignmentsButton = tk.Button(self.wd, text = 'EXTRAER ASIGNACIONES', command = self.goButtonCommand)
+        self.getAssignmentsButton = tk.Button(self.wd, text = 'EXTRAER ASIGNACIONES', command = self.getAssignmentsCommand)
         self.getAssignmentsButton['state'] = 'disabled'
         self.getAssignmentsButton.pack()
 
@@ -130,19 +130,6 @@ class bot5GUI:
         cancelButton.pack()
         self.PUAgConfirmation.mainloop()
 
-    # def valConfirmation(self):
-    #     self.PUValConfirmation = tk.Toplevel(self.wd)
-    #     self.PUValConfirmation.title('ALERTA')
-    #     size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
-    #     self.PUValConfirmation.geometry(size)
-    #     alert = tk.Label(self.PUValConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
-    #     okButton = tk.Button(self.PUValConfirmation, text='Ok', command= self.agORdistMigrationProcess)
-    #     cancelButton = tk.Button(self.PUValConfirmation, text='Cancelar', command=self.PUValConfirmation.destroy)
-    #     alert.pack()
-    #     okButton.pack()
-    #     cancelButton.pack()
-    #     self.PUValConfirmation.mainloop()
-
     def bothConfirmation(self):
         self.PUValConfirmation = tk.Toplevel(self.wd)
         self.PUValConfirmation.title('ALERTA')
@@ -155,8 +142,6 @@ class bot5GUI:
         okButton.pack()
         cancelButton.pack()
         self.PUValConfirmation.mainloop()
-
-   
 
     def goButtonCommand(self):
         self.selMigraChoise = self.selOp1.get()
@@ -219,6 +204,7 @@ class bot5GUI:
         self.goButton['state'] = 'disabled'
         assignments = ap()
         assignments.assignmentPaste(self.selOp2.get())
+        assignments.openExcel()
         self.goButton['state'] = 'normal'
 
 
@@ -228,6 +214,9 @@ class bot5GUI:
         self.wd.destroy()
         migra = sapInterfaceJob()
         migra.process(self.selOp1.get(), self.selOp2.get())
+        copyANDeraseFile('logs.txt')
+        copyANDeraseFile('CUENTAS DE CAJA IVSA.xlsx')
+        copyFile('CUENTAS DE CAJA IVSA.xlsx')
 
     def bothMigrationProcess(self):
         self.PUValConfirmation.destroy()
@@ -237,6 +226,9 @@ class bot5GUI:
         migraAG.process(1, 0)
         migraDIS = sapInterfaceJob()
         migraDIS.process(2, self.selOp2.get())
+        copyANDeraseFile('logs.txt')
+        copyANDeraseFile('CUENTAS DE CAJA IVSA.xlsx')
+        copyFile('CUENTAS DE CAJA IVSA.xlsx')
 
     def fullGUI(self):
         self.windowDesign()

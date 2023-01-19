@@ -7,6 +7,7 @@ import re
 import os
 from usefulFunctions import currentPathParentFolder, currentPathGrandpaFolder, today, writeLog, fecha_a_dia, copyANDeraseFile, copyFile, ndocTOxlsx, add0
 import pandas as pd
+import gc
 
 #poo desde video 26
 
@@ -523,10 +524,7 @@ class sapInterfaceJob():
                 z = f'La operación de asignación: {approvedParametersList[0][counter]} FALLO en el guardado o pérdida de datos, revisar manualmente'
                 y = "%s La operación de asignación: %s FALLO en el guardado o pérdida de datos, revisar manualmente" %(today(), approvedParametersList[0][counter])
                 writeLog('\n', z, self.logPath)
-            counter+=1
-
-                
-            
+            counter+=1    
              
 # PROCESO -------------------------------------------------------------
     def migration(self, rowList):                
@@ -544,7 +542,8 @@ class sapInterfaceJob():
         recaudadora = self.rec
         recaudadora = recaudadora.replace('CENTRAL', '')
         self.session.findById("wnd[0]/usr/txtBKPF-XBLNR").text = recaudadora
-        self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = self.txtCabDoc
+        self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = str(self.txtCabDoc)
+        # d = self.session.findById("wnd[0]/usr/txtBKPF-BKTXT")
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWKO").text = self.accountNumberStr2
         
         self.session.findById("wnd[0]/tbar[0]/btn[0]").press()
@@ -716,6 +715,28 @@ class sapInterfaceJob():
         except:
             writeLog('\n', 'No se encontró la hoja ' + self.rec + ' en el archivo de migraciones', self.logPath)
 
+    def getBank_for_ETV(self):
+        self.getFbl3nMenu()
+        try:
+            self.getAccountTable2()
+            self.session.findById("wnd[0]/mbar/menu[5]/menu[8]").select()
+            self.bank = self.session.findById("wnd[0]/usr/lbl[37,1]").text
+            self.bank = self.bank.strip()
+            bank_4_digits = self.bank[-4:]
+            spanBankF = re.search('BANCO ', self.bank).span()[1]
+            self.bank = self.bank[spanBankF:]
+            splitList = re.split(r'\s', self.bank)
+            bankName = splitList[0]
+            self.bank = bankName + ' ' + bank_4_digits
+            self.session.findById("wnd[0]/mbar/menu[5]/menu[8]").select()
+            
+
+        except Exception as e:
+            print('No se pudo obtener el nombre del banco: ', e)
+            self.session.EndTransaction()
+            return -1
+
+
     def process(self, tMigracion, ETVflow):
         self.r = None
         self.chargeListOfNames()
@@ -740,20 +761,21 @@ class sapInterfaceJob():
 
     def subProcess_2_1(self):
         approvedParametersList = [[], [], [], [], [], [], [], [], [], []]
-        row = self.ws2.row(self.r)
-        for cell in row:
-            for i, assignment in enumerate(self.approvedParametersList[7]):
-                if cell.value == assignment:
-                    approvedParametersList[0].append(self.approvedParametersList[0][i])
-                    approvedParametersList[1].append(self.approvedParametersList[1][i])
-                    approvedParametersList[2].append(self.approvedParametersList[2][i])
-                    approvedParametersList[3].append(self.approvedParametersList[3][i])
-                    approvedParametersList[4].append(self.approvedParametersList[4][i])
-                    approvedParametersList[5].append(self.approvedParametersList[5][i])
-                    approvedParametersList[6].append(self.approvedParametersList[6][i])
-                    approvedParametersList[7].append(self.approvedParametersList[7][i])
-                    approvedParametersList[8].append(self.approvedParametersList[8][i])
-                    approvedParametersList[9].append(self.approvedParametersList[9][i])
+        # row = self.ws2.row(self.r)
+        for row in self.ws2.iter_rows(min_row=self.r, max_row=self.r, min_col=8):
+            for cell in row:
+                for i, assignment in enumerate(self.approvedParametersList[7]):
+                    if cell.value == assignment:
+                        approvedParametersList[0].append(self.approvedParametersList[0][i])
+                        approvedParametersList[1].append(self.approvedParametersList[1][i])
+                        approvedParametersList[2].append(self.approvedParametersList[2][i])
+                        approvedParametersList[3].append(self.approvedParametersList[3][i])
+                        approvedParametersList[4].append(self.approvedParametersList[4][i])
+                        approvedParametersList[5].append(self.approvedParametersList[5][i])
+                        approvedParametersList[6].append(self.approvedParametersList[6][i])
+                        approvedParametersList[7].append(self.approvedParametersList[7][i])
+                        approvedParametersList[8].append(self.approvedParametersList[8][i])
+                        approvedParametersList[9].append(self.approvedParametersList[9][i])
 
         self.approvedParametersList = approvedParametersList
 
@@ -779,21 +801,25 @@ class sapInterfaceJob():
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'D{self.r}'].value
             self.accountNumberStr2 = str(self.accountNumber2).replace(' ', '')
+            self.bank =  self.ws2[f'E{self.r}'].value
+            self.bank = str(self.bank).strip()
+            
 
         elif self.ETVflow == 2:
             self.accountNumber1 = self.ws2[f'D{self.r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'F{self.r}'].value
             self.accountNumberStr2 = str(self.accountNumber2).replace(' ', '')
+            self.getBank_for_ETV()
 
         elif self.ETVflow == 3:
             self.accountNumber1 = self.ws2[f'C{self.r}'].value
             self.accountNumberStr1 = str(self.accountNumber1).replace(' ', '')
             self.accountNumber2 = self.ws2[f'F{self.r}'].value
             self.accountNumberStr2 = str(self.accountNumber2).replace(' ', '')
+            self.getBank_for_ETV()
         
-        self.bank =  self.ws2[f'E{self.r}'].value
-        self.bank = str(self.bank).strip()
+        
         self.rec =  self.ws2[f'B{self.r}'].value
         self.rec = str(self.rec)
         self.moneda = self.rec[13:16]
@@ -814,15 +840,6 @@ class sapInterfaceJob():
 
         serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
         writeLog('', serparationMessage, self.logPath)
-
-        if self.ETVflow == 2 and self.tMigracion == 2:
-            self.getFbl3nMenu()
-            try:
-                self.getAccountTable2()
-            except Exception as e:
-                print('No se pudo obtener la tabla de cuentas: ', e)
-                self.session.EndTransaction()
-                return -1
 
         self.getFbl3nMenu()
         try:
@@ -901,10 +918,7 @@ class sapInterfaceJob():
                            
         self.proc.kill()
 
-        # copyANDeraseFile('logs.txt')
-        # copyANDeraseFile('CUENTAS DE CAJA IVSA.xlsx')
-        # copyFile('CUENTAS DE CAJA IVSA.xlsx')
-
+  
         
 
 
