@@ -1,0 +1,157 @@
+
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010103 a 101044012 --------------------------------
+
+
+La hoja AG. AG ACHUMANI no existe en el archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+Empty DataFrame
+Columns: [Asignacion, Ndoc]
+Index: []
+
+-------------------------------- Migracion de cuenta 101010103 a 101044012 finalizada --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010103 a 101044012 --------------------------------
+
+
+La hoja AG. AG ACHUMANI no existe en el archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+Empty DataFrame
+Columns: [Asignacion, Ndoc]
+Index: []
+
+-------------------------------- Migracion de cuenta 101010103 a 101044012 finalizada --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010103 a 101044012 --------------------------------
+
+
+La hoja AG. AG ACHUMANI no existe en el archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+Empty DataFrame
+Columns: [Asignacion, Ndoc]
+Index: []
+
+-------------------------------- Migracion de cuenta 101010103 a 101044012 finalizada --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010103 a 101044012 --------------------------------
+
+
+La hoja AG. AG ACHUMANI no existe en el archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+Empty DataFrame
+Columns: [Asignacion, Ndoc]
+Index: []
+
+-------------------------------- Migracion de cuenta 101010103 a 101044012 finalizada --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010103 a 101044012 --------------------------------
+
+
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010103 a 101044012 --------------------------------
+
+
+Empty DataFrame
+Columns: [Asignacion, Ndoc]
+Index: []
+
+-------------------------------- Migracion de cuenta 101010103 a 101044012 finalizada --------------------------------
+
+
+Formato de tabla correcto
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010103 a 101044012 --------------------------------
+
+
+Empty DataFrame
+Columns: [Asignacion, Ndoc]
+Index: []
+
+-------------------------------- Migracion de cuenta 101010103 a 101044012 finalizada --------------------------------
+
+
+Formato de tabla correcto
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010103 a 101044012 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-LP08/14/
+20.01.2023 La operación de asignación: CCAJ-LP08/14/ fue migrada correctamente
+La asignación CCAJ-LP08/14/23 no existe en la hoja AG. ACHUMANI del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-LP08/14/23  112624833
+
+-------------------------------- Migracion de cuenta 101010103 a 101044012 finalizada --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010103 a 101044012 --------------------------------
+
+
+Empty DataFrame
+Columns: [Asignacion, Ndoc]
+Index: []
+
+-------------------------------- Migracion de cuenta 101010103 a 101044012 finalizada --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010104 a 101044012 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-LP01/27/
+20.01.2023 La operación de asignación: CCAJ-LP01/27/ fue migrada correctamente
+La asignación CCAJ-LP01/27/23 no existe en la hoja AG. MURILLO del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-LP01/27/23  112624843
+
+-------------------------------- Migracion de cuenta 101010104 a 101044012 finalizada --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010105 a 101044012 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-LP07/14/
+20.01.2023 La operación de asignación: CCAJ-LP07/14/ fue migrada correctamente
+La asignación CCAJ-LP07/14/23 no existe en la hoja AG. MAX PAREDES del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-LP07/14/23  112624844
+
+-------------------------------- Migracion de cuenta 101010105 a 101044012 finalizada --------------------------------
+
+
+Formato de tabla correcto
+
+-------------------------------- 20.01.2023 Iniciando Migracion de cuenta 101010133 a 101041012 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-EA58/14/
+20.01.2023 La operación de asignación: CCAJ-EA58/14/ fue migrada correctamente
+La asignación CCAJ-EA58/14/23 no existe en la hoja AG. SATELITE del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-EA58/14/23  112624845
+
+-------------------------------- Migracion de cuenta 101010133 a 101041012 finalizada --------------------------------
+

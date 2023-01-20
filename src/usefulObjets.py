@@ -205,13 +205,13 @@ class sapInterfaceJob():
         return xlsxCellsRange
             
 
-    def getWholeParametersList(self):
+    def getWholeParametersList(self, a, b):
         self.wholeParametersList = []
-        self.rowCount = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').RowCount
+        # self.rowCount = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').RowCount
         #self.rowCount-=3
-        self.rowCount = min([self.rowCount, 62])
+        #self.rowCount = min([self.rowCount, 62])
 
-        for k in range(self.rowCount):
+        for k in range(a, b):
             self.k = k
             self.getRowInformation(self.k)
             if self.check == 0:
@@ -442,15 +442,71 @@ class sapInterfaceJob():
         return approvedParametersList
                     
 
+    def rowCountNumber(self):
+        self.rowCount = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').RowCount
+        return self.rowCount
+
+    def joinLists(self, approvedParametersList, approvedParametersList1):
+        approvedParametersList[0].extend(approvedParametersList1[0])
+        approvedParametersList[1].extend(approvedParametersList1[1])
+        approvedParametersList[2].extend(approvedParametersList1[2])
+        approvedParametersList[3].extend(approvedParametersList1[3])
+        approvedParametersList[4].extend(approvedParametersList1[4])
+        approvedParametersList[5].extend(approvedParametersList1[5])
+        approvedParametersList[6].extend(approvedParametersList1[6])
+        approvedParametersList[7].extend(approvedParametersList1[7])
+        approvedParametersList[8].extend(approvedParametersList1[8])
+        approvedParametersList[9].extend(approvedParametersList1[9])
+        return approvedParametersList
 
 
     def wichMigraVerification2(self, preApprovedParametersList):
+        time.sleep(1)
         self.getFbl3nMenu()
         self.getAccountTable2()
-        parametersList2 = self.getWholeParametersList()
-        self.listOfFechaIndex = []
-        self.listOfImporteIndex = []
-        approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        b = self.rowCountNumber()
+        if b <= 62:
+            parametersList2 = []
+            parametersList2 = self.getWholeParametersList(0, b)
+            self.listOfFechaIndex = []
+            self.listOfImporteIndex = []
+            approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+
+
+
+        elif 125 >= b > 62:
+            parametersList2 = []
+            parametersList2 = self.getWholeParametersList(0, 62)
+            self.listOfFechaIndex = []
+            self.listOfImporteIndex = []
+            approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+            parametersList2 = self.getWholeParametersList(62, b)
+            self.listOfFechaIndex = []
+            self.listOfImporteIndex = []
+            approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+
+            approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
+
+        elif 187 >= b > 125:
+            parametersList2 = []
+            parametersList2 = self.getWholeParametersList(0, 62)
+            self.listOfFechaIndex = []
+            self.listOfImporteIndex = []
+            approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+            parametersList2 = []
+            parametersList2 = self.getWholeParametersList(62, 125)
+            self.listOfFechaIndex = []
+            self.listOfImporteIndex = []
+            approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+            parametersList2 = []
+            parametersList2 = self.getWholeParametersList(125, b)
+            self.listOfFechaIndex = []
+            self.listOfImporteIndex = []
+            approvedParametersList2 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+
+            approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
+            approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
+
 
         return approvedParametersList
 
@@ -720,6 +776,7 @@ class sapInterfaceJob():
             writeLog('\n', 'No se encontró la hoja ' + self.rec + ' en el archivo de migraciones', self.logPath)
 
     def getBank_for_ETV(self):
+        time.sleep(1)
         self.getFbl3nMenu()
         try:
             self.getAccountTable2()
@@ -765,6 +822,7 @@ class sapInterfaceJob():
             serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
             writeLog('', serparationMessage, self.logPath)
             self.subProcess_2()
+        self.proc.kill()
 
     def subProcess_2_1(self):
         approvedParametersList = [[], [], [], [], [], [], [], [], [], []]
@@ -837,7 +895,8 @@ class sapInterfaceJob():
         self.rec = self.rec[r2:]
         self.rec = self.rec.replace('.', '')
         self.rec = self.rec.replace('AGENCIA', '')
-        self.rec = self.rec.replace('AG.', '')
+        self.rec = self.rec.replace('AG', '')
+        self.rec = self.rec.replace('.', '')
         self.rec = self.rec.replace('CENTRAL', '')
         self.rec = self.rec.strip()
         
@@ -847,7 +906,7 @@ class sapInterfaceJob():
 
         # serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
         # writeLog('', serparationMessage, self.logPath)
-
+        time.sleep(1)
         self.getFbl3nMenu()
         try:
             self.getAccountTable()
@@ -868,12 +927,14 @@ class sapInterfaceJob():
         match self.tMigracion:
             case 1:
                 self.rec = 'AG. ' + self.rec
-                parametersList = self.getWholeParametersList()
+                b = min([self.rowCountNumber(), 62])
+                parametersList = self.getWholeParametersList(0, b)
                 preApprovedParametersList = self.wichMigraVerification(parametersList)
                 approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
             
             case 2:
-                parametersList = self.getWholeParametersList()
+                b = min([self.rowCountNumber(), 62])
+                parametersList = self.getWholeParametersList(0, b)
                 approvedParametersList = self.wichMigraVerification(parametersList)
         
         self.approvedParametersList = approvedParametersList    
@@ -913,17 +974,17 @@ class sapInterfaceJob():
         except Exception as e:
             writeLog('\n', e, self.logPath)
 
+        time.sleep(1)
         self.getFbl3nMenu()
         self.getAccountTable()
-        parametersList = self.getWholeParametersList()
+        b = min([self.rowCountNumber(), 62])
+        parametersList = self.getWholeParametersList(0, b)
         self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
         df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
         ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
         writeLog('\n', df, self.logPath)
         serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
         writeLog('', serparationMessage, self.logPath)
-                           
-        self.proc.kill()
 
   
         

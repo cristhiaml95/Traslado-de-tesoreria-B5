@@ -1,9 +1,0 @@
-
-Formato de tabla correcto
-Extrayendo asignaciones de: 101020101
-Formato de tabla correcto
-Extrayendo asignaciones de: 101020101
-Formato de tabla correcto
-Extrayendo asignaciones de: 101020201
-Asignaciones extraidas correctamente: 101020201
-Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
