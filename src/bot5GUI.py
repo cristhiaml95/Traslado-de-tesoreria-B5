@@ -61,7 +61,7 @@ class bot5GUI:
         self.op1_3 = tk.Radiobutton(self.options1Square, text = 'Ambas', bg = 'light sky blue', variable = self.selOp1, value = 3, width=20, anchor='w', command= self.op1_23Command)
         self.op1_3.pack()
 
-        self.options2Square = tk.LabelFrame(self.wd, bg='light sky blue', text='Flujo de migracion: ')
+        self.options2Square = tk.LabelFrame(self.wd, bg='light sky blue', text='              Flujo de migracion:                ')
         self.options2Square.pack()
 
         self.selOp2 = tk.IntVar()
@@ -82,7 +82,7 @@ class bot5GUI:
         self.getAssignmentsButton['state'] = 'disabled'
         self.getAssignmentsButton.pack()
 
-        self.options3Square = tk.LabelFrame(self.wd, bg='light sky blue', text='¿Realizó la validación manual?')
+        self.options3Square = tk.LabelFrame(self.wd, bg='light sky blue', text='     ¿Realizó la validación manual?      ')
         self.options3Square.pack()
 
         self.selOp3 = tk.IntVar()

@@ -1,94 +1,9 @@
 
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
 Formato de tabla correcto
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
+Extrayendo asignaciones de: 101020101
 Formato de tabla correcto
-Property '<unknown>.text' can not be set.
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
+Extrayendo asignaciones de: 101020101
 Formato de tabla correcto
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-Property '<unknown>.text' can not be set.
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-Property '<unknown>.text' can not be set.
-Empty DataFrame
-Columns: [Asignacion, Ndoc]
-Index: []
-
--------------------------------- Migracion de cuenta 101020101 a 101044032 finalizada --------------------------------
-
-
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-Property '<unknown>.text' can not be set.
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-Property '<unknown>.text' can not be set.
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-
--------------------------------- 19.01.2023 Iniciando Migracion de cuenta 101020101 a 101044032 --------------------------------
-
-
-Formato de tabla correcto
-Property '<unknown>.text' can not be set.
+Extrayendo asignaciones de: 101020201
+Asignaciones extraidas correctamente: 101020201
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.

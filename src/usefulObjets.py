@@ -209,6 +209,7 @@ class sapInterfaceJob():
         self.wholeParametersList = []
         self.rowCount = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').RowCount
         #self.rowCount-=3
+        self.rowCount = min([self.rowCount, 62])
 
         for k in range(self.rowCount):
             self.k = k
@@ -542,8 +543,11 @@ class sapInterfaceJob():
         recaudadora = self.rec
         recaudadora = recaudadora.replace('CENTRAL', '')
         self.session.findById("wnd[0]/usr/txtBKPF-XBLNR").text = recaudadora
-        self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = str(self.txtCabDoc)
-        # d = self.session.findById("wnd[0]/usr/txtBKPF-BKTXT")
+        try:
+            self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = self.txtCabDoc
+        except:
+            self.txtCabDoc = self.txtCabDoc.replace('TRASLADO', 'TRASL')
+            self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = self.txtCabDoc
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWKO").text = self.accountNumberStr2
         
         self.session.findById("wnd[0]/tbar[0]/btn[0]").press()
@@ -754,9 +758,12 @@ class sapInterfaceJob():
         
         print('Este es el rango del xls: ', self.xlsxRange)
         for self.r in self.xlsxRange:
+            
             x =  self.subProcess_1()
             if x == -1:
                 continue
+            serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
+            writeLog('', serparationMessage, self.logPath)
             self.subProcess_2()
 
     def subProcess_2_1(self):
@@ -838,8 +845,8 @@ class sapInterfaceJob():
         
         self.txtCabDoc = 'TRASLADO A ' + self.bank
 
-        serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
-        writeLog('', serparationMessage, self.logPath)
+        # serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
+        # writeLog('', serparationMessage, self.logPath)
 
         self.getFbl3nMenu()
         try:
