@@ -84,9 +84,6 @@ class sapInterfaceJob():
         self.approvedParametersList = []
 
         self.listOfNames = []
-        self.listOfImporteIndex = []
-        self.listOfFechaIndex = []
-
 
         self.currentPathParentFolder = currentPathParentFolder
         self.currentPathGrandpaFolder = currentPathGrandpaFolder
@@ -251,13 +248,14 @@ class sapInterfaceJob():
         return self.wholeParametersList
 
     def IndexOfRepitedImport(self, importe, list2):
-        
+        listOfImporteIndex = []
         for i, element in enumerate(list2):
             if importe == element.replace('-',''):
-                self.listOfImporteIndex.append(i)
-        return self.listOfImporteIndex
+                listOfImporteIndex.append(i)
+        return listOfImporteIndex
 
     def IndexOfRepitedFecha(self, fecha, list2):
+        listOfFechaIndex = []
 
         if fecha_a_dia(fecha) == 'Sabado':
             fecha = datetime.strptime(fecha, '%d.%m.%Y')
@@ -271,9 +269,9 @@ class sapInterfaceJob():
 
         for i, element in enumerate(list2):
             if fecha == element:
-                self.listOfFechaIndex.append(i)
+                listOfFechaIndex.append(i)
 
-        return self.listOfFechaIndex
+        return listOfFechaIndex
 
     def commons(self, list1, list2):
         return list(set(list1).intersection(list2))
@@ -281,8 +279,6 @@ class sapInterfaceJob():
 
     def lastValidationChecker(self, preApprovedParametersList, parametersList2):
         approvedParametersList = []
-        fechaIndexs = []
-        importeIndexs = []
         asignaciones = []
         ndocs = []
         dates = []
@@ -301,22 +297,20 @@ class sapInterfaceJob():
         textos2 = parametersList2[5]
         approvedIndexs = []
 
-        for fecha in fechas:
-            i = fechas.index(fecha)
-            importe = importes[i]
+        for importe in importes:
+            fechaIndexs = []
+            importeIndexs = []
+            i = importes.index(importe)
+            fecha = fechas[i]
             fechaIndexs = self.IndexOfRepitedFecha(fecha, fechas2)
             importeIndexs = self.IndexOfRepitedImport(importe, importes2)
+            x = 'holi'
 
-        commonIndexs = self.commons(fechaIndexs, importeIndexs)
-        
+            commonIndexs = self.commons(fechaIndexs, importeIndexs)
+            
 
-        for j in commonIndexs:
+            for j in commonIndexs:
 
-            if ':' in textos2[j]:
-                n = textos2[j].index(':')
-                texto = textos2[j][n+1:]
-
-            else:
                 texto = textos2[j]
                 x = re.findall(r'\d+-*\d+\w*\s', texto)
 
@@ -327,22 +321,19 @@ class sapInterfaceJob():
 
                 for i2 in x2:
                     texto = texto.replace(i2, '')
-                
-                
 
-            if '(' in texto:
-                m = texto.index('(')
-                texto = texto[:m]
-            texto = texto.strip()
+                splitList = re.split(r'\s', texto)
+                splitList = splitList[:3]
+                
+                if len(splitList) >= 3:
+                    for name in self.listOfNames:
+                        if splitList[0] in name and splitList[1] in name and splitList[2] in name:
+                            i = importes.index(importes2[j].replace('-',''))
+                            approvedIndexs.append(i)
+                            break
 
-            splitList = re.split(r'\s', texto)
-            splitList = splitList[:3]
-            
-            for name in self.listOfNames:
-                if splitList[0] in name and splitList[1] in name and splitList[2] in name:
-                    i = importes.index(importes2[j].replace('-',''))
-                    approvedIndexs.append(i)
-                    break                
+                else:
+                    continue              
 
         for k in approvedIndexs:
             asignaciones.append(preApprovedParametersList[0][k])
@@ -464,12 +455,17 @@ class sapInterfaceJob():
         time.sleep(1)
         self.getFbl3nMenu()
         self.getAccountTable2()
+        alert = self.session.findById('wnd[0]/sbar/pane[0]').text
+        alert2 = 'No se ha seleccionado ninguna partida'
+        if alert2 in alert:
+            inAlert = f'No se encontró tabla de datos, revisar manualmente. CUENTA: {self.bank} {self.accountNumberStr1} : {self.accountNumberStr2}'
+            writeLog('\n', inAlert, self.logPath)
+            self.session.endTransaction()
+            return -1
         b = self.rowCountNumber()
         if b <= 62:
             parametersList2 = []
             parametersList2 = self.getWholeParametersList(0, b)
-            self.listOfFechaIndex = []
-            self.listOfImporteIndex = []
             approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
 
 
@@ -477,12 +473,8 @@ class sapInterfaceJob():
         elif 125 >= b > 62:
             parametersList2 = []
             parametersList2 = self.getWholeParametersList(0, 62)
-            self.listOfFechaIndex = []
-            self.listOfImporteIndex = []
             approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
             parametersList2 = self.getWholeParametersList(62, b)
-            self.listOfFechaIndex = []
-            self.listOfImporteIndex = []
             approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
 
             approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
@@ -490,18 +482,12 @@ class sapInterfaceJob():
         elif 187 >= b > 125:
             parametersList2 = []
             parametersList2 = self.getWholeParametersList(0, 62)
-            self.listOfFechaIndex = []
-            self.listOfImporteIndex = []
             approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
             parametersList2 = []
             parametersList2 = self.getWholeParametersList(62, 125)
-            self.listOfFechaIndex = []
-            self.listOfImporteIndex = []
             approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
             parametersList2 = []
             parametersList2 = self.getWholeParametersList(125, b)
-            self.listOfFechaIndex = []
-            self.listOfImporteIndex = []
             approvedParametersList2 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
 
             approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
@@ -819,7 +805,7 @@ class sapInterfaceJob():
             x =  self.subProcess_1()
             if x == -1:
                 continue
-            serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
+            serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.bank} {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
             writeLog('', serparationMessage, self.logPath)
             self.subProcess_2()
         self.proc.kill()
@@ -919,7 +905,7 @@ class sapInterfaceJob():
         alert = self.session.findById('wnd[0]/sbar/pane[0]').text
         alert2 = 'No se ha seleccionado ninguna partida'
         if alert2 in alert:
-            inAlert = f'No se encontró tabla de datos, revisar manualmente. CUENTA: {self.accountNumberStr1} a {self.accountNumberStr2}'
+            inAlert = f'No se encontró tabla de datos, revisar manualmente. CUENTA: {self.bank} {self.accountNumberStr1} : {self.accountNumberStr2}'
             writeLog('\n', inAlert, self.logPath)
             self.session.endTransaction()
             return -1
@@ -931,6 +917,9 @@ class sapInterfaceJob():
                 parametersList = self.getWholeParametersList(0, b)
                 preApprovedParametersList = self.wichMigraVerification(parametersList)
                 approvedParametersList = self.wichMigraVerification2(preApprovedParametersList)
+                if approvedParametersList == -1:
+                    self.session.endTransaction()
+                    return -1
             
             case 2:
                 b = min([self.rowCountNumber(), 62])
@@ -983,7 +972,7 @@ class sapInterfaceJob():
         df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
         ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
         writeLog('\n', df, self.logPath)
-        serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
+        serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.bank} {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
         writeLog('', serparationMessage, self.logPath)
 
   
