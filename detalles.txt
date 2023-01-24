@@ -1,4 +1,0 @@
-* falta implementar el 'directo' para las ETV
-
-RECORDAR QUE SE ESTA ACONDICIONANDO AL BOT PARA TENER 3 OPCIONES EN ETVflow: DIST - ETV, ETV - BANCO Y DIRECTO.
-

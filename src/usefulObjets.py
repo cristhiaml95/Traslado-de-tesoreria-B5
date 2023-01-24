@@ -493,6 +493,11 @@ class sapInterfaceJob():
             approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
             approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
 
+        if bool(approvedParametersList[0]) == False:
+            mensaje = f'No se encontraron traslados validos para la cuenta {self.bank} {self.accountNumberStr1} : {self.accountNumberStr2}'
+            writeLog('\n', mensaje, self.logPath)
+            return -1
+
 
         return approvedParametersList
 
@@ -720,7 +725,7 @@ class sapInterfaceJob():
     def getRightTable(self):
         try:
             text = self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]").text
-            writeLog('\n', 'Formato de tabla correcto', self.logPath)
+            #writeLog('\n', 'Formato de tabla correcto', self.logPath)
 
         except:
             try:
@@ -926,7 +931,7 @@ class sapInterfaceJob():
                 parametersList = self.getWholeParametersList(0, b)
                 approvedParametersList = self.wichMigraVerification(parametersList)
         
-        self.approvedParametersList = approvedParametersList    
+        self.approvedParametersList = approvedParametersList 
 
     
     def subProcess_2(self):

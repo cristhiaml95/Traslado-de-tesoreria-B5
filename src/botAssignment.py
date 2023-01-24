@@ -36,7 +36,7 @@ class assignmentPaste:
         self.SAP_job.wb2.save(self.SAP_job.dailyMigrationAccountsPath)
         self.dailyMigrationAccountsPath = self.SAP_job.dailyMigrationAccountsPath
         self.SAP_job.proc.kill()
-        mensaje2 = f'Asignaciones extraidas correctamente: {self.SAP_job.accountNumberStr1}'
+        mensaje2 = f'Asignaciones extraidas correctamente: {self.SAP_job.bank} {self.SAP_job.accountNumberStr1}'
         writeLog('\n', mensaje2, self.SAP_job.logPath)
 
     def openExcel(self):
