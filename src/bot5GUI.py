@@ -108,7 +108,7 @@ class bot5GUI:
     def noChoise1PU(self):
         self.PUNoChoise = tk.Toplevel(self.wd)
         self.PUNoChoise.title('INFO')
-        size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
+        size = f'{int(self.w/6)}x{int(self.h/8)}+{int(self.w*5/12)}+{int(self.h*9/16)}'
         self.PUNoChoise.geometry(size)
         alert = tk.Label(self.PUNoChoise, text='Debe elegir una opcion.', font=('consolas 24 bold', 12))
         okButton = tk.Button(self.PUNoChoise, text='   Ok   ', command=self.PUNoChoise.destroy)
@@ -120,10 +120,10 @@ class bot5GUI:
     def valConfirmation(self):
         self.PUAgConfirmation = tk.Toplevel(self.wd)
         self.PUAgConfirmation.title('ALERTA')
-        size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
+        size = f'{int(self.w/6)}x{int(self.h/8)}+{int(self.w*5/12)}+{int(self.h*9/16)}'
         self.PUAgConfirmation.geometry(size)
         alert = tk.Label(self.PUAgConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
-        okButton = tk.Button(self.PUAgConfirmation, text='   Ok   ', command= self.agORdistMigrationProcess)
+        okButton = tk.Button(self.PUAgConfirmation, text='     Ok      ', command= self.agORdistMigrationProcess)
         cancelButton = tk.Button(self.PUAgConfirmation, text='Cancelar', command=self.PUAgConfirmation.destroy)
         alert.pack()
         okButton.pack()
@@ -133,10 +133,10 @@ class bot5GUI:
     def bothConfirmation(self):
         self.PUValConfirmation = tk.Toplevel(self.wd)
         self.PUValConfirmation.title('ALERTA')
-        size = f'{int(self.w/6)}x{int(self.h/6)}+{int(self.w*5/12)}+{int(self.h*5/12)}'
+        size = f'{int(self.w/6)}x{int(self.h/8)}+{int(self.w*5/12)}+{int(self.h*9/16)}'
         self.PUValConfirmation.geometry(size)
         alert = tk.Label(self.PUValConfirmation, text='¿Desea continuar?', font=('consolas 24 bold', 12))
-        okButton = tk.Button(self.PUValConfirmation, text='   Ok   ', command= self.bothMigrationProcess)
+        okButton = tk.Button(self.PUValConfirmation, text='     Ok      ', command= self.bothMigrationProcess)
         cancelButton = tk.Button(self.PUValConfirmation, text='Cancelar', command=self.PUValConfirmation.destroy)
         alert.pack()
         okButton.pack()

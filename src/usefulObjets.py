@@ -596,6 +596,9 @@ class sapInterfaceJob():
             self.txtCabDoc = self.txtCabDoc.replace('TRASLADO', 'TRASL')
             self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = self.txtCabDoc
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWKO").text = self.accountNumberStr2
+
+        if self.moneda == 'ME':
+            self.session.findById("wnd[0]/usr/ctxtBKPF-WAERS").text = 'USD'
         
         self.session.findById("wnd[0]/tbar[0]/btn[0]").press()
         
@@ -672,9 +675,12 @@ class sapInterfaceJob():
         
         self.asignacion = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'ZUONR')
         self.ndoc = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'BELNR')
-        self.fecha = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'BLDAT')
+        self.fecha = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'BUDAT')
         self.ct = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'BSCHL')
-        self.importe = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'DMSHB')
+        if self.moneda == 'MN':
+            self.importe = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'DMSHB')
+        elif self.moneda == 'ME':
+            self.importe = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'DMBE2')
         self.texto1 = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'SGTXT')
         self.check = self.session.findById('wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell').GetCellValue(k, 'ICO_AUGP')
         if 'Pendientes' in self.check:
@@ -704,13 +710,13 @@ class sapInterfaceJob():
 
         match self.tMigracion:
             case 1:
-                self.texto = self.dist + '.TRASP.CAJ.' + self.moneda + '.' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
+                self.texto = 'LP' + '.TRASP.CAJ.' + self.moneda + '.' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
             case 2:
                 match self.ETVflow:
                     case 1:
                         self.texto = self.dist + '.ENTREGA A BRINKS CIERRE ' + self.fullAsignacion + ' ' + self.fecha2
                     case 2:
-                        self.texto = self.dist + '.TRASPASO ' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
+                        self.texto = 'LP' + '.TRASPASO ' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
                     case 3:
                             self.texto = self.dist + '.DEP. DIRECTO A BANCO ' + self.fullAsignacion + ' ' + self.fecha2
 
