@@ -103,6 +103,8 @@ class sapInterfaceJob():
         self.rowCount = 0
 
         self.exec = None
+
+        self.delta = 0
         
 
     def startSAP(self):
@@ -121,10 +123,12 @@ class sapInterfaceJob():
                  'fecha': wsConfig['B5'].value,
                  'periodo': wsConfig['B6'].value,
                  'layout': wsConfig['B8'].value,
-                 'xlsx migracion': wsConfig['B10'].value}
+                 'xlsx migracion': wsConfig['B10'].value,
+                 'cntdad feriados' : wsConfig['B12'].value}
         
         wb.close()
-                
+
+        self.delta = int(self.login['cntdad feriados']) 
         self.layout = self.login['layout']
         self.layout = self.layout.replace(" ","")
         self.xlsxMigracion = self.login['xlsx migracion']
@@ -259,12 +263,12 @@ class sapInterfaceJob():
 
         if fecha_a_dia(fecha) == 'Sabado':
             fecha = datetime.strptime(fecha, '%d.%m.%Y')
-            fecha+=timedelta(days = 2)
+            fecha+=timedelta(days = 2+self.delta)
             fecha = f"{add0(fecha.day)}.{add0(fecha.month)}.{add0(fecha.year)}"
 
         else:
             fecha = datetime.strptime(fecha, '%d.%m.%Y')
-            fecha+=timedelta(days = 1)
+            fecha+=timedelta(days = 1+self.delta)
             fecha = f"{add0(fecha.day)}.{add0(fecha.month)}.{add0(fecha.year)}"
 
         for i, element in enumerate(list2):
@@ -320,7 +324,7 @@ class sapInterfaceJob():
                 x2 = re.findall(r'[^a-zA-Z0-9\s]', texto)
 
                 for i2 in x2:
-                    texto = texto.replace(i2, '')
+                    texto = texto.replace(i2, ' ')
 
                 splitList = re.split(r'\s', texto)
                 splitList = splitList[:3]
