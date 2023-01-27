@@ -175,7 +175,7 @@ class sapInterfaceJob():
         y = os.path.join(self.currentPathParentFolder,"BASE DE DATOS DIST.xlsx")
         self.wb3 = load_workbook(y)
         self.wsNames = self.wb3['Hoja1']
-        for i in range(2, 70):
+        for i in range(2, self.wsNames.max_row+1):
             cellName = self.wsNames[f'D{i}'].value
             cellName = cellName.replace(" ", "")
             if cellName != None and cellName != "":
@@ -789,6 +789,8 @@ class sapInterfaceJob():
             self.bank = self.bank[spanBankF:]
             splitList = re.split(r'\s', self.bank)
             bankName = splitList[0]
+            if bankName == 'INDUSTRIAL':
+                bankName = 'BISA'
             self.bank = bankName + ' ' + bank_4_digits
             self.session.findById("wnd[0]/mbar/menu[5]/menu[8]").select()
             
