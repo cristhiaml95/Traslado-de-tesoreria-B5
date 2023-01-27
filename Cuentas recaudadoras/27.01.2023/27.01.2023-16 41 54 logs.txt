@@ -1,0 +1,13 @@
+
+
+-------------------------------- 27.01.2023 Iniciando Migracion de cuenta BISA 0031 101010112 a 101044022 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-CB12/24/
+27.01.2023 La operación de asignación: CCAJ-CB12/24/ fue migrada correctamente
+La asignación CCAJ-CB12/24/23 no existe en la hoja AG. HONDURAS del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-CB12/24/23  112659949
+
+-------------------------------- Migracion de cuenta BISA 0031 101010112 a 101044022 finalizada --------------------------------
+

@@ -902,6 +902,8 @@ class sapInterfaceJob():
         self.rec = self.rec.replace('.', '')
         self.rec = self.rec.replace('CENTRAL', '')
         self.rec = self.rec.strip()
+        splitRec = self.rec.split(' ')
+        self.rec = splitRec[0]
         
         
         
