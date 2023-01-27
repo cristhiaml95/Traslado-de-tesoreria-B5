@@ -1,0 +1,128 @@
+
+
+-------------------------------- 25.01.2023 Iniciando Migracion de cuenta BISA 0022 101010103 a 101044012 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-LP08/17/
+25.01.2023 La operación de asignación: CCAJ-LP08/17/ fue migrada correctamente
+La asignación CCAJ-LP08/17/23 no existe en la hoja AG. ACHUMANI del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-LP08/17/23  112644366
+
+-------------------------------- Migracion de cuenta BISA 0022 101010103 a 101044012 finalizada --------------------------------
+
+
+
+-------------------------------- 25.01.2023 Iniciando Migracion de cuenta BISA 0022 101010104 a 101044012 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-LP01/33/
+Validación de saldo 0 correcto en asignación: CCAJ-LP01/34/
+25.01.2023 La operación de asignación: CCAJ-LP01/33/ fue migrada correctamente
+25.01.2023 La operación de asignación: CCAJ-LP01/34/ fue migrada correctamente
+La asignación CCAJ-LP01/33/23 no existe en la hoja AG. MURILLO del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-LP01/34/23 no existe en la hoja AG. MURILLO del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-LP01/33/23  112644370
+1  CCAJ-LP01/34/23  112644371
+
+-------------------------------- Migracion de cuenta BISA 0022 101010104 a 101044012 finalizada --------------------------------
+
+
+
+-------------------------------- 25.01.2023 Iniciando Migracion de cuenta BISA 0022 101010105 a 101044012 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-LP07/17/
+25.01.2023 La operación de asignación: CCAJ-LP07/17/ fue migrada correctamente
+La asignación CCAJ-LP07/17/23 no existe en la hoja AG. MAX PAREDES del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-LP07/17/23  112644374
+
+-------------------------------- Migracion de cuenta BISA 0022 101010105 a 101044012 finalizada --------------------------------
+
+
+
+-------------------------------- 25.01.2023 Iniciando Migracion de cuenta BISA 0049 101010132 a 101044032 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-SC57/17/
+25.01.2023 La operación de asignación: CCAJ-SC57/17/ fue migrada correctamente
+La asignación CCAJ-SC57/17/23 no existe en la hoja AG. MONTERO del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-SC57/17/23  112644377
+
+-------------------------------- Migracion de cuenta BISA 0049 101010132 a 101044032 finalizada --------------------------------
+
+
+No se encontraron traslados validos para la cuenta MCSC 8183 101010134 : 101044082
+No se encontraron traslados validos para la cuenta MCSC 1329 101010110 : 101041002
+No se encontraron traslados validos para la cuenta BISA 0031 101010112 : 101044022
+No se encontraron traslados validos para la cuenta BISA 0031 101010113 : 101044022
+
+-------------------------------- 25.01.2023 Iniciando Migracion de cuenta BISA 0065 101010115 a 101044052 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-SR54/17/
+25.01.2023 La operación de asignación: CCAJ-SR54/17/ fue migrada correctamente
+La asignación CCAJ-SR54/17/23 no existe en la hoja AG. SUCRE 1 del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-SR54/17/23  112644378
+
+-------------------------------- Migracion de cuenta BISA 0065 101010115 a 101044052 finalizada --------------------------------
+
+
+
+-------------------------------- 25.01.2023 Iniciando Migracion de cuenta BISA 0065 101010116 a 101044052 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-SR24/17/
+25.01.2023 La operación de asignación: CCAJ-SR24/17/ fue migrada correctamente
+La asignación CCAJ-SR24/17/23 no existe en la hoja AG. SUCRE 2 del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-SR24/17/23  112644379
+
+-------------------------------- Migracion de cuenta BISA 0065 101010116 a 101044052 finalizada --------------------------------
+
+
+
+-------------------------------- 25.01.2023 Iniciando Migracion de cuenta BISA 0073 101010118 a 101044062 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-PT18/17/
+25.01.2023 La operación de asignación: CCAJ-PT18/17/ fue migrada correctamente
+La asignación CCAJ-PT18/17/23 no existe en la hoja AG. POTOSI 1 del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-PT18/17/23  112644380
+
+-------------------------------- Migracion de cuenta BISA 0073 101010118 a 101044062 finalizada --------------------------------
+
+
+
+-------------------------------- 25.01.2023 Iniciando Migracion de cuenta BISA 0057 101010120 a 101044042 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-OR51/17/
+25.01.2023 La operación de asignación: CCAJ-OR51/17/ fue migrada correctamente
+La asignación CCAJ-OR51/17/23 no existe en la hoja AG. ORURO 1 del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-OR51/17/23  112644381
+
+-------------------------------- Migracion de cuenta BISA 0057 101010120 a 101044042 finalizada --------------------------------
+
+
+
+-------------------------------- 25.01.2023 Iniciando Migracion de cuenta BISA 0090 101010122 a 101044082 --------------------------------
+
+
+Validación de saldo 0 correcto en asignación: CCAJ-TR50/17/
+25.01.2023 La operación de asignación: CCAJ-TR50/17/ fue migrada correctamente
+La asignación CCAJ-TR50/17/23 no existe en la hoja AG. TRINIDAD 1 del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-TR50/17/23  112644382
+
+-------------------------------- Migracion de cuenta BISA 0090 101010122 a 101044082 finalizada --------------------------------
+
+
+No se encontraron traslados validos para la cuenta BISA 0111 101010136 : 101044102
+No se encontraron traslados validos para la cuenta BISA 0103 101010137 : 101044092

@@ -175,7 +175,7 @@ class sapInterfaceJob():
         y = os.path.join(self.currentPathParentFolder,"BASE DE DATOS DIST.xlsx")
         self.wb3 = load_workbook(y)
         self.wsNames = self.wb3['Hoja1']
-        for i in range(2, 68):
+        for i in range(2, 70):
             cellName = self.wsNames[f'D{i}'].value
             cellName = cellName.replace(" ", "")
             if cellName != None and cellName != "":
