@@ -105,6 +105,10 @@ class sapInterfaceJob():
         self.exec = None
 
         self.delta = 0
+
+        self.imCount = 0
+
+        self.nameCount = 0
         
 
     def startSAP(self):
@@ -308,7 +312,8 @@ class sapInterfaceJob():
             fecha = fechas[i]
             fechaIndexs = self.IndexOfRepitedFecha(fecha, fechas2)
             importeIndexs = self.IndexOfRepitedImport(importe, importes2)
-            x = 'holi'
+            if bool(importeIndexs) == True:
+                self.imCount+=1
 
             commonIndexs = self.commons(fechaIndexs, importeIndexs)
             
@@ -334,6 +339,7 @@ class sapInterfaceJob():
                         if splitList[0] in name and splitList[1] in name and splitList[2] in name:
                             i = importes.index(importes2[j].replace('-',''))
                             approvedIndexs.append(i)
+                            self.nameCount+=1
                             break
 
                 else:
@@ -462,43 +468,53 @@ class sapInterfaceJob():
         alert = self.session.findById('wnd[0]/sbar/pane[0]').text
         alert2 = 'No se ha seleccionado ninguna partida'
         if alert2 in alert:
-            inAlert = f'No se encontró tabla de datos, revisar manualmente. CUENTA: {self.bank} {self.accountNumberStr1} : {self.accountNumberStr2}'
+            inAlert = f'\nNO SE ENCONTRÓ TABLA, REVISAR MANUALMENTE. CUENTA: {self.rec} {self.accountNumberStr1} : {self.accountNumberStr2} {self.bank}\n'
             writeLog('\n', inAlert, self.logPath)
             self.session.endTransaction()
             return -1
         b = self.rowCountNumber()
+        parametersList2 = []
+        self.imCount = 0
+        self.nameCount = 0
         if b <= 62:
-            parametersList2 = []
             parametersList2 = self.getWholeParametersList(0, b)
             approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
 
-
-
-        elif 125 >= b > 62:
-            parametersList2 = []
-            parametersList2 = self.getWholeParametersList(0, 62)
+        elif 124 >= b > 62:
+            parametersList2 = self.getWholeParametersList(0, 63)
             approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-            parametersList2 = self.getWholeParametersList(62, b)
+            self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
+            parametersList2 = self.getWholeParametersList(63, b)
             approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
 
             approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
 
-        elif 187 >= b > 125:
-            parametersList2 = []
-            parametersList2 = self.getWholeParametersList(0, 62)
+        elif 186 >= b > 124:
+            parametersList2 = self.getWholeParametersList(0, 63)
             approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-            parametersList2 = []
-            parametersList2 = self.getWholeParametersList(62, 125)
+            self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
+            parametersList2 = self.getWholeParametersList(63, 125)
             approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-            parametersList2 = []
+            self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 125
             parametersList2 = self.getWholeParametersList(125, b)
             approvedParametersList2 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
 
             approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
             approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
-
+        
+        if bool(preApprovedParametersList[0]):
+            x = '*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*'
+            writeLog('\n', x, self.logPath)
+            if self.imCount == 0:
+                inAlert = f'No se encontro importes validos.'
+                writeLog('\n', inAlert, self.logPath)
+            
+            elif self.imCount > 0 and self.nameCount == 0:
+                inAlert = f'No se encontro nombres validos.'
+                writeLog('\n', inAlert, self.logPath)
+            
         if bool(approvedParametersList[0]) == False:
-            mensaje = f'No se encontraron traslados validos para la cuenta {self.bank} {self.accountNumberStr1} : {self.accountNumberStr2}'
+            mensaje = f'*:*:*:*:*:*:*:*:*:*:*:*:*: NO SE ENCONTRARON TRASLADOS VALIDOS PARA {self.rec} {self.accountNumberStr1} : {self.accountNumberStr2} {self.bank} *:*:*:*:*:*:*:*:*:*:*:*:*:'
             writeLog('\n', mensaje, self.logPath)
             return -1
 
@@ -822,7 +838,7 @@ class sapInterfaceJob():
             x =  self.subProcess_1()
             if x == -1:
                 continue
-            serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.bank} {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
+            serparationMessage = f'\n\n----------------------------- {today()} Iniciando Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2}  {self.bank} -----------------------------'
             writeLog('', serparationMessage, self.logPath)
             self.subProcess_2()
         self.proc.kill()
@@ -905,12 +921,8 @@ class sapInterfaceJob():
         splitRec = self.rec.split(' ')
         self.rec = splitRec[0]
         
-        
-        
         self.txtCabDoc = 'TRASLADO A ' + self.bank
 
-        # serparationMessage = f'\n\n-------------------------------- {today()} Iniciando Migracion de cuenta {self.accountNumber1} a {self.accountNumber2} --------------------------------\n\n'
-        # writeLog('', serparationMessage, self.logPath)
         time.sleep(1)
         self.getFbl3nMenu()
         try:
@@ -924,7 +936,7 @@ class sapInterfaceJob():
         alert = self.session.findById('wnd[0]/sbar/pane[0]').text
         alert2 = 'No se ha seleccionado ninguna partida'
         if alert2 in alert:
-            inAlert = f'No se encontró tabla de datos, revisar manualmente. CUENTA: {self.bank} {self.accountNumberStr1} : {self.accountNumberStr2}'
+            inAlert = f'\nNO SE ENCONTRÓ TABLA, REVISAR MANUALMENTE. CUENTA: {self.rec} {self.accountNumberStr1} : {self.accountNumberStr2} {self.bank}\n'
             writeLog('\n', inAlert, self.logPath)
             self.session.endTransaction()
             return -1
@@ -991,7 +1003,7 @@ class sapInterfaceJob():
         df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
         ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
         writeLog('\n', df, self.logPath)
-        serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.bank} {self.accountNumber1} a {self.accountNumber2} finalizada --------------------------------\n\n'
+        serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2} {self.bank} finalizada --------------------------------'
         writeLog('', serparationMessage, self.logPath)
 
   
