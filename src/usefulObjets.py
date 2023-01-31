@@ -7,7 +7,7 @@ import re
 import os
 from usefulFunctions import currentPathParentFolder, currentPathGrandpaFolder, today, writeLog, fecha_a_dia, copyANDeraseFile, copyFile, ndocTOxlsx, add0
 import pandas as pd
-import gc
+import math
 
 #poo desde video 26
 
@@ -460,6 +460,25 @@ class sapInterfaceJob():
         approvedParametersList[9].extend(approvedParametersList1[9])
         return approvedParametersList
 
+    def get_ag_approved_list(self, b, n, preApprovedParametersList):
+        approvedParametersList = [[], [], [], [], [], [], [], [], [], []]
+        parametersList2 = []
+        m = math.floor(b/n)
+        for i in range(m):
+            self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = n*i
+            parametersList2 = self.getWholeParametersList(n*i, n*(i+1))
+            approvedParametersList2 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+            approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
+        
+        self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = n*(m)
+        parametersList2 = self.getWholeParametersList(n*m, b)
+        approvedParametersList2 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
+
+        return approvedParametersList      
+
+            
+
 
     def wichMigraVerification2(self, preApprovedParametersList):
         time.sleep(1)
@@ -473,34 +492,50 @@ class sapInterfaceJob():
             self.session.endTransaction()
             return -1
         b = self.rowCountNumber()
-        parametersList2 = []
+        # parametersList2 = []
         self.imCount = 0
         self.nameCount = 0
-        if b <= 62:
-            parametersList2 = self.getWholeParametersList(0, b)
-            approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        # if b <= 62:
+        #     parametersList2 = self.getWholeParametersList(0, b)
+        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
 
-        elif 124 >= b > 62:
-            parametersList2 = self.getWholeParametersList(0, 63)
-            approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-            self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
-            parametersList2 = self.getWholeParametersList(63, b)
-            approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        # elif 124 >= b > 62:
+        #     parametersList2 = self.getWholeParametersList(0, 63)
+        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
+        #     parametersList2 = self.getWholeParametersList(63, b)
+        #     approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
 
-            approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
+        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
 
-        elif 186 >= b > 124:
-            parametersList2 = self.getWholeParametersList(0, 63)
-            approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-            self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
-            parametersList2 = self.getWholeParametersList(63, 125)
-            approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-            self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 125
-            parametersList2 = self.getWholeParametersList(125, b)
-            approvedParametersList2 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        # elif 186 >= b > 124:
+        #     parametersList2 = self.getWholeParametersList(0, 63)
+        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
+        #     parametersList2 = self.getWholeParametersList(63, 125)
+        #     approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 125
+        #     parametersList2 = self.getWholeParametersList(125, b)
+        #     approvedParametersList2 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
 
-            approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
-            approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
+        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
+        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
+
+        # elif 248 >= b > 186:
+        #     parametersList2 = self.getWholeParametersList(0, 63)
+        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
+        #     parametersList2 = self.getWholeParametersList(63, 125)
+        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
+        #     parametersList2 = self.getWholeParametersList(125, 187)
+        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
+        #     parametersList2 = self.getWholeParametersList(187, b)
+        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
+        approvedParametersList = self.get_ag_approved_list(b, 62, preApprovedParametersList)
+
         
         if bool(preApprovedParametersList[0]):
             x = '*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*'
