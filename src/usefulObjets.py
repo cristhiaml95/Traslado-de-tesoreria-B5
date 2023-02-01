@@ -94,6 +94,7 @@ class sapInterfaceJob():
         self.xlsxMigracion = None
         
         self.changeThePeriod = False
+        self.changeTheDate = False
         self.i_0 = 3
         self.j_0 = 0
         self.i = 3
@@ -137,9 +138,9 @@ class sapInterfaceJob():
         self.layout = self.layout.replace(" ","")
         self.xlsxMigracion = self.login['xlsx migracion']
 
-        if self.login['fecha'] == None:
-            self.login['fecha'] = today()
-        else:
+        if self.login['fecha'] != None:
+            self.changeTheDate = True
+        if self.login['periodo'] != None:
             self.changeThePeriod = True
       
         self.proc = subprocess.Popen([self.paths['SAPPath'], '-new-tab'])
@@ -521,21 +522,24 @@ class sapInterfaceJob():
         #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
         #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
 
-        # elif 248 >= b > 186:
+        # elif b > 186:
         #     parametersList2 = self.getWholeParametersList(0, 63)
         #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
         #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
         #     parametersList2 = self.getWholeParametersList(63, 125)
-        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
+        #     approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 125
         #     parametersList2 = self.getWholeParametersList(125, 187)
-        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
+        #     approvedParametersList2 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 187
         #     parametersList2 = self.getWholeParametersList(187, b)
-        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
-        approvedParametersList = self.get_ag_approved_list(b, 62, preApprovedParametersList)
+        #     approvedParametersList3 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
+        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = b
 
+        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
+        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
+        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList3)
+        approvedParametersList = self.get_ag_approved_list(b, 62, preApprovedParametersList)
         
         if bool(preApprovedParametersList[0]):
             x = '*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*'
@@ -636,11 +640,14 @@ class sapInterfaceJob():
         self.session.findById("wnd[0]/tbar[0]/okcd").text = "f-02"
         self.session.findById("wnd[0]").sendVKey(0)
 
-        if self.changeThePeriod:
-             self.session.findById("wnd[0]/usr/ctxtBKPF-BUDAT").text = self.login['fecha']
-             self.session.findById("wnd[0]/usr/txtBKPF-MONAT").text = self.login['periodo']
+        self.session.findById("wnd[0]/usr/ctxtBKPF-BLDAT").text = today()
 
-        self.session.findById("wnd[0]/usr/ctxtBKPF-BLDAT").text = self.login['fecha']
+        if self.changeTheDate:
+            self.session.findById("wnd[0]/usr/ctxtBKPF-BLDAT").text = self.login['fecha']
+            self.session.findById("wnd[0]/usr/ctxtBKPF-BUDAT").text = self.login['fecha']
+
+        if self.changeThePeriod:
+             self.session.findById("wnd[0]/usr/txtBKPF-MONAT").text = self.login['periodo']
 
         recaudadora = self.rec
         recaudadora = recaudadora.replace('CENTRAL', '')
@@ -661,9 +668,11 @@ class sapInterfaceJob():
             self.session.findById("wnd[0]/usr/txtBSEG-WRBTR").text = rowList[4]
         except:
             periodFail = self.session.findById("wnd[0]/sbar/pane[0]").text
+            writeLog('\n', periodFail, self.logPath)
             self.session.endTransaction()
+            return -1
 
-            raise Exception(periodFail)
+            # raise Exception(periodFail)
         self.session.findById("wnd[0]/usr/txtBSEG-ZUONR").text = rowList[7]
         self.session.findById("wnd[0]/usr/ctxtBSEG-SGTXT").text = rowList[9]
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWBS").text = '50'
@@ -869,13 +878,20 @@ class sapInterfaceJob():
         
         print('Este es el rango del xls: ', self.xlsxRange)
         for self.r in self.xlsxRange:
-            
-            x =  self.subProcess_1()
-            if x == -1:
+            try:
+                x =  self.subProcess_1()
+                if x == -1:
+                    continue
+                serparationMessage = f'\n\n----------------------------- {today()} Iniciando Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2}  {self.bank} -----------------------------'
+                writeLog('', serparationMessage, self.logPath)
+                y = self.subProcess_2()
+                if y == -1:
+                    continue
+            except:
+                print('Llamar al +51 932446031')
+                self.session.EndTransaction()
                 continue
-            serparationMessage = f'\n\n----------------------------- {today()} Iniciando Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2}  {self.bank} -----------------------------'
-            writeLog('', serparationMessage, self.logPath)
-            self.subProcess_2()
+
         self.proc.kill()
 
     def subProcess_2_1(self):
@@ -1018,6 +1034,9 @@ class sapInterfaceJob():
                 rowList.append(approvedParametersList[9][s])
 
                 self.migration(rowList)
+                if self.migration(rowList) == -1:
+                    self.session.EndTransaction()
+                    return -1
                 asignacionNdocfMigratedbyOne = []
                 asignacionNdocfMigratedbyOne.append(approvedParametersList[7][s])
                 asignacionNdocfMigratedbyOne.append(self.docf)
