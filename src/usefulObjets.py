@@ -1033,8 +1033,8 @@ class sapInterfaceJob():
                 rowList.append(approvedParametersList[8][s])
                 rowList.append(approvedParametersList[9][s])
 
-                self.migration(rowList)
-                if self.migration(rowList) == -1:
+                errorMigra = self.migration(rowList)
+                if errorMigra == -1:
                     self.session.EndTransaction()
                     return -1
                 asignacionNdocfMigratedbyOne = []
@@ -1042,9 +1042,7 @@ class sapInterfaceJob():
                 asignacionNdocfMigratedbyOne.append(self.docf)
                 asignacionNdocMigrated.append(asignacionNdocfMigratedbyOne)
                 nDocsMigrated.append(self.docf)
-                # self.migrationXlsxPaste(approvedParametersList[7][s], self.docf)
-            
-                # self.session.EndTransaction()
+                
         except Exception as e:
             writeLog('\n', e, self.logPath)
 
