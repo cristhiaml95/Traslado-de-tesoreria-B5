@@ -970,7 +970,7 @@ class sapInterfaceJob():
         self.rec = self.rec.replace('CENTRAL', '')
         self.rec = self.rec.strip()
         # splitRec = self.rec.split(' ')
-        self.rec = self.rec[:15]
+        self.rec = self.rec[:11]
         
         self.txtCabDoc = 'TRASLADO A ' + self.bank
 
