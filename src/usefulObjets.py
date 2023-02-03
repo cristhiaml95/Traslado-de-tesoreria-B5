@@ -969,8 +969,8 @@ class sapInterfaceJob():
         self.rec = self.rec.replace('.', '')
         self.rec = self.rec.replace('CENTRAL', '')
         self.rec = self.rec.strip()
-        splitRec = self.rec.split(' ')
-        self.rec = splitRec[0]
+        # splitRec = self.rec.split(' ')
+        self.rec = self.rec[:15]
         
         self.txtCabDoc = 'TRASLADO A ' + self.bank
 
