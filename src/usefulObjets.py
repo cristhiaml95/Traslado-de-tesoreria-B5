@@ -888,7 +888,7 @@ class sapInterfaceJob():
                 if y == -1:
                     continue
             except:
-                print('Llamar al +51 932446031')
+                writeLog('\n', 'Llamar al +51 932446031', self.logPath)
                 self.session.EndTransaction()
                 continue
 
