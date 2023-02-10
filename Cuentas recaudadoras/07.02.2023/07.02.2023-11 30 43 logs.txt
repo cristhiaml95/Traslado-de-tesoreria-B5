@@ -1,0 +1,33 @@
+
+Asignaciones extraidas correctamente: BISA 0022 101010106
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+
+----------------------------- 07.02.2023 Iniciando Migracion de cuenta DISPAZ 101010102 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/58/
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/56/
+07.02.2023 La operación de asignación: CCAJ-LP02/58/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-LP02/56/ fue migrada correctamente
+La asignación CCAJ-LP02/58/202 no existe en la hoja DISPAZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-LP02/56/202 no existe en la hoja DISPAZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-LP02/58/202  112728905
+1  CCAJ-LP02/56/202  112728906
+
+-------------------------------- Migracion de cuenta DISPAZ 101010102 a 101044012 BISA 0022 finalizada --------------------------------
+
+----------------------------- 07.02.2023 Iniciando Migracion de cuenta DISALTO 101010106 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/51/
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/50/
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/49/
+07.02.2023 La operación de asignación: CCAJ-EA10/51/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-EA10/50/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-EA10/49/ fue migrada correctamente
+La asignación CCAJ-EA10/51/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-EA10/50/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-EA10/49/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-EA10/51/202  112728907
+1  CCAJ-EA10/50/202  112728908
+2  CCAJ-EA10/49/202  112728909
+
+-------------------------------- Migracion de cuenta DISALTO 101010106 a 101044012 BISA 0022 finalizada --------------------------------

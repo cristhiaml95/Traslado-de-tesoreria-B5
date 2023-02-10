@@ -1,0 +1,25 @@
+
+Asignaciones extraidas correctamente: BISA 0031 101020101
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+
+----------------------------- 08.02.2023 Iniciando Migracion de cuenta DISCRUZ 101020101 a 101044032  BISA 0049 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/60/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/59/
+08.02.2023 La operación de asignación: CCAJ-SC39/60/ fue migrada correctamente
+08.02.2023 La operación de asignación: CCAJ-SC39/59/ fue migrada correctamente
+La asignación CCAJ-SC39/60/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-SC39/59/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-SC39/60/202  112730375
+1  CCAJ-SC39/59/202  112730376
+
+-------------------------------- Migracion de cuenta DISCRUZ 101020101 a 101044032 BISA 0049 finalizada --------------------------------
+
+----------------------------- 08.02.2023 Iniciando Migracion de cuenta COCHABAMBA 101020101 a 101044022  BISA 0031 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/32/
+08.02.2023 La operación de asignación: CCAJ-CB11/32/ fue migrada correctamente
+La asignación CCAJ-CB11/32/202 no existe en la hoja COCHABAMBA del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-CB11/32/202  112730377
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101020101 a 101044022 BISA 0031 finalizada --------------------------------

@@ -1,0 +1,98 @@
+
+Asignaciones extraidas correctamente: ETV M.E 101010207
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+
+----------------------------- 07.02.2023 Iniciando Migracion de cuenta DISCRUZ 101010107 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/58/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/56/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/57/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/55/
+07.02.2023 La operación de asignación: CCAJ-SC39/58/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-SC39/56/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-SC39/57/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-SC39/55/ fue migrada correctamente
+La asignación CCAJ-SC39/58/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-SC39/56/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-SC39/57/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-SC39/55/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-SC39/58/202  112728797
+1  CCAJ-SC39/56/202  112728798
+2  CCAJ-SC39/57/202  112728800
+3  CCAJ-SC39/55/202  112728801
+
+-------------------------------- Migracion de cuenta DISCRUZ 101010107 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 07.02.2023 Iniciando Migracion de cuenta DISTAR 101010109 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TA43/28/
+Validación de saldo 0 correcto en asignación: CCAJ-TA43/27/
+07.02.2023 La operación de asignación: CCAJ-TA43/28/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-TA43/27/ fue migrada correctamente
+La asignación CCAJ-TA43/28/202 no existe en la hoja DISTAR del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-TA43/27/202 no existe en la hoja DISTAR del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-TA43/28/202  112728804
+1  CCAJ-TA43/27/202  112728806
+
+-------------------------------- Migracion de cuenta DISTAR 101010109 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 07.02.2023 Iniciando Migracion de cuenta SUCRE 101010114 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SR27/23/
+Validación de saldo 0 correcto en asignación: CCAJ-SR27/22/
+07.02.2023 La operación de asignación: CCAJ-SR27/23/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-SR27/22/ fue migrada correctamente
+La asignación CCAJ-SR27/23/202 no existe en la hoja SUCRE del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-SR27/22/202 no existe en la hoja SUCRE del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-SR27/23/202  112728808
+1  CCAJ-SR27/22/202  112728810
+
+-------------------------------- Migracion de cuenta SUCRE 101010114 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 07.02.2023 Iniciando Migracion de cuenta POTOSI 101010117 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-PT53/23/
+07.02.2023 La operación de asignación: CCAJ-PT53/23/ fue migrada correctamente
+La asignación CCAJ-PT53/23/202 no existe en la hoja POTOSI del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-PT53/23/202  112728811
+
+-------------------------------- Migracion de cuenta POTOSI 101010117 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 07.02.2023 Iniciando Migracion de cuenta ORURO 101010119 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-OR52/24/
+07.02.2023 La operación de asignación: CCAJ-OR52/24/ fue migrada correctamente
+La asignación CCAJ-OR52/24/202 no existe en la hoja ORURO del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-OR52/24/202  112728812
+
+-------------------------------- Migracion de cuenta ORURO 101010119 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 07.02.2023 Iniciando Migracion de cuenta TRINIDAD 101010121 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TR47/28/
+Validación de saldo 0 correcto en asignación: CCAJ-TR47/27/
+07.02.2023 La operación de asignación: CCAJ-TR47/28/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-TR47/27/ fue migrada correctamente
+La asignación CCAJ-TR47/28/202 no existe en la hoja TRINIDAD del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-TR47/27/202 no existe en la hoja TRINIDAD del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-TR47/28/202  112728813
+1  CCAJ-TR47/27/202  112728814
+
+-------------------------------- Migracion de cuenta TRINIDAD 101010121 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 07.02.2023 Iniciando Migracion de cuenta DISCRUZ 101010207 a 101020201  ETV M.E -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/56/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/57/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/55/
+07.02.2023 La operación de asignación: CCAJ-SC39/56/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-SC39/57/ fue migrada correctamente
+07.02.2023 La operación de asignación: CCAJ-SC39/55/ fue migrada correctamente
+La asignación CCAJ-SC39/56/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-SC39/57/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+La asignación CCAJ-SC39/55/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 10.01.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-SC39/56/202  112728816
+1  CCAJ-SC39/57/202  112728817
+2  CCAJ-SC39/55/202  112728818
+
+-------------------------------- Migracion de cuenta DISCRUZ 101010207 a 101020201 ETV M.E finalizada --------------------------------

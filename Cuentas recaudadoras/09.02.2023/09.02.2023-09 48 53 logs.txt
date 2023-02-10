@@ -1,0 +1,148 @@
+
+Asignaciones extraidas correctamente: BISA 2017 101020201
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta DISPAZ 101020101 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/60/
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/59/
+09.02.2023 La operación de asignación: CCAJ-LP02/60/ fue migrada correctamente
+09.02.2023 La operación de asignación: CCAJ-LP02/59/ fue migrada correctamente
+La asignación CCAJ-LP02/60/202 no existe en la hoja DISPAZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-LP02/60/202  112732241
+1  CCAJ-LP02/59/202  112732242
+
+-------------------------------- Migracion de cuenta DISPAZ 101020101 a 101044012 BISA 0022 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta DISALTO 101020101 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/53/
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/52/
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/49/
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/50/
+09.02.2023 La operación de asignación: CCAJ-EA10/53/ fue migrada correctamente
+09.02.2023 La operación de asignación: CCAJ-EA10/52/ fue migrada correctamente
+09.02.2023 La operación de asignación: CCAJ-EA10/49/ fue migrada correctamente
+09.02.2023 La operación de asignación: CCAJ-EA10/50/ fue migrada correctamente
+La asignación CCAJ-EA10/53/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-EA10/52/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+          Asignacion       Ndoc
+0   CCAJ-EA10/53/202  112732243
+1   CCAJ-EA10/52/202  112732244
+2  CCAJ-EA10/49/2023  112732245
+3  CCAJ-EA10/50/2023  112732246
+
+-------------------------------- Migracion de cuenta DISALTO 101020101 a 101044012 BISA 0022 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta DISCRUZ 101020101 a 101044032  BISA 0049 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/62/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/61/
+09.02.2023 La operación de asignación: CCAJ-SC39/62/ fue migrada correctamente
+09.02.2023 La operación de asignación: CCAJ-SC39/61/ fue migrada correctamente
+La asignación CCAJ-SC39/62/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC39/61/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-SC39/62/202  112732247
+1  CCAJ-SC39/61/202  112732248
+
+-------------------------------- Migracion de cuenta DISCRUZ 101020101 a 101044032 BISA 0049 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta DISTAR 101020101 a 101044072  BISA 0081 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TA43/30/
+Validación de saldo 0 correcto en asignación: CCAJ-TA43/29/
+09.02.2023 La operación de asignación: CCAJ-TA43/30/ fue migrada correctamente
+09.02.2023 La operación de asignación: CCAJ-TA43/29/ fue migrada correctamente
+La asignación CCAJ-TA43/30/202 no existe en la hoja DISTAR del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-TA43/29/202 no existe en la hoja DISTAR del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-TA43/30/202  112732250
+1  CCAJ-TA43/29/202  112732251
+
+-------------------------------- Migracion de cuenta DISTAR 101020101 a 101044072 BISA 0081 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta COCHABAMBA 101020101 a 101044022  BISA 0031 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/33/
+09.02.2023 La operación de asignación: CCAJ-CB11/33/ fue migrada correctamente
+La asignación CCAJ-CB11/33/202 no existe en la hoja COCHABAMBA del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-CB11/33/202  112732252
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101020101 a 101044022 BISA 0031 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta SUCRE 101020101 a 101044052  BISA 0065 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SR27/25/
+Validación de saldo 0 correcto en asignación: CCAJ-SR27/24/
+09.02.2023 La operación de asignación: CCAJ-SR27/25/ fue migrada correctamente
+09.02.2023 La operación de asignación: CCAJ-SR27/24/ fue migrada correctamente
+La asignación CCAJ-SR27/25/202 no existe en la hoja SUCRE del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SR27/24/202 no existe en la hoja SUCRE del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-SR27/25/202  112732253
+1  CCAJ-SR27/24/202  112732254
+
+-------------------------------- Migracion de cuenta SUCRE 101020101 a 101044052 BISA 0065 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta POTOSI 101020101 a 101044062  BISA 0073 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-PT53/25/
+Validación de saldo 0 correcto en asignación: CCAJ-PT53/24/
+09.02.2023 La operación de asignación: CCAJ-PT53/25/ fue migrada correctamente
+09.02.2023 La operación de asignación: CCAJ-PT53/24/ fue migrada correctamente
+La asignación CCAJ-PT53/25/202 no existe en la hoja POTOSI del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-PT53/24/202 no existe en la hoja POTOSI del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-PT53/25/202  112732255
+1  CCAJ-PT53/24/202  112732256
+
+-------------------------------- Migracion de cuenta POTOSI 101020101 a 101044062 BISA 0073 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta ORURO 101020101 a 101044042  BISA 0057 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-OR52/26/
+Validación de saldo 0 correcto en asignación: CCAJ-OR52/25/
+09.02.2023 La operación de asignación: CCAJ-OR52/26/ fue migrada correctamente
+09.02.2023 La operación de asignación: CCAJ-OR52/25/ fue migrada correctamente
+La asignación CCAJ-OR52/26/202 no existe en la hoja ORURO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-OR52/25/202 no existe en la hoja ORURO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-OR52/26/202  112732257
+1  CCAJ-OR52/25/202  112732258
+
+-------------------------------- Migracion de cuenta ORURO 101020101 a 101044042 BISA 0057 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta TRINIDAD 101020101 a 101044082  BISA 0090 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TR47/30/
+Validación de saldo 0 correcto en asignación: CCAJ-TR47/29/
+09.02.2023 La operación de asignación: CCAJ-TR47/30/ fue migrada correctamente
+09.02.2023 La operación de asignación: CCAJ-TR47/29/ fue migrada correctamente
+La asignación CCAJ-TR47/30/202 no existe en la hoja TRINIDAD del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-TR47/29/202 no existe en la hoja TRINIDAD del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-TR47/30/202  112732259
+1  CCAJ-TR47/29/202  112732260
+
+-------------------------------- Migracion de cuenta TRINIDAD 101020101 a 101044082 BISA 0090 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta DISCRUZ 101020201 a 101052002  BISA 2017 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/61/
+09.02.2023 La operación de asignación: CCAJ-SC39/61/ fue migrada correctamente
+La asignación CCAJ-SC39/61/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-SC39/61/202  112732261
+
+-------------------------------- Migracion de cuenta DISCRUZ 101020201 a 101052002 BISA 2017 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta COCHABAMBA 101020201 a 101052002  BISA 2017 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/33/
+09.02.2023 La operación de asignación: CCAJ-CB11/33/ fue migrada correctamente
+La asignación CCAJ-CB11/33/202 no existe en la hoja COCHABAMBA del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-CB11/33/202  112732264
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101020201 a 101052002 BISA 2017 finalizada --------------------------------
+
+----------------------------- 09.02.2023 Iniciando Migracion de cuenta TRINIDAD 101020201 a 101052002  BISA 2017 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TR47/29/
+09.02.2023 La operación de asignación: CCAJ-TR47/29/ fue migrada correctamente
+La asignación CCAJ-TR47/29/202 no existe en la hoja TRINIDAD del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-TR47/29/202  112732265
+
+-------------------------------- Migracion de cuenta TRINIDAD 101020201 a 101052002 BISA 2017 finalizada --------------------------------

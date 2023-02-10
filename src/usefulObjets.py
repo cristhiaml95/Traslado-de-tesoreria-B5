@@ -549,7 +549,7 @@ class sapInterfaceJob():
                 writeLog('\n', inAlert, self.logPath)
             
             elif self.imCount > 0 and self.nameCount == 0:
-                inAlert = f'No se encontro nombres validos.'
+                inAlert = f'No se encontro nombres o fechas validas.'
                 writeLog('\n', inAlert, self.logPath)
             
         if bool(approvedParametersList[0]) == False:
