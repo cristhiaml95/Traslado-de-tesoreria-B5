@@ -1,0 +1,69 @@
+
+Asignaciones extraidas correctamente: BISA 2017 101020201
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+
+----------------------------- 10.02.2023 Iniciando Migracion de cuenta DISPAZ 101020101 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/62/
+10.02.2023 La operación de asignación: CCAJ-LP02/62/ fue migrada correctamente
+La asignación CCAJ-LP02/62/202 no existe en la hoja DISPAZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-LP02/62/202  112733965
+
+-------------------------------- Migracion de cuenta DISPAZ 101020101 a 101044012 BISA 0022 finalizada --------------------------------
+
+----------------------------- 10.02.2023 Iniciando Migracion de cuenta DISALTO 101020101 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/55/
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/54/
+10.02.2023 La operación de asignación: CCAJ-EA10/55/ fue migrada correctamente
+10.02.2023 La operación de asignación: CCAJ-EA10/54/ fue migrada correctamente
+La asignación CCAJ-EA10/55/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-EA10/54/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-EA10/55/202  112733966
+1  CCAJ-EA10/54/202  112733967
+
+-------------------------------- Migracion de cuenta DISALTO 101020101 a 101044012 BISA 0022 finalizada --------------------------------
+
+----------------------------- 10.02.2023 Iniciando Migracion de cuenta DISCRUZ 101020101 a 101044032  BISA 0049 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/64/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/63/
+10.02.2023 La operación de asignación: CCAJ-SC39/64/ fue migrada correctamente
+10.02.2023 La operación de asignación: CCAJ-SC39/63/ fue migrada correctamente
+La asignación CCAJ-SC39/64/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC39/63/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-SC39/64/202  112733970
+1  CCAJ-SC39/63/202  112733971
+
+-------------------------------- Migracion de cuenta DISCRUZ 101020101 a 101044032 BISA 0049 finalizada --------------------------------
+
+----------------------------- 10.02.2023 Iniciando Migracion de cuenta COCHABAMBA 101020101 a 101044022  BISA 0031 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/34/
+10.02.2023 La operación de asignación: CCAJ-CB11/34/ fue migrada correctamente
+La asignación CCAJ-CB11/34/202 no existe en la hoja COCHABAMBA del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-CB11/34/202  112733972
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101020101 a 101044022 BISA 0031 finalizada --------------------------------
+
+----------------------------- 10.02.2023 Iniciando Migracion de cuenta DISCRUZ 101020201 a 101052002  BISA 2017 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/64/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/63/
+10.02.2023 La operación de asignación: CCAJ-SC39/64/ fue migrada correctamente
+10.02.2023 La operación de asignación: CCAJ-SC39/63/ fue migrada correctamente
+La asignación CCAJ-SC39/64/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC39/63/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-SC39/64/202  112733974
+1  CCAJ-SC39/63/202  112733975
+
+-------------------------------- Migracion de cuenta DISCRUZ 101020201 a 101052002 BISA 2017 finalizada --------------------------------
+
+----------------------------- 10.02.2023 Iniciando Migracion de cuenta COCHABAMBA 101020201 a 101052002  BISA 2017 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/34/
+10.02.2023 La operación de asignación: CCAJ-CB11/34/ fue migrada correctamente
+La asignación CCAJ-CB11/34/202 no existe en la hoja COCHABAMBA del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+         Asignacion       Ndoc
+0  CCAJ-CB11/34/202  112733977
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101020201 a 101052002 BISA 2017 finalizada --------------------------------
