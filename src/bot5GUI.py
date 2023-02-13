@@ -25,7 +25,11 @@ class bot5GUI:
         self.op2_1 = None
         self.op2_2 = None
 
+        self.cbOp = None
+        self.cbOp_1 = None
+
         self.selMigraChoise = None
+        self.dFechaChoise = None
         self.photoPath = None
 
         self.PUNoChoise = None
@@ -54,6 +58,21 @@ class bot5GUI:
 
         self.op1_1 = tk.Radiobutton(self.options1Square, text = 'Solo agencias', bg = 'light sky blue', variable = self.selOp1, value = 1, width=20, anchor='w', command= self.op1_1Command)
         self.op1_1.pack()
+
+        self.cbOp = tk.BooleanVar()
+        self.cbOp.set(False)
+
+        self.cbOp_1 = tk.Checkbutton(self.options1Square, text = 'Diferencia de fechas: ', bg = 'light sky blue', variable = self.cbOp, width=20, anchor='w', command= self.cbOp_1Command)
+        self.cbOp_1['state'] = 'disabled'
+        self.cbOp_1.pack()
+
+        self.dFecha = tk.StringVar()
+        self.dFecha.set('1')
+
+        self.dFecha_1 = tk.Entry(self.options1Square, width=20)
+        self.dFecha_1['state'] = 'disabled'
+        self.dFecha_1.pack()
+
 
         self.op1_2 = tk.Radiobutton(self.options1Square, text = 'Solo distribuidoras', bg = 'light sky blue', variable = self.selOp1, value = 2, width=20, anchor='w', command= self.op1_23Command)
         self.op1_2.pack()
@@ -144,11 +163,18 @@ class bot5GUI:
         self.PUValConfirmation.mainloop()
 
     def goButtonCommand(self):
+        self.dFecha.set(self.dFecha_1.get())
+        self.dFechaChoise = self.dFecha.get()
         self.selMigraChoise = self.selOp1.get()
         match self.selMigraChoise:
             case 0:
                 self.noChoise1PU()                
             case 1:
+                try:
+                    self.dFechaChoise = int(self.dFechaChoise)
+
+                except:
+                    self.noChoise1PU()
                 self.valConfirmation()
             case 2:
                 if self.selOp2.get() == 0 or self.selOp3.get() == 0:
@@ -168,6 +194,7 @@ class bot5GUI:
                         self.bothConfirmation()            
 
     def op1_1Command(self):
+        self.cbOp_1['state'] = 'normal'
         self.selOp2.set(0)
         self.op2_1['state'] = 'disabled'
         self.op2_2['state'] = 'disabled'
@@ -178,7 +205,15 @@ class bot5GUI:
         self.op3_2['state'] = 'disabled'
         self.goButton['state'] = 'normal'
 
+    def cbOp_1Command(self):
+        if self.cbOp.get():
+            self.dFecha_1['state'] = 'normal'
+        else:
+            self.dFecha_1['state'] = 'disabled'
+
     def op1_23Command(self):
+        self.cbOp_1['state'] = 'disabled'
+        self.dFecha_1['state'] = 'disabled'
         self.selOp2.set(0)
         self.op2_1['state'] = 'normal'
         self.op2_2['state'] = 'normal'
