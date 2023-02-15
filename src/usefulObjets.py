@@ -334,7 +334,7 @@ class sapInterfaceJob():
 
                 for i2 in x2:
                     texto = texto.replace(i2, ' ')
-                    
+
                 texto = texto.upper()
                 splitList = re.split(r'\s', texto)
                 splitList = splitList[:3]
@@ -889,19 +889,19 @@ class sapInterfaceJob():
         
         print('Este es el rango del xls: ', self.xlsxRange)
         for self.r in self.xlsxRange:
-            # try:
-            x =  self.subProcess_1()
-            if x == -1:
+            try:
+                x =  self.subProcess_1()
+                if x == -1:
+                    continue
+                serparationMessage = f'\n\n----------------------------- {today()} Iniciando Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2}  {self.bank} -----------------------------'
+                writeLog('', serparationMessage, self.logPath)
+                y = self.subProcess_2()
+                if y == -1:
+                    continue
+            except:
+                writeLog('\n', 'Se recomienda asistirse por el programador - +51 932446031', self.logPath)
+                self.session.EndTransaction()
                 continue
-            serparationMessage = f'\n\n----------------------------- {today()} Iniciando Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2}  {self.bank} -----------------------------'
-            writeLog('', serparationMessage, self.logPath)
-            y = self.subProcess_2()
-            if y == -1:
-                continue
-            # except:
-            #     writeLog('\n', 'Llamar al +51 932446031', self.logPath)
-            #     self.session.EndTransaction()
-            #     continue
 
         self.proc.kill()
 
