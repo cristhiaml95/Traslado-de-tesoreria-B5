@@ -1,0 +1,36 @@
+
+Llamar al +51 932446031
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 15.02.2023 Iniciando Migracion de cuenta AG. ACHUMANI 101010103 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP08/34/
+15.02.2023 La operación de asignación: CCAJ-LP08/34/ fue migrada correctamente
+La asignación CCAJ-LP08/34/23 no existe en la hoja AG. ACHUMANI del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-LP08/34/23  112762117
+
+-------------------------------- Migracion de cuenta AG. ACHUMANI 101010103 a 101044012 BISA 0022 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 15.02.2023 Iniciando Migracion de cuenta AG. MURILLO 101010104 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP01/67/
+Validación de saldo 0 correcto en asignación: CCAJ-LP01/68/
+15.02.2023 La operación de asignación: CCAJ-LP01/67/ fue migrada correctamente
+15.02.2023 La operación de asignación: CCAJ-LP01/68/ fue migrada correctamente
+La asignación CCAJ-LP01/67/23 no existe en la hoja AG. MURILLO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-LP01/68/23 no existe en la hoja AG. MURILLO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-LP01/67/23  112762118
+1  CCAJ-LP01/68/23  112762119
+
+-------------------------------- Migracion de cuenta AG. MURILLO 101010104 a 101044012 BISA 0022 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 15.02.2023 Iniciando Migracion de cuenta AG. MAX PAREDES 101010105 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP07/34/
+15.02.2023 La operación de asignación: CCAJ-LP07/34/ fue migrada correctamente
+La asignación CCAJ-LP07/34/23 no existe en la hoja AG. MAX PAREDES del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+        Asignacion       Ndoc
+0  CCAJ-LP07/34/23  112762120
+
+-------------------------------- Migracion de cuenta AG. MAX PAREDES 101010105 a 101044012 BISA 0022 finalizada --------------------------------

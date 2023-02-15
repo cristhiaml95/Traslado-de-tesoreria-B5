@@ -92,6 +92,8 @@ class sapInterfaceJob():
         self.directo = None
         self.ETVflow = None
         self.xlsxMigracion = None
+
+        self.dFecha = None
         
         self.changeThePeriod = False
         self.changeTheDate = False
@@ -128,12 +130,10 @@ class sapInterfaceJob():
                  'fecha': wsConfig['B5'].value,
                  'periodo': wsConfig['B6'].value,
                  'layout': wsConfig['B8'].value,
-                 'xlsx migracion': wsConfig['B10'].value,
-                 'cntdad feriados' : wsConfig['B12'].value}
+                 'xlsx migracion': wsConfig['B10'].value}
         
         wb.close()
 
-        self.delta = int(self.login['cntdad feriados']) 
         self.layout = self.login['layout']
         self.layout = self.layout.replace(" ","")
         self.xlsxMigracion = self.login['xlsx migracion']
@@ -268,16 +268,19 @@ class sapInterfaceJob():
 
         if fecha_a_dia(fecha) == 'Sabado':
             fecha = datetime.strptime(fecha, '%d.%m.%Y')
-            fecha+=timedelta(days = 2+self.delta)
+            fecha+=timedelta(days = 1)
             fecha = f"{add0(fecha.day)}.{add0(fecha.month)}.{add0(fecha.year)}"
 
-        else:
-            fecha = datetime.strptime(fecha, '%d.%m.%Y')
-            fecha+=timedelta(days = 1+self.delta)
-            fecha = f"{add0(fecha.day)}.{add0(fecha.month)}.{add0(fecha.year)}"
+        # else:
+        #     fecha = datetime.strptime(fecha, '%d.%m.%Y')
+        #     fecha+=timedelta(days = 1+self.delta)
+        #     fecha = f"{add0(fecha.day)}.{add0(fecha.month)}.{add0(fecha.year)}"
+
+        fecha = datetime.strptime(fecha, '%d.%m.%Y')
 
         for i, element in enumerate(list2):
-            if fecha == element:
+            element = datetime.strptime(element, '%d.%m.%Y')
+            if 0 <= (element - fecha).days <= self.dFecha:
                 listOfFechaIndex.append(i)
 
         return listOfFechaIndex
@@ -651,12 +654,19 @@ class sapInterfaceJob():
 
         recaudadora = self.rec
         recaudadora = recaudadora.replace('CENTRAL', '')
+
+        match self.ETVflow:
+            case 1:
+                recaudadora = 'TRASLADO A ETV'
+
+            case 2:
+                recaudadora = 'ETV A BANCO'
+
+            case 3:
+                recaudadora = 'DEPOSITO DIRECTO'
         self.session.findById("wnd[0]/usr/txtBKPF-XBLNR").text = recaudadora
-        try:
-            self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = self.txtCabDoc
-        except:
-            self.txtCabDoc = self.txtCabDoc.replace('TRASLADO', 'TRASL')
-            self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = self.txtCabDoc
+        self.session.findById("wnd[0]/usr/txtBKPF-BKTXT").text = rowList[7]
+     
         self.session.findById("wnd[0]/usr/ctxtRF05A-NEWKO").text = self.accountNumberStr2
 
         if self.moneda == 'ME':
@@ -878,19 +888,19 @@ class sapInterfaceJob():
         
         print('Este es el rango del xls: ', self.xlsxRange)
         for self.r in self.xlsxRange:
-            try:
-                x =  self.subProcess_1()
-                if x == -1:
-                    continue
-                serparationMessage = f'\n\n----------------------------- {today()} Iniciando Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2}  {self.bank} -----------------------------'
-                writeLog('', serparationMessage, self.logPath)
-                y = self.subProcess_2()
-                if y == -1:
-                    continue
-            except:
-                writeLog('\n', 'Llamar al +51 932446031', self.logPath)
-                self.session.EndTransaction()
+            # try:
+            x =  self.subProcess_1()
+            if x == -1:
                 continue
+            serparationMessage = f'\n\n----------------------------- {today()} Iniciando Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2}  {self.bank} -----------------------------'
+            writeLog('', serparationMessage, self.logPath)
+            y = self.subProcess_2()
+            if y == -1:
+                continue
+            # except:
+            #     writeLog('\n', 'Llamar al +51 932446031', self.logPath)
+            #     self.session.EndTransaction()
+            #     continue
 
         self.proc.kill()
 

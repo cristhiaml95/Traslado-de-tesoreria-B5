@@ -163,7 +163,11 @@ class bot5GUI:
         self.PUValConfirmation.mainloop()
 
     def goButtonCommand(self):
-        self.dFecha.set(self.dFecha_1.get())
+        if self.dFecha_1.get() == '' or self.cbOp.get() == False:
+            self.dFecha.set('1')
+        else:
+            self.dFecha.set(self.dFecha_1.get())
+
         self.dFechaChoise = self.dFecha.get()
         self.selMigraChoise = self.selOp1.get()
         match self.selMigraChoise:
@@ -172,7 +176,6 @@ class bot5GUI:
             case 1:
                 try:
                     self.dFechaChoise = int(self.dFechaChoise)
-
                 except:
                     self.noChoise1PU()
                 self.valConfirmation()
@@ -248,6 +251,7 @@ class bot5GUI:
         time.sleep(1)
         self.wd.destroy()
         migra = sapInterfaceJob()
+        migra.dFecha = self.dFechaChoise
         migra.process(self.selOp1.get(), self.selOp2.get())
         copyANDeraseFile('logs.txt')
         copyANDeraseFile('CUENTAS DE CAJA IVSA.xlsx')
