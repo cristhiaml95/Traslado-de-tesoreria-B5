@@ -334,7 +334,8 @@ class sapInterfaceJob():
 
                 for i2 in x2:
                     texto = texto.replace(i2, ' ')
-
+                    
+                texto = texto.upper()
                 splitList = re.split(r'\s', texto)
                 splitList = splitList[:3]
                 
