@@ -57,23 +57,8 @@ class bot5GUI:
         #selOp1.set(0)
 
         self.op1_1 = tk.Radiobutton(self.options1Square, text = 'Solo agencias', bg = 'light sky blue', variable = self.selOp1, value = 1, width=20, anchor='w', command= self.op1_1Command)
-        self.op1_1.pack()
-
-        self.cbOp = tk.BooleanVar()
-        self.cbOp.set(False)
-
-        self.cbOp_1 = tk.Checkbutton(self.options1Square, text = 'Diferencia de fechas: ', bg = 'light sky blue', variable = self.cbOp, width=20, anchor='w', command= self.cbOp_1Command)
-        self.cbOp_1['state'] = 'disabled'
-        self.cbOp_1.pack()
-
-        self.dFecha = tk.StringVar()
-        self.dFecha.set('1')
-
-        self.dFecha_1 = tk.Entry(self.options1Square, width=20)
-        self.dFecha_1['state'] = 'disabled'
-        self.dFecha_1.pack()
-
-
+        self.op1_1.pack()     
+       
         self.op1_2 = tk.Radiobutton(self.options1Square, text = 'Solo distribuidoras', bg = 'light sky blue', variable = self.selOp1, value = 2, width=20, anchor='w', command= self.op1_23Command)
         self.op1_2.pack()
 
@@ -96,6 +81,22 @@ class bot5GUI:
         self.op2_3 = tk.Radiobutton(self.options2Square, text = 'DIRECTO', bg = 'light sky blue', variable = self.selOp2, value = 3, width=20, anchor='w', command= self.op2_123Command)
         self.op2_3['state'] = 'disabled'
         self.op2_3.pack()
+
+        self.cbOp = tk.BooleanVar()
+        self.cbOp.set(False)
+
+        self.cbOp_1 = tk.Checkbutton(self.options1Square, text = 'Diferencia de fechas: ', bg = 'light sky blue', variable = self.cbOp, width=20, anchor='w', command= self.cbOp_1Command)
+        self.cbOp_1['state'] = 'disabled'
+        self.cbOp_1.pack()
+
+        self.dFecha = tk.StringVar()
+        self.dFecha.set('1')
+
+        self.dFecha_1 = tk.Entry(self.options1Square, width=20)
+        self.dFecha_1.insert(0, '1')
+        self.dFecha_1['state'] = 'disabled'
+        # self.dFecha_1.delete(0, 'end')
+        self.dFecha_1.pack()
 
         self.getAssignmentsButton = tk.Button(self.wd, text = 'EXTRAER ASIGNACIONES', command = self.getAssignmentsCommand)
         self.getAssignmentsButton['state'] = 'disabled'
@@ -188,6 +189,10 @@ class bot5GUI:
                     else:     
                         self.valConfirmation()
             case 3:
+                try:
+                    self.dFechaChoise = int(self.dFechaChoise)
+                except:
+                    self.noChoise1PU()
                 if self.selOp2.get() == 0 or self.selOp3.get() == 0:
                     self.noChoise1PU()
                 else:
@@ -197,7 +202,14 @@ class bot5GUI:
                         self.bothConfirmation()            
 
     def op1_1Command(self):
+        self.dFecha.set('1')
+        self.dFecha_1.delete(0, tk.END)
+        self.dFecha_1.insert(0, '1')
+        self.dFecha_1['state'] = 'disabled'
+        self.cbOp.set(False)
+        
         self.cbOp_1['state'] = 'normal'
+
         self.selOp2.set(0)
         self.op2_1['state'] = 'disabled'
         self.op2_2['state'] = 'disabled'
@@ -215,7 +227,21 @@ class bot5GUI:
             self.dFecha_1['state'] = 'disabled'
 
     def op1_23Command(self):
-        self.cbOp_1['state'] = 'disabled'
+        self.dFecha.set('1')
+        self.dFecha_1.delete(0, tk.END)
+        self.dFecha_1.insert(0, '1')
+        self.dFecha_1['state'] = 'disabled'
+        self.cbOp.set(False)
+        if self.selOp1.get() == 2:
+            self.cbOp_1['state'] = 'disabled'
+        else:
+            self.cbOp_1['state'] = 'normal'
+            self.dFecha.set('1')
+            self.dFecha_1.delete(0, tk.END)
+            self.dFecha_1.insert(0, '1')
+            self.dFecha_1['state'] = 'disabled'
+            self.cbOp.set(False)
+
         self.dFecha_1['state'] = 'disabled'
         self.selOp2.set(0)
         self.op2_1['state'] = 'normal'
@@ -262,6 +288,7 @@ class bot5GUI:
         time.sleep(1)
         self.wd.destroy()
         migraAG = sapInterfaceJob()
+        migraAG.dFecha = self.dFechaChoise
         migraAG.process(1, 0)
         migraDIS = sapInterfaceJob()
         migraDIS.process(2, self.selOp2.get())
