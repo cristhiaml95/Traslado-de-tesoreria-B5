@@ -2,7 +2,7 @@ import tkinter as tk
 import pyautogui as pg
 from usefulObjets import sapInterfaceJob
 import os
-from usefulFunctions import currentPathParentFolder, copyANDeraseFile, copyFile
+from usefulFunctions import currentPathParentFolder, copyANDeraseFile, copyFile, copyANDeraseFile2, asig_ndocToMigra, copyFile2
 from PIL import ImageTk, Image
 import time
 from botAssignment import assignmentPaste as ap
@@ -16,6 +16,7 @@ class bot5GUI:
         self.options1Square = None
         self.options2Square = None
         self.options3Square = None
+        self.pasteMigraSquare = None
         self.selOp1 = None
         self.selOp2 = None
         self.selOp3 = None
@@ -27,6 +28,8 @@ class bot5GUI:
 
         self.cbOp = None
         self.cbOp_1 = None
+        self.pmOp = None
+        self.pmOp_1 = None
 
         self.selMigraChoise = None
         self.dFechaChoise = None
@@ -36,7 +39,7 @@ class bot5GUI:
 
     def windowDesign(self):
         self.wd.title("BOT 5 - MENU")
-        size = f'{int(self.w/5)}x{int(self.h/2.5)}+{int(self.w*2/5)}+{int(self.h*3/10)}'
+        size = f'{int(self.w/5)}x{int(self.h/1.8)}+{int(self.w*2/5)}+{int(self.h*2/9)}'
         self.wd.geometry(size)
         self.photoPath = os.path.join(currentPathParentFolder, 'Acceso', 'Bot5.ico')
         photo = ImageTk.PhotoImage(Image.open(self.photoPath))
@@ -65,6 +68,25 @@ class bot5GUI:
         self.op1_3 = tk.Radiobutton(self.options1Square, text = 'Ambas', bg = 'light sky blue', variable = self.selOp1, value = 3, width=20, anchor='w', command= self.op1_23Command)
         self.op1_3.pack()
 
+        self.cbOp = tk.BooleanVar()
+        self.cbOp.set(False)
+
+        self.cbOp_1 = tk.Checkbutton(self.options1Square, text = 'Diferencia de fechas: ', bg = 'light sky blue', variable = self.cbOp, width=20, anchor='w', command= self.cbOp_1Command)
+        self.cbOp_1['state'] = 'disabled'
+        self.cbOp_1.pack()
+
+        self.dFecha = tk.StringVar()
+        self.dFecha.set('1')
+
+        self.dFecha_1 = tk.Entry(self.options1Square, width=20)
+        self.dFecha_1.insert(0, '1')
+        self.dFecha_1['state'] = 'disabled'
+        # self.dFecha_1.delete(0, 'end')
+        self.dFecha_1.pack()
+
+        self.anyLabel2 = tk.Label(self.options1Square, bg='light sky blue', text='                          ')
+        self.anyLabel2.pack()
+
         self.options2Square = tk.LabelFrame(self.wd, bg='light sky blue', text='              Flujo de migracion:                ')
         self.options2Square.pack()
 
@@ -81,22 +103,6 @@ class bot5GUI:
         self.op2_3 = tk.Radiobutton(self.options2Square, text = 'DIRECTO', bg = 'light sky blue', variable = self.selOp2, value = 3, width=20, anchor='w', command= self.op2_123Command)
         self.op2_3['state'] = 'disabled'
         self.op2_3.pack()
-
-        self.cbOp = tk.BooleanVar()
-        self.cbOp.set(False)
-
-        self.cbOp_1 = tk.Checkbutton(self.options1Square, text = 'Diferencia de fechas: ', bg = 'light sky blue', variable = self.cbOp, width=20, anchor='w', command= self.cbOp_1Command)
-        self.cbOp_1['state'] = 'disabled'
-        self.cbOp_1.pack()
-
-        self.dFecha = tk.StringVar()
-        self.dFecha.set('1')
-
-        self.dFecha_1 = tk.Entry(self.options1Square, width=20)
-        self.dFecha_1.insert(0, '1')
-        self.dFecha_1['state'] = 'disabled'
-        # self.dFecha_1.delete(0, 'end')
-        self.dFecha_1.pack()
 
         self.getAssignmentsButton = tk.Button(self.wd, text = 'EXTRAER ASIGNACIONES', command = self.getAssignmentsCommand)
         self.getAssignmentsButton['state'] = 'disabled'
@@ -117,6 +123,25 @@ class bot5GUI:
 
         # self.nextButton = tk.Button(self.wd, text = 'SIEUIENTE', command = self.nextButtonCommand)
         # self.nextButton.pack()
+
+        self.pasteMigraSquare = tk.LabelFrame(self.wd, bg='light sky blue', text='     Pegar números de documento     ')
+        self.pasteMigraSquare.pack()
+
+        self.pmOp = tk.BooleanVar()
+        self.pmOp.set(False)
+
+        self.pmOp_1 = tk.Checkbutton(self.pasteMigraSquare, text = 'Habilitar pegado.', bg = 'light sky blue', variable = self.pmOp, width=20, anchor='w', command= self.pmOp_1Command)
+        self.pmOp_1.pack()
+
+        self.pmButton = tk.Button(self.pasteMigraSquare, text = 'PEGAR', command = self.pmButtonCommand)
+        self.pmButton['state'] = 'disabled'
+        self.pmButton.pack()
+
+        self.anyLabel1 = tk.Label(self.pasteMigraSquare, bg='light sky blue', text='                          ')
+        self.anyLabel1.pack()
+
+        self.anyLabel3 = tk.Label(self.wd, bg='light sky blue', text='                          ')
+        self.anyLabel3.pack()
 
         self.goButton = tk.Button(self.wd, text = 'MIGRAR', command = self.goButtonCommand)
         self.goButton['state'] = 'disabled'
@@ -226,6 +251,12 @@ class bot5GUI:
         else:
             self.dFecha_1['state'] = 'disabled'
 
+    def pmOp_1Command(self):
+        if self.pmOp.get():
+            self.pmButton['state'] = 'normal'
+        else:
+            self.pmButton['state'] = 'disabled'
+
     def op1_23Command(self):
         self.dFecha.set('1')
         self.dFecha_1.delete(0, tk.END)
@@ -295,6 +326,12 @@ class bot5GUI:
         copyANDeraseFile('logs.txt')
         copyANDeraseFile('CUENTAS DE CAJA IVSA.xlsx')
         copyFile('CUENTAS DE CAJA IVSA.xlsx')
+
+    def pmButtonCommand(self):
+        meanwhileXlsx = os.path.join(currentPathParentFolder, 'Migraciones', 'ASIG-NDOC')
+        asig_ndocToMigra(meanwhileXlsx, sapInterfaceJob().logPath)
+        copyANDeraseFile2('ASIG-NDOC.xlsx')
+        copyFile2('ASIG-NDOC.xlsx')
 
     def fullGUI(self):
         self.windowDesign()

@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from openpyxl import load_workbook
 import re
 import os
-from usefulFunctions import currentPathParentFolder, currentPathGrandpaFolder, today, writeLog, fecha_a_dia, copyANDeraseFile, copyFile, ndocTOxlsx, add0
+from usefulFunctions import currentPathParentFolder, currentPathGrandpaFolder, today, writeLog, fecha_a_dia, add0, asig_ndoc_meanwhile
 import pandas as pd
 import math
 
@@ -88,7 +88,6 @@ class sapInterfaceJob():
         self.currentPathParentFolder = currentPathParentFolder
         self.currentPathGrandpaFolder = currentPathGrandpaFolder
         self.logPath = os.path.join(self.currentPathParentFolder,"Cuentas recaudadoras", "log.txt")
-        # self.currentPathGrandpaFolder = 'C:\\Users\\crist\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Venado\\Cris\\Traslado de tesoreria B5'
         self.directo = None
         self.ETVflow = None
         self.xlsxMigracion = None
@@ -497,52 +496,8 @@ class sapInterfaceJob():
             self.session.endTransaction()
             return -1
         b = self.rowCountNumber()
-        # parametersList2 = []
         self.imCount = 0
         self.nameCount = 0
-        # if b <= 62:
-        #     parametersList2 = self.getWholeParametersList(0, b)
-        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-
-        # elif 124 >= b > 62:
-        #     parametersList2 = self.getWholeParametersList(0, 63)
-        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
-        #     parametersList2 = self.getWholeParametersList(63, b)
-        #     approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-
-        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
-
-        # elif 186 >= b > 124:
-        #     parametersList2 = self.getWholeParametersList(0, 63)
-        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
-        #     parametersList2 = self.getWholeParametersList(63, 125)
-        #     approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 125
-        #     parametersList2 = self.getWholeParametersList(125, b)
-        #     approvedParametersList2 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-
-        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
-        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
-
-        # elif b > 186:
-        #     parametersList2 = self.getWholeParametersList(0, 63)
-        #     approvedParametersList = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 63
-        #     parametersList2 = self.getWholeParametersList(63, 125)
-        #     approvedParametersList1 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 125
-        #     parametersList2 = self.getWholeParametersList(125, 187)
-        #     approvedParametersList2 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = 187
-        #     parametersList2 = self.getWholeParametersList(187, b)
-        #     approvedParametersList3 = self.lastValidationChecker(preApprovedParametersList, parametersList2)
-        #     self.session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").firstVisibleRow = b
-
-        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList1)
-        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList2)
-        #     approvedParametersList = self.joinLists(approvedParametersList, approvedParametersList3)
         approvedParametersList = self.get_ag_approved_list(b, 62, preApprovedParametersList)
         
         if bool(preApprovedParametersList[0]):
@@ -782,7 +737,6 @@ class sapInterfaceJob():
             report = 'La fecha no tiene .'
         self.ct = str(self.ct).replace(' ', '')
         self.importe = str(self.importe).replace(' ', '')
-
         match self.tMigracion:
             case 1:
                 self.texto = 'LP' + '.TRASP.CAJ.' + self.moneda + '.' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
@@ -791,7 +745,9 @@ class sapInterfaceJob():
                     case 1:
                         self.texto = self.dist + '.ENTREGA A BRINKS CIERRE ' + self.fullAsignacion + ' ' + self.fecha2
                     case 2:
-                        self.texto = 'LP' + '.TRASPASO ' + self.rec + ' A ' + self.bank + ' ' + self.fecha2
+                        fecha_ETVflow2 = self.texto1.strip()
+                        fecha_ETVflow2 = fecha_ETVflow2[-5:]
+                        self.texto = 'LP' + '.TRASPASO ' + self.rec + ' A ' + self.bank + ' ' + fecha_ETVflow2
                     case 3:
                             self.texto = self.dist + '.DEP. DIRECTO A BANCO ' + self.fullAsignacion + ' ' + self.fecha2
 
@@ -936,7 +892,6 @@ class sapInterfaceJob():
 
                 case 2:
                     self.exec = self.ws2[f'G{self.r}'].value
-                    #self.directo = self.ws2[f'H{r}'].value
                     if self.exec == 'SI':
                         pass
                     else:
@@ -980,7 +935,6 @@ class sapInterfaceJob():
         self.rec = self.rec.replace('.', '')
         self.rec = self.rec.replace('CENTRAL', '')
         self.rec = self.rec.strip()
-        # splitRec = self.rec.split(' ')
         self.rec = self.rec[:11]
         
         self.txtCabDoc = 'TRASLADO A ' + self.bank
@@ -1064,7 +1018,9 @@ class sapInterfaceJob():
         parametersList = self.getWholeParametersList(0, b)
         self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
         df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
-        ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
+        asgNdoc = asig_ndoc_meanwhile(asignacionNdocMigrated, self.rec, 'ASIG-NDOC', self.logPath)
+        writeLog('\n', asgNdoc, self.logPath)
+        # ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
         writeLog('\n', df, self.logPath)
         serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2} {self.bank} finalizada --------------------------------'
         writeLog('', serparationMessage, self.logPath)
