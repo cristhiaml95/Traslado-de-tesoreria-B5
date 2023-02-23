@@ -264,15 +264,18 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
             asignacion = ws.cell(row=i, column=1).value
             ndoc = ws.cell(row=i, column=2).value
             for j in range(1, ws1.max_row+1):
-                if asignacion == ws1.cell(row=j, column=1).value and asignacion == ws1.cell(row=j+1, column=1).value:
+                asignacion2 = ws1.cell(row=j, column=1).value
+                asignacion3 = ws1.cell(row=j+1, column=1).value
+                if asignacion in asignacion2 or asignacion2 in asignacion and asignacion in asignacion3 or asignacion3 in asignacion:
                     continue
-                elif asignacion == ws1.cell(row=j, column=1).value:
+                elif asignacion in asignacion2 or asignacion2 in asignacion:
                     ws1[f'D{j+2}'] = ndoc
                     break
                 
                 if j == ws1.max_row:
                     writeLog('\n', f'La asignación {asignacion} no existe en la hoja {sheetName} del archivo {migraXlsx}.', logPath)   
                     break
+                
     try:
         wb.save(meanwhileXlsxPath)
         wb.close()

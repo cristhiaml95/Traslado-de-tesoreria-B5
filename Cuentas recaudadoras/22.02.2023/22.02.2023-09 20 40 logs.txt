@@ -1,0 +1,311 @@
+
+La asignación CCAJ-LP02/75/202 no existe en la hoja DISPAZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-LP02/74/202 no existe en la hoja DISPAZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-LP02/73/202 no existe en la hoja DISPAZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-LP02/72/202 no existe en la hoja DISPAZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-LP08/37/23 no existe en la hoja AG. ACHUMANI del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-LP01/73/23 no existe en la hoja AG. MURILLO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-LP01/74/23 no existe en la hoja AG. MURILLO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-LP07/37/23 no existe en la hoja AG. MAX PAREDES del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-EA10/68/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-EA10/67/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-EA10/66/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-EA10/65/202 no existe en la hoja DISALTO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-EA58/37/23 no existe en la hoja AG. SATELITE del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC39/76/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC39/77/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC39/76/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC39/76/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC39/77/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC39/76/202 no existe en la hoja DISCRUZ del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC65/37/23 no existe en la hoja AG. MUTUALISTA del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC57/37/23 no existe en la hoja AG. MONTERO del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SC59/37/23 no existe en la hoja AG. WARNES del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-TA06/37/23 no existe en la hoja AG. TARIJEÑITA del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-CB11/40/202 no existe en la hoja COCHABAMBA del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-CB11/40/202 no existe en la hoja COCHABAMBA del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-CB12/56/23 no existe en la hoja AG. HONDURAS del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-CB12/57/23 no existe en la hoja AG. HONDURAS del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-CB13/37/23 no existe en la hoja AG. CALAMA del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SR54/37/23 no existe en la hoja AG. SUCRE 1 del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-SR24/37/23 no existe en la hoja AG. SUCRE 2 del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-PT18/37/23 no existe en la hoja AG. POTOSI 1 del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-OR51/36/23 no existe en la hoja AG. ORURO 1 del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-TR50/37/23 no existe en la hoja AG. TRINIDAD 1 del archivo MIGRACIONES SGV ENERO 2023 06.02.2023.xlsx.
+La asignación CCAJ-LP02/75/202 no existe en la hoja DISPAZ del archivo PARA BOOT MIGRACIONES SGV ENERO 2023 16.02.2023.xlsx.
+La asignación CCAJ-LP02/73/202 no existe en la hoja DISPAZ del archivo PARA BOOT MIGRACIONES SGV ENERO 2023 16.02.2023.xlsx.
+La asignación CCAJ-LP02/72/202 no existe en la hoja DISPAZ del archivo PARA BOOT MIGRACIONES SGV ENERO 2023 16.02.2023.xlsx.
+La asignación CCAJ-EA10/68/202 no existe en la hoja DISALTO del archivo PARA BOOT MIGRACIONES SGV ENERO 2023 16.02.2023.xlsx.
+La asignación CCAJ-EA10/67/202 no existe en la hoja DISALTO del archivo PARA BOOT MIGRACIONES SGV ENERO 2023 16.02.2023.xlsx.
+La asignación CCAJ-EA10/65/202 no existe en la hoja DISALTO del archivo PARA BOOT MIGRACIONES SGV ENERO 2023 16.02.2023.xlsx.
+Asignaciones extraidas correctamente: ETV M.E 101010217
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. ACHUMANI 101010103 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP08/39/
+22.02.2023 La operación de asignación: CCAJ-LP08/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-LP08/39/23  112799801
+
+-------------------------------- Migracion de cuenta AG. ACHUMANI 101010103 a 101044012 BISA 0022 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. MURILLO 101010104 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP01/77/
+Validación de saldo 0 correcto en asignación: CCAJ-LP01/78/
+22.02.2023 La operación de asignación: CCAJ-LP01/77/ fue migrada correctamente
+22.02.2023 La operación de asignación: CCAJ-LP01/78/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-LP01/77/23  112799802
+1  CCAJ-LP01/78/23  112799803
+
+-------------------------------- Migracion de cuenta AG. MURILLO 101010104 a 101044012 BISA 0022 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. MAX PAREDES 101010105 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP07/39/
+22.02.2023 La operación de asignación: CCAJ-LP07/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-LP07/39/23  112799804
+
+-------------------------------- Migracion de cuenta AG. MAX PAREDES 101010105 a 101044012 BISA 0022 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. SATELITE 101010133 a 101041012  MCSC 6211 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-EA58/39/
+22.02.2023 La operación de asignación: CCAJ-EA58/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-EA58/39/23  112799805
+
+-------------------------------- Migracion de cuenta AG. SATELITE 101010133 a 101041012 MCSC 6211 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. MUTUALISTA 101010108 a 101044032  BISA 0049 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC65/39/
+22.02.2023 La operación de asignación: CCAJ-SC65/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-SC65/39/23  112799806
+
+-------------------------------- Migracion de cuenta AG. MUTUALISTA 101010108 a 101044032 BISA 0049 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. MONTERO 101010132 a 101044032  BISA 0049 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC57/39/
+22.02.2023 La operación de asignación: CCAJ-SC57/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-SC57/39/23  112799807
+
+-------------------------------- Migracion de cuenta AG. MONTERO 101010132 a 101044032 BISA 0049 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. WARNES 101010134 a 101041082  MCSC 8183 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC59/39/
+22.02.2023 La operación de asignación: CCAJ-SC59/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-SC59/39/23  112799808
+
+-------------------------------- Migracion de cuenta AG. WARNES 101010134 a 101041082 MCSC 8183 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. TARIJEÑITA 101010110 a 101041002  MCSC 1329 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TA06/39/
+22.02.2023 La operación de asignación: CCAJ-TA06/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-TA06/39/23  112799809
+
+-------------------------------- Migracion de cuenta AG. TARIJEÑITA 101010110 a 101041002 MCSC 1329 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. HONDURAS 101010112 a 101044022  BISA 0031 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB12/60/
+22.02.2023 La operación de asignación: CCAJ-CB12/60/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-CB12/60/23  112799810
+
+-------------------------------- Migracion de cuenta AG. HONDURAS 101010112 a 101044022 BISA 0031 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. CALAMA 101010113 a 101044022  BISA 0031 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB13/39/
+22.02.2023 La operación de asignación: CCAJ-CB13/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-CB13/39/23  112799811
+
+-------------------------------- Migracion de cuenta AG. CALAMA 101010113 a 101044022 BISA 0031 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. SUCRE 1 101010115 a 101044052  BISA 0065 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SR54/39/
+22.02.2023 La operación de asignación: CCAJ-SR54/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-SR54/39/23  112799812
+
+-------------------------------- Migracion de cuenta AG. SUCRE 1 101010115 a 101044052 BISA 0065 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. SUCRE 2 101010116 a 101044052  BISA 0065 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SR24/39/
+22.02.2023 La operación de asignación: CCAJ-SR24/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-SR24/39/23  112799813
+
+-------------------------------- Migracion de cuenta AG. SUCRE 2 101010116 a 101044052 BISA 0065 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. POTOSI 1 101010118 a 101044062  BISA 0073 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-PT18/39/
+22.02.2023 La operación de asignación: CCAJ-PT18/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-PT18/39/23  112799814
+
+-------------------------------- Migracion de cuenta AG. POTOSI 1 101010118 a 101044062 BISA 0073 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+No se encontro importes validos.
+*:*:*:*:*:*:*:*:*:*:*:*:*: NO SE ENCONTRARON TRASLADOS VALIDOS PARA AG. ORURO 1 101010120 : 101044042 BISA 0057 *:*:*:*:*:*:*:*:*:*:*:*:*:
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta AG. TRINIDAD 1 101010122 a 101044082  BISA 0090 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TR50/39/
+22.02.2023 La operación de asignación: CCAJ-TR50/39/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-TR50/39/23  112799815
+
+-------------------------------- Migracion de cuenta AG. TRINIDAD 1 101010122 a 101044082 BISA 0090 finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta DISPAZ 101010102 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/77/
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/76/
+22.02.2023 La operación de asignación: CCAJ-LP02/77/ fue migrada correctamente
+22.02.2023 La operación de asignación: CCAJ-LP02/76/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-LP02/77/202  112799816
+1  CCAJ-LP02/76/202  112799817
+
+-------------------------------- Migracion de cuenta DISPAZ 101010102 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta DISALTO 101010106 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/70/
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/69/
+22.02.2023 La operación de asignación: CCAJ-EA10/70/ fue migrada correctamente
+22.02.2023 La operación de asignación: CCAJ-EA10/69/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-EA10/70/202  112799818
+1  CCAJ-EA10/69/202  112799819
+
+-------------------------------- Migracion de cuenta DISALTO 101010106 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta DISCRUZ 101010107 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/79/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/78/
+22.02.2023 La operación de asignación: CCAJ-SC39/79/ fue migrada correctamente
+22.02.2023 La operación de asignación: CCAJ-SC39/78/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-SC39/79/202  112799820
+1  CCAJ-SC39/78/202  112799821
+
+-------------------------------- Migracion de cuenta DISCRUZ 101010107 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta DISTAR 101010109 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TA43/38/
+Validación de saldo 0 correcto en asignación: CCAJ-TA43/37/
+22.02.2023 La operación de asignación: CCAJ-TA43/38/ fue migrada correctamente
+22.02.2023 La operación de asignación: CCAJ-TA43/37/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-TA43/38/202  112799823
+1  CCAJ-TA43/37/202  112799824
+
+-------------------------------- Migracion de cuenta DISTAR 101010109 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta COCHABAMBA 101010111 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/41/
+22.02.2023 La operación de asignación: CCAJ-CB11/41/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-CB11/41/202  112799825
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101010111 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta SUCRE 101010114 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SR27/32/
+Validación de saldo 0 correcto en asignación: CCAJ-SR27/31/
+22.02.2023 La operación de asignación: CCAJ-SR27/32/ fue migrada correctamente
+22.02.2023 La operación de asignación: CCAJ-SR27/31/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-SR27/32/202  112799826
+1  CCAJ-SR27/31/202  112799827
+
+-------------------------------- Migracion de cuenta SUCRE 101010114 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta POTOSI 101010117 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-PT53/32/
+Validación de saldo 0 correcto en asignación: CCAJ-PT53/31/
+22.02.2023 La operación de asignación: CCAJ-PT53/32/ fue migrada correctamente
+22.02.2023 La operación de asignación: CCAJ-PT53/31/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-PT53/32/202  112799828
+1  CCAJ-PT53/31/202  112799829
+
+-------------------------------- Migracion de cuenta POTOSI 101010117 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta ORURO 101010119 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-OR52/33/
+Validación de saldo 0 correcto en asignación: CCAJ-OR52/32/
+22.02.2023 La operación de asignación: CCAJ-OR52/33/ fue migrada correctamente
+22.02.2023 La operación de asignación: CCAJ-OR52/32/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-OR52/33/202  112799830
+1  CCAJ-OR52/32/202  112799831
+
+-------------------------------- Migracion de cuenta ORURO 101010119 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta TRINIDAD 101010121 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TR47/38/
+Validación de saldo 0 correcto en asignación: CCAJ-TR47/37/
+22.02.2023 La operación de asignación: CCAJ-TR47/38/ fue migrada correctamente
+22.02.2023 La operación de asignación: CCAJ-TR47/37/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-TR47/38/202  112799832
+1  CCAJ-TR47/37/202  112799833
+
+-------------------------------- Migracion de cuenta TRINIDAD 101010121 a 101020101 ETV M.N finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta DISCRUZ 101010207 a 101020201  ETV M.E -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/79/
+22.02.2023 La operación de asignación: CCAJ-SC39/79/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-SC39/79/202  112799834
+
+-------------------------------- Migracion de cuenta DISCRUZ 101010207 a 101020201 ETV M.E finalizada --------------------------------
+
+----------------------------- 22.02.2023 Iniciando Migracion de cuenta POTOSI 101010217 a 101020201  ETV M.E -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-PT53/31/
+22.02.2023 La operación de asignación: CCAJ-PT53/31/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-PT53/31/202  112799836
+
+-------------------------------- Migracion de cuenta POTOSI 101010217 a 101020201 ETV M.E finalizada --------------------------------

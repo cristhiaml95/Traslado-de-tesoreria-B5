@@ -1,0 +1,24 @@
+
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 17.02.2023 Iniciando Migracion de cuenta AG. HONDURAS 101010112 a 101044022  BISA 0031 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB12/56/
+Validación de saldo 0 correcto en asignación: CCAJ-CB12/57/
+17.02.2023 La operación de asignación: CCAJ-CB12/56/ fue migrada correctamente
+17.02.2023 La operación de asignación: CCAJ-CB12/57/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-CB12/56/23  112790299
+1  CCAJ-CB12/57/23  112790300
+
+-------------------------------- Migracion de cuenta AG. HONDURAS 101010112 a 101044022 BISA 0031 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 17.02.2023 Iniciando Migracion de cuenta AG. CALAMA 101010113 a 101044022  BISA 0031 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB13/37/
+17.02.2023 La operación de asignación: CCAJ-CB13/37/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-CB13/37/23  112790302
+
+-------------------------------- Migracion de cuenta AG. CALAMA 101010113 a 101044022 BISA 0031 finalizada --------------------------------
