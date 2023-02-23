@@ -2,7 +2,7 @@ import tkinter as tk
 import pyautogui as pg
 from usefulObjets import sapInterfaceJob
 import os
-from usefulFunctions import currentPathParentFolder, copyANDeraseFile, copyFile, copyANDeraseFile2, asig_ndocToMigra, copyFile2
+from usefulFunctions import currentPathParentFolder, copyANDeraseFile, copyFile, copyANDeraseFile2, asig_ndocToMigra, copyFile2, writeLog
 from PIL import ImageTk, Image
 import time
 from botAssignment import assignmentPaste as ap
@@ -328,10 +328,18 @@ class bot5GUI:
         copyFile('CUENTAS DE CAJA IVSA.xlsx')
 
     def pmButtonCommand(self):
-        meanwhileXlsx = os.path.join(currentPathParentFolder, 'Migraciones', 'ASIG-NDOC')
-        asig_ndocToMigra(meanwhileXlsx, sapInterfaceJob().logPath)
-        copyANDeraseFile2('ASIG-NDOC.xlsx')
-        copyFile2('ASIG-NDOC.xlsx')
+        try:
+            meanwhileXlsx = os.path.join(currentPathParentFolder, 'Migraciones', 'ASIG-NDOC')
+            asig_ndocToMigra(meanwhileXlsx, sapInterfaceJob().logPathMig)
+            try:
+                copyANDeraseFile2('log.txt')
+            except:
+                writeLog('\n', 'No existe archivos log.txt en carpeta Migraciones', sapInterfaceJob().logPathMig)
+            copyANDeraseFile2('ASIG-NDOC.xlsx')
+            copyFile2('ASIG-NDOC.xlsx')
+        
+        except:
+            writeLog('\n', 'Error en el pegado, llamar al programador CLLM +51 932446031', sapInterfaceJob().logPathMig)
 
     def fullGUI(self):
         self.windowDesign()

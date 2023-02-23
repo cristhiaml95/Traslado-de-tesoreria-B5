@@ -88,6 +88,7 @@ class sapInterfaceJob():
         self.currentPathParentFolder = currentPathParentFolder
         self.currentPathGrandpaFolder = currentPathGrandpaFolder
         self.logPath = os.path.join(self.currentPathParentFolder,"Cuentas recaudadoras", "log.txt")
+        self.logPathMig = os.path.join(self.currentPathParentFolder,"Migraciones", "log.txt")
         self.directo = None
         self.ETVflow = None
         self.xlsxMigracion = None
@@ -265,10 +266,10 @@ class sapInterfaceJob():
     def IndexOfRepitedFecha(self, fecha, list2):
         listOfFechaIndex = []
 
-        if fecha_a_dia(fecha) == 'Sabado':
-            fecha = datetime.strptime(fecha, '%d.%m.%Y')
-            fecha+=timedelta(days = 1)
-            fecha = f"{add0(fecha.day)}.{add0(fecha.month)}.{add0(fecha.year)}"
+        # if fecha_a_dia(fecha) == 'Sabado':
+        #     fecha = datetime.strptime(fecha, '%d.%m.%Y')
+        #     fecha+=timedelta(days = 1)
+        #     fecha = f"{add0(fecha.day)}.{add0(fecha.month)}.{add0(fecha.year)}"
 
         # else:
         #     fecha = datetime.strptime(fecha, '%d.%m.%Y')
@@ -1018,9 +1019,8 @@ class sapInterfaceJob():
         parametersList = self.getWholeParametersList(0, b)
         self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
         df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
-        asgNdoc = asig_ndoc_meanwhile(asignacionNdocMigrated, self.rec, 'ASIG-NDOC', self.logPath)
+        asgNdoc = asig_ndoc_meanwhile(asignacionNdocMigrated, self.rec, self.moneda, 'ASIG-NDOC', self.logPathMig)
         writeLog('\n', asgNdoc, self.logPath)
-        # ndocTOxlsx(asignacionNdocMigrated, self.rec, self.xlsxMigracion, self.logPath)
         writeLog('\n', df, self.logPath)
         serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2} {self.bank} finalizada --------------------------------'
         writeLog('', serparationMessage, self.logPath)

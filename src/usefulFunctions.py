@@ -198,7 +198,7 @@ def add0(num):
     return '0' + num_str
   return num_str
 
-def asig_ndoc_meanwhile(asignacionNdocMigrated, rec, xlsx, logPath):
+def asig_ndoc_meanwhile(asignacionNdocMigrated, rec, modena, xlsx, logPath):
     xlsx = xlsx + '.xlsx'
     xlsxPath = os.path.join(currentPathParentFolder, 'Migraciones', xlsx)
     try:
@@ -217,8 +217,14 @@ def asig_ndoc_meanwhile(asignacionNdocMigrated, rec, xlsx, logPath):
     for l, i in enumerate(asignacionNdocMigrated):
         asignacion = i[0]
         ndoc = i[1]
-        ws.cell(row=max_row + l + 1, column=1).value = asignacion
-        ws.cell(row=max_row + l + 1, column=2).value = ndoc
+        match modena:
+            case 'MN':
+                ws.cell(row=max_row + l + 1, column=1).value = asignacion
+                ws.cell(row=max_row + l + 1, column=2).value = ndoc
+            
+            case 'ME':
+                ws.cell(row=max_row + l + 1, column=4).value = asignacion
+                ws.cell(row=max_row + l + 1, column=5).value = ndoc
 
     wb.save(xlsxPath)
 
@@ -261,7 +267,14 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
             continue
 
         for i in range(1, ws.max_row+1):
-            asignacion = ws.cell(row=i, column=1).value
+            column = 1
+            asignacion = ws.cell(row=i, column=column).value
+            if asignacion == None:
+                column = 4
+                asignacion = ws.cell(row=i, column=column).value
+            
+            if asignacion == None:
+                continue
             ndoc = ws.cell(row=i, column=2).value
             for j in range(1, ws1.max_row+1):
                 asignacion2 = ws1.cell(row=j, column=1).value
@@ -269,7 +282,11 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
                 if asignacion in asignacion2 or asignacion2 in asignacion and asignacion in asignacion3 or asignacion3 in asignacion:
                     continue
                 elif asignacion in asignacion2 or asignacion2 in asignacion:
-                    ws1[f'D{j+2}'] = ndoc
+                    match column:
+                        case 1:
+                            ws1[f'D{j+2}'] = ndoc
+                        case 4:
+                            ws1[f'E{j+2}'] = ndoc
                     break
                 
                 if j == ws1.max_row:
