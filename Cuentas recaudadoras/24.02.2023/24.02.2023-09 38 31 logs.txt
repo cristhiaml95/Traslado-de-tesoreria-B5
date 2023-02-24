@@ -1,0 +1,14 @@
+
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 24.02.2023 Iniciando Migracion de cuenta AG. MURILLO 101010104 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP01/81/
+Validación de saldo 0 correcto en asignación: CCAJ-LP01/82/
+24.02.2023 La operación de asignación: CCAJ-LP01/81/ fue migrada correctamente
+24.02.2023 La operación de asignación: CCAJ-LP01/82/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-LP01/81/23  112814254
+1  CCAJ-LP01/82/23  112814255
+
+-------------------------------- Migracion de cuenta AG. MURILLO 101010104 a 101044012 BISA 0022 finalizada --------------------------------

@@ -1,0 +1,12 @@
+
+Asignaciones extraidas correctamente: BISA 0111 101010136
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+
+----------------------------- 24.02.2023 Iniciando Migracion de cuenta PANDO 101010136 a 101044102  BISA 0111 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-PN62/42/
+24.02.2023 La operación de asignación: CCAJ-PN62/42/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-PN62/42/202  112814250
+
+-------------------------------- Migracion de cuenta PANDO 101010136 a 101044102 BISA 0111 finalizada --------------------------------
