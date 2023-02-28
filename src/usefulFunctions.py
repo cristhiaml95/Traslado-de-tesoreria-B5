@@ -4,6 +4,7 @@ import sys
 import datetime
 import os
 import shutil
+import re
 
 def isNaN(num):
     return num!= num
@@ -119,8 +120,7 @@ def report(n, asignacion1, accountNumberStr2, accountNumberStr1):
             writeLog('\n', p, logPath)
 
 def writeLog(s,log,rut):
-    txtfolder=os.path.dirname(rut)
-    pathLog=os.path.join(txtfolder, "logs.txt")
+    pathLog=os.path.join(rut, "logs.txt")
     line=s+str(log)
     print(log)
     with open(pathLog, 'a') as file:
@@ -198,7 +198,7 @@ def add0(num):
     return '0' + num_str
   return num_str
 
-def asig_ndoc_meanwhile(asignacionNdocMigrated, rec, modena, xlsx, logPath):
+def asig_ndoc_meanwhile(asignacionNdocMigrated, rec, moneda, xlsx, logPath):
     xlsx = xlsx + '.xlsx'
     xlsxPath = os.path.join(currentPathParentFolder, 'Migraciones', xlsx)
     try:
@@ -217,7 +217,7 @@ def asig_ndoc_meanwhile(asignacionNdocMigrated, rec, modena, xlsx, logPath):
     for l, i in enumerate(asignacionNdocMigrated):
         asignacion = i[0]
         ndoc = i[1]
-        match modena:
+        match moneda:
             case 'MN':
                 ws.cell(row=max_row + l + 1, column=1).value = asignacion
                 ws.cell(row=max_row + l + 1, column=2).value = ndoc
@@ -230,6 +230,7 @@ def asig_ndoc_meanwhile(asignacionNdocMigrated, rec, modena, xlsx, logPath):
 
 
 def asig_ndocToMigra(meanwhileXlsx, logPath):
+    writeLog('\n', f'{today3()} Iniciando proceso de pegado de asignaciones y ndocs', logPath)
     meanwhileXlsx = meanwhileXlsx + '.xlsx'
     configPath = os.path.join(currentPathParentFolder, 'config.xlsx')
     try:
@@ -275,31 +276,44 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
             
             if asignacion == None:
                 continue
-            ndoc = ws.cell(row=i, column=2).value
-            for j in range(1, ws1.max_row+1):
+
+            asignacion = str(asignacion)
+            x = re.findall(r'(.*\/)(\d{2}).*', asignacion)
+            print(x)
+            asignacion = x[0][0]+x[0][1]
+
+            ndoc = ws.cell(row=i, column=column+1).value
+            for j in range(ws1.max_row, 0, -1):
+                print(j)
                 asignacion2 = ws1.cell(row=j, column=1).value
-                asignacion3 = ws1.cell(row=j+1, column=1).value
-                if asignacion in asignacion2 or asignacion2 in asignacion and asignacion in asignacion3 or asignacion3 in asignacion:
+                asignacion2 = str(asignacion2)
+                y = re.findall(r'(.*\/)(\d{2}).*', asignacion2)
+                print(y)
+                if bool(y) == False:
                     continue
-                elif asignacion in asignacion2 or asignacion2 in asignacion:
+                asignacion2 = y[0][0]+y[0][1]
+
+                if asignacion == asignacion2:
                     match column:
                         case 1:
                             ws1[f'D{j+2}'] = ndoc
+                            pene = ws1[f'D{j+2}'].value
+                            writeLog('\n', f'La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para MN.', logPath)
                         case 4:
                             ws1[f'E{j+2}'] = ndoc
+                            vagina = ws1[f'E{j+2}'].value
+                            writeLog('\n', f'La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para ME.', logPath)
                     break
-                
-                if j == ws1.max_row:
+                if j == 1:
                     writeLog('\n', f'La asignación {asignacion} no existe en la hoja {sheetName} del archivo {migraXlsx}.', logPath)   
                     break
                 
-    try:
-        wb.save(meanwhileXlsxPath)
-        wb.close()
-        wb1.save(migraXlsxPath)
-        wb1.close()
-    except:
-        return -1
+    wb1.save(migraXlsxPath)
+    wb.save(meanwhileXlsxPath)
+    wb.close()
+    wb1.close()
+    writeLog('\n', f'{today3()} Proceso de pegado de asignaciones y ndocs finalizado', logPath)
+
 
 
 

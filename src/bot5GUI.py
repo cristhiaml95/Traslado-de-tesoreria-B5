@@ -295,6 +295,17 @@ class bot5GUI:
         # self.goButton['state'] = 'normal'
         pass
 
+    def pasteDone(self):
+        self.PUNoChoise = tk.Toplevel(self.wd)
+        self.PUNoChoise.title('INFO')
+        size = f'{int(self.w/6)}x{int(self.h/8)}+{int(self.w*5/12)}+{int(self.h*9/16)}'
+        self.PUNoChoise.geometry(size)
+        alert = tk.Label(self.PUNoChoise, text='Pegado terminado.', font=('consolas 24 bold', 12))
+        okButton = tk.Button(self.PUNoChoise, text='   Ok   ', command=self.PUNoChoise.destroy)
+        alert.pack()
+        okButton.pack()
+        self.PUNoChoise.mainloop()
+
     def getAssignmentsCommand(self):
         self.goButton['state'] = 'disabled'
         assignments = ap()
@@ -332,12 +343,12 @@ class bot5GUI:
             meanwhileXlsx = os.path.join(currentPathParentFolder, 'Migraciones', 'ASIG-NDOC')
             asig_ndocToMigra(meanwhileXlsx, sapInterfaceJob().logPathMig)
             try:
-                copyANDeraseFile2('log.txt')
+                copyANDeraseFile2('logs.txt')
             except:
-                writeLog('\n', 'No existe archivos log.txt en carpeta Migraciones', sapInterfaceJob().logPathMig)
+                writeLog('\n', 'No existe archivos logs.txt en carpeta Migraciones', sapInterfaceJob().logPathMig)
             copyANDeraseFile2('ASIG-NDOC.xlsx')
             copyFile2('ASIG-NDOC.xlsx')
-        
+            self.pasteDone()        
         except:
             writeLog('\n', 'Error en el pegado, llamar al programador CLLM +51 932446031', sapInterfaceJob().logPathMig)
 

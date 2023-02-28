@@ -87,8 +87,8 @@ class sapInterfaceJob():
 
         self.currentPathParentFolder = currentPathParentFolder
         self.currentPathGrandpaFolder = currentPathGrandpaFolder
-        self.logPath = os.path.join(self.currentPathParentFolder,"Cuentas recaudadoras", "log.txt")
-        self.logPathMig = os.path.join(self.currentPathParentFolder,"Migraciones", "log.txt")
+        self.logPath = os.path.join(self.currentPathParentFolder,"Cuentas recaudadoras")
+        self.logPathMig = os.path.join(self.currentPathParentFolder,"Migraciones")
         self.directo = None
         self.ETVflow = None
         self.xlsxMigracion = None
