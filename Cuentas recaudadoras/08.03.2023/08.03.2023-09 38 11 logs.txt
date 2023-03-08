@@ -1,0 +1,21 @@
+
+Asignaciones extraidas correctamente: BISA 0111 101010136
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+
+----------------------------- 08.03.2023 Iniciando Migracion de cuenta RIBERALTA 101010137 a 101044092  BISA 0103 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-RB01/42/
+08.03.2023 La operación de asignación: CCAJ-RB01/42/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-RB01/42/202  112865487
+
+-------------------------------- Migracion de cuenta RIBERALTA 101010137 a 101044092 BISA 0103 finalizada --------------------------------
+
+----------------------------- 08.03.2023 Iniciando Migracion de cuenta PANDO 101010136 a 101044102  BISA 0111 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-PN62/52/
+08.03.2023 La operación de asignación: CCAJ-PN62/52/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-PN62/52/202  112865488
+
+-------------------------------- Migracion de cuenta PANDO 101010136 a 101044102 BISA 0111 finalizada --------------------------------

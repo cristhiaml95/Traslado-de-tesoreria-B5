@@ -1,0 +1,296 @@
+
+28.02.2023-10 07 57 Iniciando proceso de pegado de asignaciones y ndocs
+La asignación CCAJ-LP02/77/20 - 112799816 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 1917 para MN.
+La asignación CCAJ-LP02/76/20 - 112799817 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 1898 para MN.
+La asignación CCAJ-LP02/75/20 - 112799863 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 1857 para MN.
+La asignación CCAJ-LP02/74/20 - 112799864 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 1838 para MN.
+La asignación CCAJ-LP02/80/20 - 112808034 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 2011 para MN.
+La asignación CCAJ-LP02/78/20 - 112808035 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 1952 para MN.
+La asignación CCAJ-LP02/77/20 - 112808068 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 1917 para ME.
+La asignación CCAJ-LP02/76/20 - 112808069 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 1898 para ME.
+La asignación CCAJ-LP02/82/20 - 112814228 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 2063 para MN.
+La asignación CCAJ-LP02/81/20 - 112814229 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 2038 para MN.
+La asignación CCAJ-LP02/80/20 - 112814240 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 2011 para ME.
+La asignación CCAJ-LP02/78/20 - 112814241 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 1952 para ME.
+La asignación CCAJ-LP02/84/20 - 112825692 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 2111 para MN.
+La asignación CCAJ-LP02/82/20 - 112825898 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 2063 para ME.
+La asignación CCAJ-LP02/81/20 - 112825899 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 2038 para ME.
+La asignación CCAJ-LP02/85/20 - 112835179 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 2157 para MN.
+La asignación CCAJ-LP02/84/20 - 112835225 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISPAZ en la fila 2111 para MN.
+La asignación CCAJ-LP08/39/23 - 112799801 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ACHUMANI en la fila 430 para MN.
+La asignación CCAJ-LP08/38/23 - 112799837 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ACHUMANI en la fila 420 para MN.
+La asignación CCAJ-LP08/40/23 - 112808014 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ACHUMANI en la fila 440 para MN.
+La asignación CCAJ-LP08/41/23 - 112814214 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ACHUMANI en la fila 467 para MN.
+La asignación CCAJ-LP08/43/23 - 112825658 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ACHUMANI en la fila 487 para MN.
+La asignación CCAJ-LP08/42/23 - 112825659 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ACHUMANI en la fila 477 para MN.
+La asignación CCAJ-LP08/44/23 - 112835211 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ACHUMANI en la fila 497 para MN.
+La asignación CCAJ-LP01/77/23 - 112799802 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 606 para MN.
+La asignación CCAJ-LP01/78/23 - 112799803 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 612 para MN.
+La asignación CCAJ-LP01/75/23 - 112799839 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 592 para MN.
+La asignación CCAJ-LP01/76/23 - 112799840 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 597 para MN.
+La asignación CCAJ-LP01/79/23 - 112808015 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 621 para MN.
+La asignación CCAJ-LP01/80/23 - 112808016 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 626 para MN.
+La asignación CCAJ-LP01/81/23 - 112814254 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 652 para MN.
+La asignación CCAJ-LP01/82/23 - 112814255 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 658 para MN.
+La asignación CCAJ-LP01/85/23 - 112825660 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 682 para MN.
+La asignación CCAJ-LP01/86/23 - 112825661 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 687 para MN.
+La asignación CCAJ-LP01/83/23 - 112825662 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 667 para MN.
+La asignación CCAJ-LP01/84/23 - 112825663 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 673 para MN.
+La asignación CCAJ-LP01/87/23 - 112835212 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 696 para MN.
+La asignación CCAJ-LP01/88/23 - 112835213 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MURILLO en la fila 702 para MN.
+La asignación CCAJ-LP07/39/23 - 112799804 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MAX PAREDES en la fila 418 para MN.
+La asignación CCAJ-LP07/38/23 - 112799841 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MAX PAREDES en la fila 409 para MN.
+La asignación CCAJ-LP07/40/23 - 112808018 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MAX PAREDES en la fila 428 para MN.
+La asignación CCAJ-LP07/41/23 - 112814215 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MAX PAREDES en la fila 455 para MN.
+La asignación CCAJ-LP07/43/23 - 112825665 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MAX PAREDES en la fila 475 para MN.
+La asignación CCAJ-LP07/42/23 - 112825666 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MAX PAREDES en la fila 465 para MN.
+La asignación CCAJ-LP07/44/23 - 112835214 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MAX PAREDES en la fila 485 para MN.
+La asignación CCAJ-EA10/70/20 - 112799818 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 451 para MN.
+La asignación CCAJ-EA10/69/20 - 112799819 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 429 para MN.
+La asignación CCAJ-EA10/68/20 - 112799865 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 417 para MN.
+La asignación CCAJ-EA10/67/20 - 112799866 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 396 para MN.
+La asignación CCAJ-EA10/73/20 - 112808037 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 515 para MN.
+La asignación CCAJ-EA10/71/20 - 112808038 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 464 para MN.
+La asignación CCAJ-EA10/70/20 - 112808071 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 451 para MN.
+La asignación CCAJ-EA10/69/20 - 112808072 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 429 para MN.
+La asignación CCAJ-EA10/75/20 - 112814230 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 550 para MN.
+La asignación CCAJ-EA10/74/20 - 112814231 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 532 para MN.
+La asignación CCAJ-EA10/73/20 - 112814242 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 515 para MN.
+La asignación CCAJ-EA10/71/20 - 112814243 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 464 para MN.
+La asignación CCAJ-EA10/77/20 - 112825693 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 582 para MN.
+La asignación CCAJ-EA10/76/20 - 112825695 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 563 para MN.
+La asignación CCAJ-EA10/75/20 - 112825900 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 550 para MN.
+La asignación CCAJ-EA10/74/20 - 112825901 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 532 para MN.
+La asignación CCAJ-EA10/78/20 - 112835182 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 599 para MN.
+La asignación CCAJ-EA10/77/20 - 112835226 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 582 para MN.
+La asignación CCAJ-EA10/76/20 - 112835227 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISALTO en la fila 563 para MN.
+La asignación CCAJ-EA58/39/23 - 112799805 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SATELITE en la fila 150 para MN.
+La asignación CCAJ-EA58/38/23 - 112799842 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SATELITE en la fila 140 para MN.
+La asignación CCAJ-EA58/40/23 - 112808019 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SATELITE en la fila 160 para MN.
+La asignación CCAJ-EA58/41/23 - 112814216 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SATELITE en la fila 187 para MN.
+La asignación CCAJ-EA58/43/23 - 112825667 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SATELITE en la fila 207 para MN.
+La asignación CCAJ-EA58/42/23 - 112825668 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SATELITE en la fila 197 para MN.
+La asignación CCAJ-EA58/44/23 - 112835215 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SATELITE en la fila 217 para MN.
+La asignación CCAJ-SC39/79/20 - 112799820 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1164 para MN.
+La asignación CCAJ-SC39/78/20 - 112799821 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1139 para MN.
+La asignación CCAJ-SC39/79/20 - 112799834 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1164 para MN.
+La asignación CCAJ-SC39/79/20 - 112799867 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1164 para MN.
+La asignación CCAJ-SC39/78/20 - 112799868 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1139 para MN.
+La asignación CCAJ-SC39/79/20 - 112799880 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1164 para MN.
+La asignación CCAJ-SC39/83/20 - 112808040 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1331 para MN.
+La asignación CCAJ-SC39/81/20 - 112808042 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1251 para MN.
+La asignación CCAJ-SC39/82/20 - 112808043 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1276 para MN.
+La asignación CCAJ-SC39/80/20 - 112808044 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1231 para MN.
+La asignación CCAJ-SC39/83/20 - 112808055 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1331 para MN.
+La asignación CCAJ-SC39/80/20 - 112808056 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1231 para MN.
+La asignación CCAJ-SC39/83/20 - 112808073 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1331 para MN.
+La asignación CCAJ-SC39/81/20 - 112808074 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1251 para MN.
+La asignación CCAJ-SC39/82/20 - 112808075 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1276 para MN.
+La asignación CCAJ-SC39/80/20 - 112808076 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1231 para MN.
+La asignación CCAJ-SC39/83/20 - 112808086 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1331 para MN.
+La asignación CCAJ-SC39/80/20 - 112808088 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1231 para MN.
+La asignación CCAJ-SC39/85/20 - 112814232 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1401 para MN.
+La asignación CCAJ-SC39/84/20 - 112814233 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1387 para MN.
+La asignación CCAJ-SC39/85/20 - 112814235 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1401 para ME.
+La asignación CCAJ-SC39/84/20 - 112814236 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1387 para ME.
+La asignación CCAJ-SC39/85/20 - 112814244 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1401 para MN.
+La asignación CCAJ-SC39/84/20 - 112814245 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1387 para MN.
+La asignación CCAJ-SC39/85/20 - 112814247 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1401 para ME.
+La asignación CCAJ-SC39/84/20 - 112814248 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1387 para ME.
+La asignación CCAJ-SC39/87/20 - 112825696 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1509 para MN.
+La asignación CCAJ-SC39/86/20 - 112825697 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1495 para MN.
+La asignación CCAJ-SC39/87/20 - 112825711 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1509 para ME.
+La asignación CCAJ-SC39/87/20 - 112825902 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1509 para MN.
+La asignación CCAJ-SC39/86/20 - 112825903 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1495 para MN.
+La asignación CCAJ-SC39/87/20 - 112825917 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1509 para ME.
+La asignación CCAJ-SC39/89/20 - 112835185 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1603 para MN.
+La asignación CCAJ-SC39/90/20 - 112835186 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1636 para MN.
+La asignación CCAJ-SC39/88/20 - 112835187 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1582 para MN.
+La asignación CCAJ-SC39/89/20 - 112835200 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1603 para ME.
+La asignación CCAJ-SC39/90/20 - 112835201 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1636 para ME.
+La asignación CCAJ-SC39/88/20 - 112835202 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1582 para ME.
+La asignación CCAJ-SC39/89/20 - 112835229 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1603 para MN.
+La asignación CCAJ-SC39/90/20 - 112835230 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1636 para MN.
+La asignación CCAJ-SC39/88/20 - 112835231 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1582 para MN.
+La asignación CCAJ-SC39/89/20 - 112835241 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1603 para ME.
+La asignación CCAJ-SC39/90/20 - 112835242 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1636 para ME.
+La asignación CCAJ-SC39/88/20 - 112835243 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISCRUZ en la fila 1582 para ME.
+La asignación CCAJ-SC65/39/23 - 112799806 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MUTUALISTA en la fila 149 para MN.
+La asignación CCAJ-SC65/38/23 - 112799843 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MUTUALISTA en la fila 139 para MN.
+La asignación CCAJ-SC65/40/23 - 112808157 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MUTUALISTA en la fila 158 para MN.
+La asignación CCAJ-SC65/41/23 - 112814217 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MUTUALISTA en la fila 185 para MN.
+La asignación CCAJ-SC65/42/23 - 112825669 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MUTUALISTA en la fila 194 para MN.
+La asignación CCAJ-SC65/43/23 - 112825670 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MUTUALISTA en la fila 203 para MN.
+La asignación CCAJ-SC65/44/23 - 112835247 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MUTUALISTA en la fila 213 para MN.
+La asignación CCAJ-SC57/39/23 - 112799807 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MONTERO en la fila 138 para MN.
+La asignación CCAJ-SC57/38/23 - 112799844 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MONTERO en la fila 129 para MN.
+La asignación CCAJ-SC57/40/23 - 112808158 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MONTERO en la fila 147 para MN.
+La asignación CCAJ-SC57/41/23 - 112814218 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MONTERO en la fila 174 para MN.
+La asignación CCAJ-SC57/42/23 - 112825671 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MONTERO en la fila 183 para MN.
+La asignación CCAJ-SC57/43/23 - 112825672 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MONTERO en la fila 192 para MN.
+La asignación CCAJ-SC57/44/23 - 112835249 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. MONTERO en la fila 201 para MN.
+La asignación CCAJ-SC59/39/23 - 112799808 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. WARNES en la fila 141 para MN.
+La asignación CCAJ-SC59/38/23 - 112799845 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. WARNES en la fila 131 para MN.
+La asignación CCAJ-SC59/40/23 - 112808020 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. WARNES en la fila 150 para MN.
+La asignación CCAJ-SC59/41/23 - 112814219 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. WARNES en la fila 177 para MN.
+La asignación CCAJ-SC59/43/23 - 112825673 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. WARNES en la fila 196 para MN.
+La asignación CCAJ-SC59/42/23 - 112825674 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. WARNES en la fila 187 para MN.
+La asignación CCAJ-SC59/44/23 - 112835217 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. WARNES en la fila 205 para MN.
+La asignación CCAJ-TA43/38/20 - 112799823 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 186 para MN.
+La asignación CCAJ-TA43/37/20 - 112799824 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 170 para MN.
+La asignación CCAJ-TA43/38/20 - 112799869 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 186 para ME.
+La asignación CCAJ-TA43/37/20 - 112799870 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 170 para ME.
+La asignación CCAJ-TA43/41/20 - 112808045 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 229 para MN.
+La asignación CCAJ-TA43/39/20 - 112808046 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 204 para MN.
+La asignación CCAJ-TA43/39/20 - 112808077 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 204 para ME.
+La asignación CCAJ-TA43/40/20 - 112808113 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 222 para MN.
+La asignación CCAJ-TA43/40/20 - 112808116 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 222 para ME.
+La asignación CCAJ-TA43/42/20 - 112825699 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 258 para MN.
+La asignación CCAJ-TA43/41/20 - 112825904 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 229 para ME.
+La asignación CCAJ-TA43/42/20 - 112825905 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 258 para ME.
+La asignación CCAJ-TA43/45/20 - 112835188 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 304 para MN.
+La asignación CCAJ-TA43/44/20 - 112835189 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 286 para MN.
+La asignación CCAJ-TA43/43/20 - 112835190 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 272 para MN.
+La asignación CCAJ-TA43/45/20 - 112835232 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 304 para MN.
+La asignación CCAJ-TA43/44/20 - 112835233 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 286 para MN.
+La asignación CCAJ-TA43/43/20 - 112835234 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja DISTAR en la fila 272 para MN.
+La asignación CCAJ-TA06/39/23 - 112799809 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TARIJEÑITA en la fila 152 para MN.
+La asignación CCAJ-TA06/38/23 - 112799846 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TARIJEÑITA en la fila 141 para MN.
+La asignación CCAJ-TA06/40/23 - 112808021 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TARIJEÑITA en la fila 162 para MN.
+La asignación CCAJ-TA06/41/23 - 112814220 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TARIJEÑITA en la fila 189 para MN.
+La asignación CCAJ-TA06/43/23 - 112825675 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TARIJEÑITA en la fila 207 para MN.
+La asignación CCAJ-TA06/42/23 - 112825676 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TARIJEÑITA en la fila 198 para MN.
+La asignación CCAJ-TA06/44/23 - 112835218 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TARIJEÑITA en la fila 218 para MN.
+La asignación CCAJ-CB11/41/20 - 112799825 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja COCHABAMBA en la fila 515 para MN.
+La asignación CCAJ-CB11/41/20 - 112799871 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja COCHABAMBA en la fila 515 para ME.
+La asignación CCAJ-CB11/42/20 - 112808048 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja COCHABAMBA en la fila 558 para MN.
+La asignación CCAJ-CB11/42/20 - 112808078 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja COCHABAMBA en la fila 558 para ME.
+La asignación CCAJ-CB11/44/20 - 112814234 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja COCHABAMBA en la fila 650 para MN.
+La asignación CCAJ-CB11/44/20 - 112814246 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja COCHABAMBA en la fila 650 para ME.
+La asignación CCAJ-CB11/45/20 - 112825700 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja COCHABAMBA en la fila 695 para MN.
+La asignación CCAJ-CB11/45/20 - 112825906 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja COCHABAMBA en la fila 695 para ME.
+La asignación CCAJ-CB11/46/20 - 112826182 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja COCHABAMBA en la fila 747 para MN.
+La asignación CCAJ-CB11/46/20 - 112826183 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja COCHABAMBA en la fila 747 para ME.
+La asignación CCAJ-CB12/60/23 - 112799810 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. HONDURAS en la fila 216 para MN.
+La asignación CCAJ-CB12/58/23 - 112799847 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. HONDURAS en la fila 202 para MN.
+La asignación CCAJ-CB12/59/23 - 112799848 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. HONDURAS en la fila 207 para MN.
+La asignación CCAJ-CB12/61/23 - 112808023 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. HONDURAS en la fila 230 para MN.
+La asignación CCAJ-CB12/62/23 - 112814221 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. HONDURAS en la fila 261 para MN.
+La asignación CCAJ-CB12/63/23 - 112825677 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. HONDURAS en la fila 271 para MN.
+La asignación CCAJ-CB12/64/23 - 112825896 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. HONDURAS en la fila 281 para MN.
+La asignación CCAJ-CB12/65/23 - 112825897 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. HONDURAS en la fila 287 para MN.
+La asignación CCAJ-CB12/66/23 - 112835250 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. HONDURAS en la fila 296 para MN.
+La asignación CCAJ-CB12/67/23 - 112835251 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. HONDURAS en la fila 303 para MN.
+La asignación CCAJ-CB13/39/23 - 112799811 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. CALAMA en la fila 144 para MN.
+La asignación CCAJ-CB13/38/23 - 112799849 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. CALAMA en la fila 134 para MN.
+La asignación CCAJ-CB13/40/23 - 112808024 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. CALAMA en la fila 154 para MN.
+La asignación CCAJ-CB13/41/23 - 112814222 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. CALAMA en la fila 181 para MN.
+La asignación CCAJ-CB13/43/23 - 112825678 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. CALAMA en la fila 202 para MN.
+La asignación CCAJ-CB13/42/23 - 112825679 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. CALAMA en la fila 192 para MN.
+La asignación CCAJ-CB13/44/23 - 112835252 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. CALAMA en la fila 212 para MN.
+La asignación CCAJ-SR27/32/20 - 112799826 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 220 para MN.
+La asignación CCAJ-SR27/31/20 - 112799827 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 200 para MN.
+La asignación CCAJ-SR27/32/20 - 112799872 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 220 para ME.
+La asignación CCAJ-SR27/31/20 - 112799873 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 200 para ME.
+La asignación CCAJ-SR27/34/20 - 112808049 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 273 para MN.
+La asignación CCAJ-SR27/33/20 - 112808050 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 236 para MN.
+La asignación CCAJ-SR27/34/20 - 112808080 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 273 para ME.
+La asignación CCAJ-SR27/33/20 - 112808081 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 236 para ME.
+La asignación CCAJ-SR27/36/20 - 112825701 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 305 para MN.
+La asignación CCAJ-SR27/35/20 - 112825702 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 290 para MN.
+La asignación CCAJ-SR27/36/20 - 112825907 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 305 para ME.
+La asignación CCAJ-SR27/35/20 - 112825908 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 290 para ME.
+La asignación CCAJ-SR27/37/20 - 112835192 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 327 para MN.
+La asignación CCAJ-SR27/37/20 - 112835235 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja SUCRE en la fila 327 para MN.
+La asignación CCAJ-SR54/39/23 - 112799812 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 1 en la fila 139 para MN.
+La asignación CCAJ-SR54/38/23 - 112799850 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 1 en la fila 129 para MN.
+La asignación CCAJ-SR54/40/23 - 112808025 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 1 en la fila 149 para MN.
+La asignación CCAJ-SR54/41/23 - 112814223 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 1 en la fila 175 para MN.
+La asignación CCAJ-SR54/43/23 - 112825680 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 1 en la fila 193 para MN.
+La asignación CCAJ-SR54/42/23 - 112825681 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 1 en la fila 184 para MN.
+La asignación CCAJ-SR54/44/23 - 112835219 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 1 en la fila 202 para MN.
+La asignación CCAJ-SR24/39/23 - 112799813 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 2 en la fila 145 para MN.
+La asignación CCAJ-SR24/38/23 - 112799852 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 2 en la fila 136 para MN.
+La asignación CCAJ-SR24/40/23 - 112808028 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 2 en la fila 156 para MN.
+La asignación CCAJ-SR24/41/23 - 112814224 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 2 en la fila 183 para MN.
+La asignación CCAJ-SR24/43/23 - 112825682 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 2 en la fila 203 para MN.
+La asignación CCAJ-SR24/42/23 - 112825683 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 2 en la fila 194 para MN.
+La asignación CCAJ-SR24/44/23 - 112835220 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. SUCRE 2 en la fila 212 para MN.
+La asignación CCAJ-PT53/32/20 - 112799828 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 170 para MN.
+La asignación CCAJ-PT53/31/20 - 112799829 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 152 para MN.
+La asignación CCAJ-PT53/31/20 - 112799836 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 152 para MN.
+La asignación CCAJ-PT53/32/20 - 112799874 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 170 para MN.
+La asignación CCAJ-PT53/31/20 - 112799875 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 152 para MN.
+La asignación CCAJ-PT53/31/20 - 112799881 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 152 para MN.
+La asignación CCAJ-PT53/33/20 - 112808051 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 180 para MN.
+La asignación CCAJ-PT53/33/20 - 112808082 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 180 para MN.
+La asignación CCAJ-PT53/35/20 - 112825703 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 240 para MN.
+La asignación CCAJ-PT53/34/20 - 112825704 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 224 para MN.
+La asignación CCAJ-PT53/35/20 - 112825909 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 240 para MN.
+La asignación CCAJ-PT53/34/20 - 112825910 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 224 para MN.
+La asignación CCAJ-PT53/36/20 - 112835193 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 252 para MN.
+La asignación CCAJ-PT53/36/20 - 112835236 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja POTOSI en la fila 252 para MN.
+La asignación CCAJ-PT18/39/23 - 112799814 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. POTOSI 1 en la fila 136 para MN.
+La asignación CCAJ-PT18/38/23 - 112799853 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. POTOSI 1 en la fila 127 para MN.
+La asignación CCAJ-PT18/40/23 - 112808030 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. POTOSI 1 en la fila 145 para MN.
+La asignación CCAJ-PT18/41/23 - 112814225 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. POTOSI 1 en la fila 171 para MN.
+La asignación CCAJ-PT18/43/23 - 112825685 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. POTOSI 1 en la fila 189 para MN.
+La asignación CCAJ-PT18/42/23 - 112825686 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. POTOSI 1 en la fila 180 para MN.
+La asignación CCAJ-PT18/44/23 - 112835221 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. POTOSI 1 en la fila 198 para MN.
+La asignación CCAJ-OR52/33/20 - 112799830 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 188 para MN.
+La asignación CCAJ-OR52/32/20 - 112799831 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 175 para MN.
+La asignación CCAJ-OR52/33/20 - 112799876 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 188 para ME.
+La asignación CCAJ-OR52/32/20 - 112799877 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 175 para ME.
+La asignación CCAJ-OR52/36/20 - 112825705 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 259 para MN.
+La asignación CCAJ-OR52/35/20 - 112825706 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 245 para MN.
+La asignación CCAJ-OR52/34/20 - 112825707 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 202 para MN.
+La asignación CCAJ-OR52/36/20 - 112825912 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 259 para ME.
+La asignación CCAJ-OR52/35/20 - 112825913 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 245 para ME.
+La asignación CCAJ-OR52/34/20 - 112825914 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 202 para ME.
+La asignación CCAJ-OR52/37/20 - 112835195 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 273 para MN.
+La asignación CCAJ-OR52/37/20 - 112835237 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja ORURO en la fila 273 para MN.
+La asignación CCAJ-OR51/38/23 - 112808031 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ORURO 1 en la fila 141 para MN.
+La asignación CCAJ-OR51/37/23 - 112808032 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ORURO 1 en la fila 130 para MN.
+La asignación CCAJ-OR51/39/23 - 112814226 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ORURO 1 en la fila 168 para MN.
+La asignación CCAJ-OR51/41/23 - 112825687 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ORURO 1 en la fila 186 para MN.
+La asignación CCAJ-OR51/40/23 - 112825688 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ORURO 1 en la fila 177 para MN.
+La asignación CCAJ-OR51/42/23 - 112835222 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. ORURO 1 en la fila 195 para MN.
+La asignación CCAJ-TR47/38/20 - 112799832 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 167 para MN.
+La asignación CCAJ-TR47/37/20 - 112799833 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 157 para MN.
+La asignación CCAJ-TR47/38/20 - 112799878 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 167 para ME.
+La asignación CCAJ-TR47/37/20 - 112799879 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 157 para ME.
+La asignación CCAJ-TR47/40/20 - 112808053 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 189 para MN.
+La asignación CCAJ-TR47/39/20 - 112808054 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 180 para MN.
+La asignación CCAJ-TR47/40/20 - 112808083 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 189 para ME.
+La asignación CCAJ-TR47/39/20 - 112808084 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 180 para ME.
+La asignación CCAJ-TR47/42/20 - 112825708 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 234 para MN.
+La asignación CCAJ-TR47/41/20 - 112825709 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 220 para MN.
+La asignación CCAJ-TR47/42/20 - 112825712 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 234 para ME.
+La asignación CCAJ-TR47/41/20 - 112825713 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 220 para ME.
+La asignación CCAJ-TR47/42/20 - 112825915 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 234 para MN.
+La asignación CCAJ-TR47/41/20 - 112825916 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 220 para MN.
+La asignación CCAJ-TR47/42/20 - 112825919 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 234 para ME.
+La asignación CCAJ-TR47/41/20 - 112825920 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 220 para ME.
+La asignación CCAJ-TR47/44/20 - 112835196 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 257 para MN.
+La asignación CCAJ-TR47/43/20 - 112835197 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 246 para MN.
+La asignación CCAJ-TR47/44/20 - 112835238 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 257 para MN.
+La asignación CCAJ-TR47/43/20 - 112835239 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja TRINIDAD en la fila 246 para MN.
+La asignación CCAJ-TR50/39/23 - 112799815 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TRINIDAD 1 en la fila 138 para MN.
+La asignación CCAJ-TR50/38/23 - 112799855 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TRINIDAD 1 en la fila 128 para MN.
+La asignación CCAJ-TR50/40/23 - 112808033 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TRINIDAD 1 en la fila 147 para MN.
+La asignación CCAJ-TR50/41/23 - 112814227 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TRINIDAD 1 en la fila 173 para MN.
+La asignación CCAJ-TR50/43/23 - 112825690 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TRINIDAD 1 en la fila 191 para MN.
+La asignación CCAJ-TR50/42/23 - 112825691 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TRINIDAD 1 en la fila 182 para MN.
+La asignación CCAJ-TR50/44/23 - 112835224 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja AG. TRINIDAD 1 en la fila 200 para MN.
+La asignación CCAJ-PN62/41/20 - 112799890 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja PANDO en la fila 157 para MN.
+La asignación CCAJ-PN62/40/20 - 112799891 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja PANDO en la fila 147 para MN.
+La asignación CCAJ-PN62/42/20 - 112814250 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja PANDO en la fila 183 para MN.
+La asignación CCAJ-PN62/44/20 - 112825924 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja PANDO en la fila 202 para MN.
+La asignación CCAJ-PN62/43/20 - 112825926 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja PANDO en la fila 193 para MN.
+La asignación CCAJ-PN62/45/20 - 112835271 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja PANDO en la fila 209 para MN.
+La asignación CCAJ-RB01/33/20 - 112799893 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja RIBERALTA en la fila 155 para MN.
+La asignación CCAJ-RB01/32/20 - 112799894 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja RIBERALTA en la fila 143 para MN.
+La asignación CCAJ-RB01/34/20 - 112808097 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja RIBERALTA en la fila 183 para MN.
+La asignación CCAJ-RB01/35/20 - 112825922 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja RIBERALTA en la fila 193 para MN.
+La asignación CCAJ-RB01/36/20 - 112835268 se agregó al archivo MIGRACIONES SGV FEBRERO 2023 24-25.02.2023 VACIO.xlsx en la hoja RIBERALTA en la fila 203 para MN.
+28.02.2023-10 08 13 Proceso de pegado de asignaciones y ndocs finalizado

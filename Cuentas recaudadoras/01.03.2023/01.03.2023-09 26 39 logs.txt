@@ -1,0 +1,22 @@
+
+Asignaciones extraidas correctamente: ETV M.N 101010111
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 01.03.2023 Iniciando Migracion de cuenta AG. ORURO 1 101010120 a 101044042  BISA 0057 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-OR51/43/
+01.03.2023 La operación de asignación: CCAJ-OR51/43/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-OR51/43/23  112846570
+
+-------------------------------- Migracion de cuenta AG. ORURO 1 101010120 a 101044042 BISA 0057 finalizada --------------------------------
+
+----------------------------- 01.03.2023 Iniciando Migracion de cuenta COCHABAMBA 101010111 a 101020101  ETV M.N -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/48/
+01.03.2023 La operación de asignación: CCAJ-CB11/48/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-CB11/48/202  112846571
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101010111 a 101020101 ETV M.N finalizada --------------------------------
