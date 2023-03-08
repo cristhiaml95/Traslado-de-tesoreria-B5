@@ -847,7 +847,19 @@ class sapInterfaceJob():
         print('Este es el rango del xls: ', self.xlsxRange)
         for self.r in self.xlsxRange:
             try:
-                x =  self.subProcess_1()
+                try:
+                    x =  self.subProcess_1()
+                except:
+                    try:
+                        time.sleep(2)
+                        x =  self.subProcess_1()
+                        time.sleep(2)
+                    except:
+                        try:
+                            time.sleep(2)
+                            x =  self.subProcess_1()
+                        except:
+                            raise Exception('Error en subProcess_1')
                 if x == -1:
                     continue
                 serparationMessage = f'\n\n----------------------------- {today()} Iniciando Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2}  {self.bank} -----------------------------'
@@ -856,7 +868,7 @@ class sapInterfaceJob():
                 if y == -1:
                     continue
             except:
-                writeLog('\n', 'Se recomienda asistirse por el programador - +51 932446031', self.logPath)
+                writeLog('\n', 'Se recomienda asistirse por el programador CLLM - +51 932446031', self.logPath)
                 self.session.EndTransaction()
                 continue
 
