@@ -198,7 +198,17 @@ def add0(num):
     return '0' + num_str
   return num_str
 
-def asig_ndoc_meanwhile(asignacionNdocMigrated, rec, moneda, xlsx, logPath):
+def findUsedCellColumn(ws, row):
+    for i in range(1, ws.max_column+1):
+        if ws.cell(row=row, column=i).value == None:
+            continue
+        else:
+            return i
+        
+    if i == ws.max_column:
+        return -1
+
+def asig_ndoc_meanwhile(asignacionNdocMigrated, rec, moneda, tMigracion, ETVflow, xlsx, logPath):
     xlsx = xlsx + '.xlsx'
     xlsxPath = os.path.join(currentPathParentFolder, 'Migraciones', xlsx)
     try:
@@ -217,14 +227,49 @@ def asig_ndoc_meanwhile(asignacionNdocMigrated, rec, moneda, xlsx, logPath):
     for l, i in enumerate(asignacionNdocMigrated):
         asignacion = i[0]
         ndoc = i[1]
-        match moneda:
-            case 'MN':
-                ws.cell(row=max_row + l + 1, column=1).value = asignacion
-                ws.cell(row=max_row + l + 1, column=2).value = ndoc
-            
-            case 'ME':
-                ws.cell(row=max_row + l + 1, column=4).value = asignacion
-                ws.cell(row=max_row + l + 1, column=5).value = ndoc
+
+        match tMigracion:
+            case 1:
+                match moneda:
+                    case 'MN':
+                        ws.cell(row=max_row + l + 1, column=1).value = asignacion
+                        ws.cell(row=max_row + l + 1, column=2).value = ndoc
+                    
+                    case 'ME':
+                        ws.cell(row=max_row + l + 1, column=4).value = asignacion
+                        ws.cell(row=max_row + l + 1, column=5).value = ndoc
+
+            case 2:
+                match ETVflow:
+                    case 1:
+                        match moneda:
+                            case 'MN':
+                                ws.cell(row=max_row + l + 1, column=7).value = asignacion
+                                ws.cell(row=max_row + l + 1, column=8).value = ndoc
+                    
+                            case 'ME':
+                                ws.cell(row=max_row + l + 1, column=10).value = asignacion
+                                ws.cell(row=max_row + l + 1, column=11).value = ndoc
+
+                    case 2:
+                        match moneda:
+                            case 'MN':
+                                ws.cell(row=max_row + l + 1, column=13).value = asignacion
+                                ws.cell(row=max_row + l + 1, column=14).value = ndoc
+                    
+                            case 'ME':
+                                ws.cell(row=max_row + l + 1, column=16).value = asignacion
+                                ws.cell(row=max_row + l + 1, column=17).value = ndoc
+
+                    case 3:
+                        match moneda:
+                            case 'MN':
+                                ws.cell(row=max_row + l + 1, column=7).value = asignacion
+                                ws.cell(row=max_row + l + 1, column=8).value = ndoc
+                    
+                            case 'ME':
+                                ws.cell(row=max_row + l + 1, column=10).value = asignacion
+                                ws.cell(row=max_row + l + 1, column=11).value = ndoc
 
     wb.save(xlsxPath)
 
@@ -268,16 +313,15 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
             continue
 
         for i in range(1, ws.max_row+1):
-            column = 1
-            asignacion = ws.cell(row=i, column=column).value
-            if asignacion == None:
-                column = 4
-                asignacion = ws.cell(row=i, column=column).value
-            
-            if asignacion == None:
+            column = findUsedCellColumn(ws, i)
+            if column == -1:
                 continue
 
             asignacion = str(asignacion)
+            n1 = re.findall(r'\/(\d+)\/', asignacion)
+            if bool(n1) == False:
+                    continue
+            n1 = int(n1[0])
             x = re.findall(r'(.*\/)(\d{2}).*', asignacion)
             print(x)
             asignacion = x[0][0]+x[0][1]
@@ -287,6 +331,13 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
                 print(j)
                 asignacion2 = ws1.cell(row=j, column=1).value
                 asignacion2 = str(asignacion2)
+                n2 = re.findall(r'\/(\d+)\/', asignacion2)
+                if bool(n2) == False:
+                    continue
+                n2 = int(n2[0])
+                if n1-n2>19:
+                    writeLog('\n', f'La asignación {asignacion} - {ndoc} NO SE ENCONTRÓ en el archivo {migraXlsx} en la hoja {sheetName}.', logPath)
+                    break
                 y = re.findall(r'(.*\/)(\d{2}).*', asignacion2)
                 print(y)
                 if bool(y) == False:
@@ -303,6 +354,22 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
                             ws1[f'E{j+2}'] = ndoc
                             vagina = ws1[f'E{j+2}'].value
                             writeLog('\n', f'La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para ME.', logPath)
+                        case 7:
+                            ws1[f'D{j+4}'] = ndoc
+                            pene = ws1[f'D{j+4}'].value
+                            writeLog('\n', f'La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para MN.', logPath)
+                        case 10:
+                            ws1[f'D{j+7}'] = ndoc
+                            vagina = ws1[f'E{j+7}'].value
+                            writeLog('\n', f'La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para ME.', logPath)
+                        case 13:
+                            ws1[f'E{j+4}'] = ndoc
+                            pene = ws1[f'D{j+4}'].value
+                            writeLog('\n', f'La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para MN.', logPath)
+                        case 16:
+                            ws1[f'E{j+7}'] = ndoc
+                            vagina = ws1[f'E{j+7}'].value
+                            writeLog('\n', f'La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para ME.', logPath)                        
                     break
                 if j == 1:
                     writeLog('\n', f'La asignación {asignacion} no existe en la hoja {sheetName} del archivo {migraXlsx}.', logPath)   
