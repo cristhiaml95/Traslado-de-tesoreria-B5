@@ -313,10 +313,11 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
             continue
 
         for i in range(1, ws.max_row+1):
+            asignacion =  None
             column = findUsedCellColumn(ws, i)
             if column == -1:
                 continue
-
+            asignacion = ws.cell(row=i, column=column).value
             asignacion = str(asignacion)
             n1 = re.findall(r'\/(\d+)\/', asignacion)
             if bool(n1) == False:
@@ -328,14 +329,20 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
 
             ndoc = ws.cell(row=i, column=column+1).value
             for j in range(ws1.max_row, 0, -1):
+                asignacion2 = None
                 print(j)
                 asignacion2 = ws1.cell(row=j, column=1).value
                 asignacion2 = str(asignacion2)
                 n2 = re.findall(r'\/(\d+)\/', asignacion2)
+                n3 = re.findall(r'(^.*?)(?=\/)', asignacion2)
+                if bool(n3) == False:
+                    n3 = ''
+                else:
+                    n3 = n3[0]
                 if bool(n2) == False:
                     continue
                 n2 = int(n2[0])
-                if n1-n2>19:
+                if n1-n2>19 and ' ' not in n3:
                     writeLog('\n', f'La asignación {asignacion} - {ndoc} NO SE ENCONTRÓ en el archivo {migraXlsx} en la hoja {sheetName}.', logPath)
                     break
                 y = re.findall(r'(.*\/)(\d{2}).*', asignacion2)
@@ -349,27 +356,27 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
                         case 1:
                             ws1[f'D{j+2}'] = ndoc
                             pene = ws1[f'D{j+2}'].value
-                            writeLog('\n', f'La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para MN.', logPath)
+                            writeLog('\n', f'{i} La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para MN.', logPath)
                         case 4:
                             ws1[f'E{j+2}'] = ndoc
                             vagina = ws1[f'E{j+2}'].value
-                            writeLog('\n', f'La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para ME.', logPath)
+                            writeLog('\n', f'{i} La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para ME.', logPath)
                         case 7:
                             ws1[f'D{j+4}'] = ndoc
                             pene = ws1[f'D{j+4}'].value
-                            writeLog('\n', f'La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para MN.', logPath)
+                            writeLog('\n', f'{i} La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+4} para MN.', logPath)
                         case 10:
                             ws1[f'D{j+7}'] = ndoc
                             vagina = ws1[f'E{j+7}'].value
-                            writeLog('\n', f'La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para ME.', logPath)
+                            writeLog('\n', f'{i} La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+7} para ME.', logPath)
                         case 13:
                             ws1[f'E{j+4}'] = ndoc
                             pene = ws1[f'D{j+4}'].value
-                            writeLog('\n', f'La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para MN.', logPath)
+                            writeLog('\n', f'{i} La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+4} para MN.', logPath)
                         case 16:
                             ws1[f'E{j+7}'] = ndoc
                             vagina = ws1[f'E{j+7}'].value
-                            writeLog('\n', f'La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para ME.', logPath)                        
+                            writeLog('\n', f'{i} La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+7} para ME.', logPath)                        
                     break
                 if j == 1:
                     writeLog('\n', f'La asignación {asignacion} no existe en la hoja {sheetName} del archivo {migraXlsx}.', logPath)   
