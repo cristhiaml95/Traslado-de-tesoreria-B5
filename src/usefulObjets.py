@@ -1031,7 +1031,7 @@ class sapInterfaceJob():
         parametersList = self.getWholeParametersList(0, b)
         self.verificationBeforeAccountChange(nDocsMigrated, approvedParametersList, parametersList)
         df = pd.DataFrame(asignacionNdocMigrated, columns = ['Asignacion', 'Ndoc'])
-        asgNdoc = asig_ndoc_meanwhile(asignacionNdocMigrated, self.rec, self.moneda, 'ASIG-NDOC', self.logPathMig)
+        asgNdoc = asig_ndoc_meanwhile(asignacionNdocMigrated, self.rec, self.moneda, self.tMigracion, self.ETVflow, 'ASIG-NDOC', self.logPathMig)
         writeLog('\n', asgNdoc, self.logPath)
         writeLog('\n', df, self.logPath)
         serparationMessage = f'\n\n-------------------------------- Migracion de cuenta {self.rec} {self.accountNumber1} a {self.accountNumber2} {self.bank} finalizada --------------------------------'

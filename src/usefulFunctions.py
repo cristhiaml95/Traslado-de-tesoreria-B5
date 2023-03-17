@@ -355,11 +355,11 @@ def asig_ndocToMigra(meanwhileXlsx, logPath):
                     match column:
                         case 1:
                             ws1[f'D{j+2}'] = ndoc
-                            pene = ws1[f'D{j+2}'].value
-                            writeLog('\n', f'{i} La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para MN.', logPath)
+                            pene = ws1[f'D{j+4}'].value
+                            writeLog('\n', f'{i} La asignación {asignacion} - {pene} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+4} para MN.', logPath)
                         case 4:
                             ws1[f'E{j+2}'] = ndoc
-                            vagina = ws1[f'E{j+2}'].value
+                            vagina = ws1[f'E{j+7}'].value
                             writeLog('\n', f'{i} La asignación {asignacion} - {vagina} se agregó al archivo {migraXlsx} en la hoja {sheetName} en la fila {j+2} para ME.', logPath)
                         case 7:
                             ws1[f'D{j+4}'] = ndoc
