@@ -630,6 +630,11 @@ class sapInterfaceJob():
             self.session.findById("wnd[0]/usr/ctxtBKPF-WAERS").text = 'USD'
         
         self.session.findById("wnd[0]/tbar[0]/btn[0]").press()
+
+        fin_de_ejercicio = self.session.findById("wnd[0]/sbar/pane[0]").text
+
+        if 'Se contabiliza en ejercicio del pasado.' in fin_de_ejercicio:
+            self.session.findById("wnd[0]/tbar[0]/btn[0]").press()
         
         try:
             self.session.findById("wnd[0]/usr/txtBSEG-WRBTR").text = rowList[4]
