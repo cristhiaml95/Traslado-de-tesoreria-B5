@@ -1,0 +1,6 @@
+
+Asignaciones extraidas correctamente: BISA 2017 101010137
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+No se encontro nombres o fechas validas.
+*:*:*:*:*:*:*:*:*:*:*:*:*: NO SE ENCONTRARON TRASLADOS VALIDOS PARA AG. ACHUMANI 101010103 : 101044012 BISA 0022 *:*:*:*:*:*:*:*:*:*:*:*:*:

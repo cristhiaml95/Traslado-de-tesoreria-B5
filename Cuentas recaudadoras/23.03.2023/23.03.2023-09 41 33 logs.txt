@@ -1,0 +1,31 @@
+
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta AG. ACHUMANI 101010103 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP08/64/
+23.03.2023 La operación de asignación: CCAJ-LP08/64/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-LP08/64/23  112977753
+
+-------------------------------- Migracion de cuenta AG. ACHUMANI 101010103 a 101044012 BISA 0022 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta AG. MURILLO 101010104 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP01/124/
+23.03.2023 La operación de asignación: CCAJ-LP01/124/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-LP01/124/23  112977754
+
+-------------------------------- Migracion de cuenta AG. MURILLO 101010104 a 101044012 BISA 0022 finalizada --------------------------------
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta AG. MAX PAREDES 101010105 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP07/64/
+23.03.2023 La operación de asignación: CCAJ-LP07/64/ fue migrada correctamente
+None
+        Asignacion       Ndoc
+0  CCAJ-LP07/64/23  112977755
+
+-------------------------------- Migracion de cuenta AG. MAX PAREDES 101010105 a 101044012 BISA 0022 finalizada --------------------------------

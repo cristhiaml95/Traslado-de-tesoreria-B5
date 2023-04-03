@@ -1,0 +1,129 @@
+
+Asignaciones extraidas correctamente: BISA 2017 101020201
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+Se recomienda asistirse por el programador CLLM - +51 932446031
+Se recomienda asistirse por el programador CLLM - +51 932446031
+Se recomienda asistirse por el programador CLLM - +51 932446031
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta DISPAZ 101020101 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/122/
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/121/
+23.03.2023 La operación de asignación: CCAJ-LP02/122/ fue migrada correctamente
+23.03.2023 La operación de asignación: CCAJ-LP02/121/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-LP02/122/20  112977726
+1  CCAJ-LP02/121/20  112977727
+
+-------------------------------- Migracion de cuenta DISPAZ 101020101 a 101044012 BISA 0022 finalizada --------------------------------
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta DISALTO 101020101 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/116/
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/115/
+23.03.2023 La operación de asignación: CCAJ-EA10/116/ fue migrada correctamente
+23.03.2023 La operación de asignación: CCAJ-EA10/115/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-EA10/116/20  112977729
+1  CCAJ-EA10/115/20  112977730
+
+-------------------------------- Migracion de cuenta DISALTO 101020101 a 101044012 BISA 0022 finalizada --------------------------------
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta DISCRUZ 101020101 a 101044032  BISA 0049 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/133/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/132/
+23.03.2023 La operación de asignación: CCAJ-SC39/133/ fue migrada correctamente
+23.03.2023 La operación de asignación: CCAJ-SC39/132/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-SC39/133/20  112977732
+1  CCAJ-SC39/132/20  112977733
+
+-------------------------------- Migracion de cuenta DISCRUZ 101020101 a 101044032 BISA 0049 finalizada --------------------------------
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta DISTAR 101020101 a 101044072  BISA 0081 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TA43/65/
+Validación de saldo 0 correcto en asignación: CCAJ-TA43/64/
+23.03.2023 La operación de asignación: CCAJ-TA43/65/ fue migrada correctamente
+23.03.2023 La operación de asignación: CCAJ-TA43/64/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-TA43/65/202  112977734
+1  CCAJ-TA43/64/202  112977735
+
+-------------------------------- Migracion de cuenta DISTAR 101020101 a 101044072 BISA 0081 finalizada --------------------------------
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta COCHABAMBA 101020101 a 101044022  BISA 0031 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/68/
+23.03.2023 La operación de asignación: CCAJ-CB11/68/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-CB11/68/202  112977736
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101020101 a 101044022 BISA 0031 finalizada --------------------------------
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta SUCRE 101020101 a 101044052  BISA 0065 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SR27/54/
+Validación de saldo 0 correcto en asignación: CCAJ-SR27/53/
+23.03.2023 La operación de asignación: CCAJ-SR27/54/ fue migrada correctamente
+23.03.2023 La operación de asignación: CCAJ-SR27/53/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-SR27/54/202  112977737
+1  CCAJ-SR27/53/202  112977738
+
+-------------------------------- Migracion de cuenta SUCRE 101020101 a 101044052 BISA 0065 finalizada --------------------------------
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta POTOSI 101020101 a 101044062  BISA 0073 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-PT53/53/
+Validación de saldo 0 correcto en asignación: CCAJ-PT53/52/
+23.03.2023 La operación de asignación: CCAJ-PT53/53/ fue migrada correctamente
+23.03.2023 La operación de asignación: CCAJ-PT53/52/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-PT53/53/202  112977740
+1  CCAJ-PT53/52/202  112977741
+
+-------------------------------- Migracion de cuenta POTOSI 101020101 a 101044062 BISA 0073 finalizada --------------------------------
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta ORURO 101020101 a 101044042  BISA 0057 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-OR52/54/
+Validación de saldo 0 correcto en asignación: CCAJ-OR52/53/
+23.03.2023 La operación de asignación: CCAJ-OR52/54/ fue migrada correctamente
+23.03.2023 La operación de asignación: CCAJ-OR52/53/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-OR52/54/202  112977742
+1  CCAJ-OR52/53/202  112977743
+
+-------------------------------- Migracion de cuenta ORURO 101020101 a 101044042 BISA 0057 finalizada --------------------------------
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta TRINIDAD 101020101 a 101044082  BISA 0090 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-TR47/66/
+Validación de saldo 0 correcto en asignación: CCAJ-TR47/65/
+23.03.2023 La operación de asignación: CCAJ-TR47/66/ fue migrada correctamente
+23.03.2023 La operación de asignación: CCAJ-TR47/65/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-TR47/66/202  112977744
+1  CCAJ-TR47/65/202  112977745
+
+-------------------------------- Migracion de cuenta TRINIDAD 101020101 a 101044082 BISA 0090 finalizada --------------------------------
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta DISCRUZ 101020201 a 101052002  BISA 2017 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/132/
+23.03.2023 La operación de asignación: CCAJ-SC39/132/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-SC39/132/20  112977746
+
+-------------------------------- Migracion de cuenta DISCRUZ 101020201 a 101052002 BISA 2017 finalizada --------------------------------
+
+----------------------------- 23.03.2023 Iniciando Migracion de cuenta COCHABAMBA 101020201 a 101052002  BISA 2017 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/68/
+23.03.2023 La operación de asignación: CCAJ-CB11/68/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-CB11/68/202  112977747
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101020201 a 101052002 BISA 2017 finalizada --------------------------------

@@ -1,0 +1,78 @@
+
+20.03.2023-15 37 27 Iniciando proceso de pegado de asignaciones y ndocs
+2 La asignación CCAJ-LP02/117/20 - 112948672 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISPAZ en la fila 183 para MN.
+3 La asignación CCAJ-LP02/116/20 - 112948673 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISPAZ en la fila 160 para MN.
+4 La asignación CCAJ-LP02/115/20 - 112945977 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISPAZ en la fila 128 para MN.
+5 La asignación CCAJ-LP02/114/20 - 112945978 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISPAZ en la fila 101 para MN.
+2 La asignación CCAJ-LP08/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. ACHUMANI en la fila 54 para MN.
+3 La asignación CCAJ-LP08/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. ACHUMANI en la fila 39 para MN.
+2 La asignación CCAJ-LP01/119/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. MURILLO en la fila 77 para MN.
+3 La asignación CCAJ-LP01/120/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. MURILLO en la fila 87 para MN.
+4 La asignación CCAJ-LP01/117/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. MURILLO en la fila 54 para MN.
+5 La asignación CCAJ-LP01/118/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. MURILLO en la fila 64 para MN.
+2 La asignación CCAJ-LP07/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. MAX PAREDES en la fila 52 para MN.
+3 La asignación CCAJ-LP07/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. MAX PAREDES en la fila 38 para MN.
+2 La asignación CCAJ-EA10/111/20 - 112948674 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISALTO en la fila 151 para MN.
+3 La asignación CCAJ-EA10/110/20 - 112948675 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISALTO en la fila 126 para MN.
+4 La asignación CCAJ-EA10/109/20 - 112945979 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISALTO en la fila 102 para MN.
+5 La asignación CCAJ-EA10/108/20 - 112945980 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISALTO en la fila 75 para MN.
+2 La asignación CCAJ-EA58/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. SATELITE en la fila 52 para MN.
+3 La asignación CCAJ-EA58/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. SATELITE en la fila 38 para MN.
+2 La asignación CCAJ-SC39/125/20 - 112948676 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISCRUZ en la fila 303 para MN.
+3 La asignación CCAJ-SC39/124/20 - 112948677 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISCRUZ en la fila 282 para MN.
+4 La asignación CCAJ-SC39/124/20 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISCRUZ en la fila 285 para ME.
+5 La asignación CCAJ-SC39/125/20 - 112948676 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISCRUZ en la fila 303 para MN.
+6 La asignación CCAJ-SC39/124/20 - 112948677 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISCRUZ en la fila 282 para MN.
+7 La asignación CCAJ-SC39/124/20 - 112948716 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISCRUZ en la fila 285 para ME.
+2 La asignación CCAJ-SC65/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. MUTUALISTA en la fila 51 para MN.
+3 La asignación CCAJ-SC65/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. MUTUALISTA en la fila 37 para MN.
+2 La asignación CCAJ-SC57/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. MONTERO en la fila 49 para MN.
+3 La asignación CCAJ-SC57/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. MONTERO en la fila 36 para MN.
+2 La asignación CCAJ-SC59/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. WARNES en la fila 49 para MN.
+3 La asignación CCAJ-SC59/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. WARNES en la fila 35 para MN.
+2 La asignación CCAJ-TA43/61/20 - 112948679 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISTAR en la fila 68 para MN.
+3 La asignación CCAJ-TA43/60/20 - 112948680 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISTAR en la fila 49 para MN.
+4 La asignación CCAJ-TA43/61/20 - 112948679 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISTAR en la fila 68 para MN.
+5 La asignación CCAJ-TA43/60/20 - 112948680 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja DISTAR en la fila 49 para MN.
+2 La asignación CCAJ-TA06/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. TARIJEÑITA en la fila 54 para MN.
+3 La asignación CCAJ-TA06/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. TARIJEÑITA en la fila 39 para MN.
+2 La asignación CCAJ-CB11/63/20 - 112948681 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja COCHABAMBA en la fila 147 para MN.
+3 La asignación CCAJ-CB11/63/20 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja COCHABAMBA en la fila 150 para ME.
+4 La asignación CCAJ-CB11/63/20 - 112948681 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja COCHABAMBA en la fila 147 para MN.
+5 La asignación CCAJ-CB11/63/20 - 112948717 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja COCHABAMBA en la fila 150 para ME.
+2 La asignación CCAJ-CB12/100/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. HONDURAS en la fila 78 para MN.
+3 La asignación CCAJ-CB12/101/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. HONDURAS en la fila 88 para MN.
+4 La asignación CCAJ-CB12/98/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. HONDURAS en la fila 55 para MN.
+5 La asignación CCAJ-CB12/99/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. HONDURAS en la fila 65 para MN.
+2 La asignación CCAJ-CB13/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. CALAMA en la fila 52 para MN.
+3 La asignación CCAJ-CB13/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. CALAMA en la fila 37 para MN.
+2 La asignación CCAJ-SR27/51/20 - 112948682 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja SUCRE en la fila 87 para MN.
+3 La asignación CCAJ-SR27/50/20 - 112948683 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja SUCRE en la fila 65 para MN.
+4 La asignación CCAJ-SR27/51/20 - 112948682 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja SUCRE en la fila 87 para MN.
+5 La asignación CCAJ-SR27/50/20 - 112948683 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja SUCRE en la fila 65 para MN.
+2 La asignación CCAJ-SR54/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. SUCRE 1 en la fila 48 para MN.
+3 La asignación CCAJ-SR54/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. SUCRE 1 en la fila 35 para MN.
+2 La asignación CCAJ-SR24/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. SUCRE 2 en la fila 49 para MN.
+3 La asignación CCAJ-SR24/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. SUCRE 2 en la fila 36 para MN.
+2 La asignación CCAJ-PT53/50/20 - 112948684 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja POTOSI en la fila 65 para MN.
+3 La asignación CCAJ-PT53/49/20 - 112948685 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja POTOSI en la fila 50 para MN.
+4 La asignación CCAJ-PT53/50/20 - 112948684 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja POTOSI en la fila 65 para MN.
+5 La asignación CCAJ-PT53/49/20 - 112948685 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja POTOSI en la fila 50 para MN.
+2 La asignación CCAJ-PT18/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. POTOSI 1 en la fila 48 para MN.
+3 La asignación CCAJ-PT18/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. POTOSI 1 en la fila 35 para MN.
+2 La asignación CCAJ-OR52/51/20 - 112948686 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja ORURO en la fila 70 para MN.
+3 La asignación CCAJ-OR52/50/20 - 112948687 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja ORURO en la fila 52 para MN.
+4 La asignación CCAJ-OR52/51/20 - 112948686 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja ORURO en la fila 70 para MN.
+5 La asignación CCAJ-OR52/50/20 - 112948687 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja ORURO en la fila 52 para MN.
+2 La asignación CCAJ-OR51/59/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. ORURO 1 en la fila 48 para MN.
+3 La asignación CCAJ-OR51/58/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. ORURO 1 en la fila 35 para MN.
+2 La asignación CCAJ-TR47/62/20 - 112948688 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja TRINIDAD en la fila 58 para MN.
+3 La asignación CCAJ-TR47/61/20 - 112948689 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja TRINIDAD en la fila 45 para MN.
+4 La asignación CCAJ-TR47/62/20 - 112948688 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja TRINIDAD en la fila 58 para MN.
+5 La asignación CCAJ-TR47/61/20 - 112948689 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja TRINIDAD en la fila 45 para MN.
+2 La asignación CCAJ-TR50/61/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. TRINIDAD 1 en la fila 48 para MN.
+3 La asignación CCAJ-TR50/60/23 - None se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja AG. TRINIDAD 1 en la fila 35 para MN.
+2 La asignación CCAJ-PN62/61/20 - 112948723 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja PANDO en la fila 50 para MN.
+3 La asignación CCAJ-PN62/62/20 - 112948724 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja PANDO en la fila 64 para MN.
+2 La asignación CCAJ-RB01/50/20 - 112948722 se agregó al archivo MIGRACIONES SGV MARZO 2023 17-18.03.2023.xlsx en la hoja RIBERALTA en la fila 38 para MN.
+20.03.2023-15 37 32 Proceso de pegado de asignaciones y ndocs finalizado

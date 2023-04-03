@@ -1,0 +1,54 @@
+
+Asignaciones extraidas correctamente: BISA 0111 101010136
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+
+----------------------------- 21.03.2023 Iniciando Migracion de cuenta DISALTO 101010106 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/114/
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/112/
+21.03.2023 La operación de asignación: CCAJ-EA10/114/ fue migrada correctamente
+21.03.2023 La operación de asignación: CCAJ-EA10/112/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-EA10/114/20  112963677
+1  CCAJ-EA10/112/20  112963679
+
+-------------------------------- Migracion de cuenta DISALTO 101010106 a 101044012 BISA 0022 finalizada --------------------------------
+
+----------------------------- 21.03.2023 Iniciando Migracion de cuenta DISCRUZ 101010107 a 101044032  BISA 0049 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/129/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/128/
+21.03.2023 La operación de asignación: CCAJ-SC39/129/ fue migrada correctamente
+21.03.2023 La operación de asignación: CCAJ-SC39/128/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-SC39/129/20  112963680
+1  CCAJ-SC39/128/20  112963681
+
+-------------------------------- Migracion de cuenta DISCRUZ 101010107 a 101044032 BISA 0049 finalizada --------------------------------
+
+----------------------------- 21.03.2023 Iniciando Migracion de cuenta COCHABAMBA 101010111 a 101044022  BISA 0031 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/66/
+21.03.2023 La operación de asignación: CCAJ-CB11/66/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-CB11/66/202  112963682
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101010111 a 101044022 BISA 0031 finalizada --------------------------------
+
+----------------------------- 21.03.2023 Iniciando Migracion de cuenta RIBERALTA 101010137 a 101044092  BISA 0103 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-RB01/51/
+21.03.2023 La operación de asignación: CCAJ-RB01/51/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-RB01/51/202  112963683
+
+-------------------------------- Migracion de cuenta RIBERALTA 101010137 a 101044092 BISA 0103 finalizada --------------------------------
+
+----------------------------- 21.03.2023 Iniciando Migracion de cuenta PANDO 101010136 a 101044102  BISA 0111 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-PN62/63/
+21.03.2023 La operación de asignación: CCAJ-PN62/63/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-PN62/63/202  112963684
+
+-------------------------------- Migracion de cuenta PANDO 101010136 a 101044102 BISA 0111 finalizada --------------------------------

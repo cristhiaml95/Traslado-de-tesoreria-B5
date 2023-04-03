@@ -1,0 +1,60 @@
+
+Asignaciones extraidas correctamente: BISA 2017 101020201
+Abriendo excel de cuentas, elija las asignaciones a migrar, luego guarde y cierre el archivo. Y presione "Migrar" en el GUI para continuar el proceso.
+*:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*:*:*:*:*:**:*:*:*:*:*:*:*
+No se encontro nombres o fechas validas.
+*:*:*:*:*:*:*:*:*:*:*:*:*: NO SE ENCONTRARON TRASLADOS VALIDOS PARA AG. MURILLO 101010104 : 101044012 BISA 0022 *:*:*:*:*:*:*:*:*:*:*:*:*:
+
+----------------------------- 31.03.2023 Iniciando Migracion de cuenta DISPAZ 101020101 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/135/
+Validación de saldo 0 correcto en asignación: CCAJ-LP02/134/
+31.03.2023 La operación de asignación: CCAJ-LP02/135/ fue migrada correctamente
+31.03.2023 La operación de asignación: CCAJ-LP02/134/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-LP02/135/20  113027699
+1  CCAJ-LP02/134/20  113027700
+
+-------------------------------- Migracion de cuenta DISPAZ 101020101 a 101044012 BISA 0022 finalizada --------------------------------
+
+----------------------------- 31.03.2023 Iniciando Migracion de cuenta DISALTO 101020101 a 101044012  BISA 0022 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/129/
+Validación de saldo 0 correcto en asignación: CCAJ-EA10/128/
+31.03.2023 La operación de asignación: CCAJ-EA10/129/ fue migrada correctamente
+31.03.2023 La operación de asignación: CCAJ-EA10/128/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-EA10/129/20  113027701
+1  CCAJ-EA10/128/20  113027702
+
+-------------------------------- Migracion de cuenta DISALTO 101020101 a 101044012 BISA 0022 finalizada --------------------------------
+
+----------------------------- 31.03.2023 Iniciando Migracion de cuenta DISCRUZ 101020101 a 101044032  BISA 0049 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/150/
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/149/
+31.03.2023 La operación de asignación: CCAJ-SC39/150/ fue migrada correctamente
+31.03.2023 La operación de asignación: CCAJ-SC39/149/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-SC39/150/20  113027704
+1  CCAJ-SC39/149/20  113027706
+
+-------------------------------- Migracion de cuenta DISCRUZ 101020101 a 101044032 BISA 0049 finalizada --------------------------------
+
+----------------------------- 31.03.2023 Iniciando Migracion de cuenta COCHABAMBA 101020101 a 101044022  BISA 0031 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-CB11/75/
+31.03.2023 La operación de asignación: CCAJ-CB11/75/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-CB11/75/202  113027708
+
+-------------------------------- Migracion de cuenta COCHABAMBA 101020101 a 101044022 BISA 0031 finalizada --------------------------------
+
+----------------------------- 31.03.2023 Iniciando Migracion de cuenta DISCRUZ 101020201 a 101052002  BISA 2017 -----------------------------
+Validación de saldo 0 correcto en asignación: CCAJ-SC39/149/
+31.03.2023 La operación de asignación: CCAJ-SC39/149/ fue migrada correctamente
+None
+         Asignacion       Ndoc
+0  CCAJ-SC39/149/20  113027710
+
+-------------------------------- Migracion de cuenta DISCRUZ 101020201 a 101052002 BISA 2017 finalizada --------------------------------

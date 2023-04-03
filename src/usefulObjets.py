@@ -280,7 +280,7 @@ class sapInterfaceJob():
 
         for i, element in enumerate(list2):
             element = datetime.strptime(element, '%d.%m.%Y')
-            if 0 <= (element - fecha).days <= self.dFecha:
+            if (element - fecha).days <= self.dFecha:
                 listOfFechaIndex.append(i)
 
         return listOfFechaIndex
